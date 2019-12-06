@@ -1,19 +1,21 @@
 import React from 'react';
 import { Grommet, Box, Heading, ThemeValue } from 'grommet';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import { Welcome, Demographic, ThankYou } from './screens';
 
 const App: React.FC = () => {
   return (
     <Grommet theme={theme} full={true}>
       <BrowserRouter>
-        <Box pad="small" background="black">
-          <Heading level="3" margin="small">
-            Group Communication Survey
-            <span role="img" aria-label="Chat bubble emoji">
-              {' 💬'}
-            </span>
-          </Heading>
+        <Box align="start" pad="small" background="black">
+          <Link style={styles.link} to="/">
+            <Heading level="3" margin="small">
+              Group Communication Survey
+              <span role="img" aria-label="Chat bubble emoji">
+                {' 💬'}
+              </span>
+            </Heading>
+          </Link>
         </Box>
 
         <Box align="center" pad="xlarge">
@@ -34,6 +36,13 @@ const theme: ThemeValue = {
     font: {
       family: 'Fira Sans',
     },
+  },
+};
+
+const styles = {
+  link: {
+    color: 'white',
+    textDecoration: 'none',
   },
 };
 
