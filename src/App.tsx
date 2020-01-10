@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grommet, Box, Heading, ThemeValue } from 'grommet';
+import { Grommet, Box, Heading, Meter, ThemeValue } from 'grommet';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
 import {
   Welcome,
@@ -12,10 +12,12 @@ import {
 import { colors } from './constants';
 
 const App: React.FC = () => {
+  const screens = [Demographic, Definition, Expectation, Usage, ThankYou];
+
   return (
     <Grommet theme={theme} full={true}>
       <BrowserRouter>
-        <Box align="start" pad="small" background={colors.PRIMARY}>
+        <Box pad="small" background={colors.PRIMARY}>
           <Link style={styles.link} to="/">
             <Heading level="3" margin="small">
               Group Communication Survey
@@ -24,6 +26,12 @@ const App: React.FC = () => {
               </span>
             </Heading>
           </Link>
+
+          <Meter
+            margin="small"
+            values={[{ value: (100 * 1) / 5 }]}
+            aria-label="meter"
+          />
         </Box>
 
         <Box align="center" pad="medium">
@@ -33,15 +41,13 @@ const App: React.FC = () => {
             {(() => {
               return (
                 <>
-                  {[Demographic, Definition, Expectation, Usage, ThankYou].map(
-                    (screen, index) => (
-                      <Route
-                        path={`/${index + 1}`}
-                        component={screen}
-                        key={index}
-                      />
-                    ),
-                  )}
+                  {screens.map((screen, index) => (
+                    <Route
+                      path={`/${index + 1}`}
+                      component={screen}
+                      key={index}
+                    />
+                  ))}
                 </>
               );
             })()}
