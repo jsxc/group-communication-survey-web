@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grommet, Box, Heading, ThemeValue } from 'grommet';
 import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
-import { Welcome, Demographic, ThankYou } from './screens';
+import { Welcome, Demographic, Definition, ThankYou } from './screens';
 import { colors } from './constants';
 
 const App: React.FC = () => {
@@ -26,7 +26,7 @@ const App: React.FC = () => {
             {(() => {
               return (
                 <>
-                  {[Demographic, ThankYou].map((screen, index) => (
+                  {[Demographic, Definition, ThankYou].map((screen, index) => (
                     <Route
                       path={`/${index + 1}`}
                       component={screen}
