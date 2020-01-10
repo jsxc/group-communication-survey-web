@@ -6,14 +6,16 @@ import {
   FormField,
   Button,
   RadioButtonGroup,
+  WorldMap,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { getNextPathname, isNil } from '../../utilities';
 
 const Demographic: React.FC = () => {
   const [state, setState] = useState({
+    isMale: true,
     age: null,
-    usesGroupChatClient: null,
+    region: null,
     hasAgeBeenBlurred: false,
   });
 
@@ -40,19 +42,49 @@ const Demographic: React.FC = () => {
     return null;
   };
 
-  const { age, usesGroupChatClient, hasAgeBeenBlurred } = state;
+  const validateRegionField = () => {
+    const { region } = state;
+
+    if (isNil(region)) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
+  const { isMale, age, hasAgeBeenBlurred } = state;
 
   const ageFieldError = validateAgeField();
-  const isInvalidForm = Boolean(ageFieldError);
+  const regionFieldError = validateRegionField();
+
+  const isInvalidForm = Boolean(ageFieldError) || Boolean(regionFieldError);
 
   return (
     <Form>
-      <Box>
+      <Box margin="medium">
+        <Heading level="4">Specify your sex:</Heading>
+
+        <RadioButtonGroup
+          name="question-1"
+          options={['Male', 'Female']}
+          value={isMale ? 'Male' : 'Female'}
+          onChange={event => {
+            const { value } = event.target;
+
+            setState(state => ({
+              ...state,
+              isMale: value === 'Male',
+            }));
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
         <Heading level="4">How old are you?</Heading>
 
         <FormField
           type="number"
-          name="question-1"
+          name="question-2"
           value={age || ''}
           error={hasAgeBeenBlurred ? ageFieldError : null}
           onChange={event => {
@@ -72,30 +104,80 @@ const Demographic: React.FC = () => {
         />
       </Box>
 
-      <Box>
-        <Heading level="4">
-          Do you use group chat clients such as WhatsApp?
-        </Heading>
+      <Box margin="medium">
+        <Heading level="4">Which region are you from?</Heading>
 
-        <RadioButtonGroup
-          name="question-2"
-          options={['Yes', 'No']}
-          value={usesGroupChatClient ? 'Yes' : 'No'}
-          onChange={event => {
-            const { value } = event.target;
-
-            setState(state => ({
-              ...state,
-              usesGroupChatClient: value === 'Yes',
-            }));
-          }}
+        <WorldMap
+          fill="horizontal"
+          continents={[
+            {
+              name: 'Africa',
+              color: 'red',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'Africa',
+                });
+              },
+            },
+            {
+              name: 'Europe',
+              color: 'blue',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'Europe',
+                });
+              },
+            },
+            {
+              name: 'Asia',
+              color: 'chocolate',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'Asia',
+                });
+              },
+            },
+            {
+              name: 'North America',
+              color: 'darkmagenta',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'North America',
+                });
+              },
+            },
+            {
+              name: 'South America',
+              color: 'orange',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'South America',
+                });
+              },
+            },
+            {
+              name: 'Australia',
+              color: 'green',
+              onClick: () => {
+                setState({
+                  ...state,
+                  region: 'Australia',
+                });
+              },
+            },
+          ]}
         />
       </Box>
 
       <Box align="center" margin="medium">
         <Button
           type="submit"
-          label="Weiter"
+          label="Next"
           disabled={isInvalidForm}
           onClick={() => {
             browserHistory.push(getNextPathname(pathname));

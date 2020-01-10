@@ -19,7 +19,7 @@ const App: React.FC = () => {
           </Link>
         </Box>
 
-        <Box align="center" pad="xlarge">
+        <Box align="center" pad="medium">
           <Switch>
             <Route path="/" exact component={Welcome} />
 
