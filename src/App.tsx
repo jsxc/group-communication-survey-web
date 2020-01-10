@@ -22,9 +22,22 @@ const App: React.FC = () => {
         <Box align="center" pad="xlarge">
           <Switch>
             <Route path="/" exact component={Welcome} />
-            <Route path="/general" component={Demographic} />
-            <Route path="/thank-you" component={ThankYou} />
-            <Route component={() => <Redirect to="/" />} />
+
+            {(() => {
+              return (
+                <>
+                  {[Demographic, ThankYou].map((screen, index) => (
+                    <Route
+                      path={`/${index + 1}`}
+                      component={screen}
+                      key={index}
+                    />
+                  ))}
+                </>
+              );
+            })()}
+
+            <Route path="*" component={() => <Redirect to="/" />} />
           </Switch>
         </Box>
       </BrowserRouter>

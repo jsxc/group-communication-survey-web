@@ -8,7 +8,7 @@ import {
   RadioButtonGroup,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { isNil } from '../../utilities';
+import { getNextPathname, isNil } from '../../utilities';
 
 const Demographic: React.FC = () => {
   const [state, setState] = useState({
@@ -18,6 +18,10 @@ const Demographic: React.FC = () => {
   });
 
   const browserHistory = useHistory();
+
+  const {
+    location: { pathname },
+  } = browserHistory;
 
   const validateAgeField = () => {
     const { age } = state;
@@ -94,7 +98,7 @@ const Demographic: React.FC = () => {
           label="Weiter"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/thank-you');
+            browserHistory.push(getNextPathname(pathname));
           }}
         />
       </Box>
