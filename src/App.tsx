@@ -6,6 +6,7 @@ import {
   Demographic,
   Definition,
   Expectation,
+  Usage,
   ThankYou,
 } from './screens';
 import { colors } from './constants';
@@ -32,7 +33,7 @@ const App: React.FC = () => {
             {(() => {
               return (
                 <>
-                  {[Demographic, Definition, Expectation, ThankYou].map(
+                  {[Demographic, Definition, Expectation, Usage, ThankYou].map(
                     (screen, index) => (
                       <Route
                         path={`/${index + 1}`}
