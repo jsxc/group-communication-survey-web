@@ -48,7 +48,7 @@ const Demographic: React.FC = () => {
   return (
     <Form>
       <Box>
-        <Heading level="4">Wie alt bist du?</Heading>
+        <Heading level="4">How old are you?</Heading>
 
         <FormField
           type="number"
@@ -74,19 +74,19 @@ const Demographic: React.FC = () => {
 
       <Box>
         <Heading level="4">
-          Nutzt du einen gruppenfähigen Chat Client wie zum Beispiel WhatsApp?
+          Do you use group chat clients such as WhatsApp?
         </Heading>
 
         <RadioButtonGroup
           name="question-2"
-          options={['Ja', 'Nein']}
-          value={usesGroupChatClient ? 'Ja' : 'Nein'}
+          options={['Yes', 'No']}
+          value={usesGroupChatClient ? 'Yes' : 'No'}
           onChange={event => {
             const { value } = event.target;
 
             setState(state => ({
               ...state,
-              usesGroupChatClient: value === 'Ja',
+              usesGroupChatClient: value === 'Yes',
             }));
           }}
         />

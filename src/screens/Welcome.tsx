@@ -12,18 +12,18 @@ const Welcome: React.FC = () => {
 
   return (
     <>
-      <Heading level="3">Willkommen zur 2. Umfrage</Heading>
+      <Heading level="3">Welcome to the survey</Heading>
 
       <Paragraph>
-        Danke das du dich bereit erklärt hast bei dieser Studie mitzumachen.
-        Zuerst folgen ein paar allgemeine Fragen und dann werden dir 5
-        Gesprächsprotokolle gezeigt und einige Fragen dazu gestellt. Vielen Dank
-        jetzt schon für deine Teilnahme.
+        Thank you for agreeing to participate in this study. First, you will be
+        asked a few general questions. Afterwards, you will be shown 5 different
+        group chat transcripts, alongside some questions. Thank you very much
+        for your participation.
       </Paragraph>
 
       <Button
         type="submit"
-        label="Weiter"
+        label="Next"
         margin="medium"
         onClick={() => {
           browserHistory.push(getNextPathname(pathname));
