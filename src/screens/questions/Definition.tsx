@@ -43,20 +43,23 @@ const Definition: React.FC = () => {
           onChange={event => {
             const { value } = event.target;
 
-            setState({
+            setState(state => ({
               ...state,
               definition: value,
-            });
+            }));
           }}
           onBlur={() => {
-            setState({
+            setState(state => ({
               ...state,
               hasDefinitionBeenBlurred: true,
-            });
+            }));
           }}
         />
 
-        <ErrorText visible={hasDefinitionBeenBlurred}>
+        <ErrorText
+          margin={{ vertical: 'xsmall' }}
+          visible={hasDefinitionBeenBlurred}
+        >
           {definitionFieldError}
         </ErrorText>
       </Box>

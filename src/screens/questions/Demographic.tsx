@@ -9,13 +9,14 @@ import {
   WorldMap,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { getNextPathname, isNil } from '../../utilities';
+import { getNextPathname } from '../../utilities';
+import { ErrorText } from '../../components';
 
 const Demographic: React.FC = () => {
   const [state, setState] = useState({
     isMale: true,
-    age: null,
-    region: null,
+    age: 0,
+    region: '',
     hasAgeBeenBlurred: false,
   });
 
@@ -31,7 +32,7 @@ const Demographic: React.FC = () => {
     const LOWER_AGE_BOUND = 13;
     const UPPER_AGE_BOUND = 100;
 
-    if (isNil(age)) {
+    if (!age) {
       return 'Required';
     }
 
@@ -45,14 +46,14 @@ const Demographic: React.FC = () => {
   const validateRegionField = () => {
     const { region } = state;
 
-    if (isNil(region)) {
+    if (!region) {
       return 'Required';
     }
 
     return null;
   };
 
-  const { isMale, age, hasAgeBeenBlurred } = state;
+  const { isMale, age, region, hasAgeBeenBlurred } = state;
 
   const ageFieldError = validateAgeField();
   const regionFieldError = validateRegionField();
@@ -84,9 +85,7 @@ const Demographic: React.FC = () => {
 
         <FormField
           type="number"
-          name="question-2"
           value={age || ''}
-          error={hasAgeBeenBlurred ? ageFieldError : null}
           onChange={event => {
             const { value } = event.target;
 
@@ -102,6 +101,8 @@ const Demographic: React.FC = () => {
             }));
           }}
         />
+
+        <ErrorText visible={hasAgeBeenBlurred}>{ageFieldError}</ErrorText>
       </Box>
 
       <Box margin="medium">
@@ -112,7 +113,7 @@ const Demographic: React.FC = () => {
           continents={[
             {
               name: 'Africa',
-              color: 'red',
+              color: region === 'Africa' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,
@@ -122,7 +123,7 @@ const Demographic: React.FC = () => {
             },
             {
               name: 'Europe',
-              color: 'blue',
+              color: region === 'Europe' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,
@@ -132,7 +133,7 @@ const Demographic: React.FC = () => {
             },
             {
               name: 'Asia',
-              color: 'chocolate',
+              color: region === 'Asia' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,
@@ -142,7 +143,7 @@ const Demographic: React.FC = () => {
             },
             {
               name: 'North America',
-              color: 'darkmagenta',
+              color: region === 'North America' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,
@@ -152,7 +153,7 @@ const Demographic: React.FC = () => {
             },
             {
               name: 'South America',
-              color: 'orange',
+              color: region === 'South America' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,
@@ -162,7 +163,7 @@ const Demographic: React.FC = () => {
             },
             {
               name: 'Australia',
-              color: 'green',
+              color: region === 'Australia' ? 'red' : 'grey',
               onClick: () => {
                 setState({
                   ...state,

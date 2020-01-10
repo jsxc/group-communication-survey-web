@@ -6,10 +6,10 @@ type Props = TextProps & {
 };
 
 const ErrorText: React.FC<Props> = props => {
-  const { visible, children } = props;
+  const { visible, children, ...rest } = props;
 
   return (
-    <Text margin={{ vertical: 'small' }} color="red">
+    <Text color="red" {...rest}>
       {visible ? children : ''}
     </Text>
   );
