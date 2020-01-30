@@ -39,7 +39,7 @@ const Usage: React.FC = () => {
           label="Next"
           onClick={() => {
             browserHistory.push(
-              usesGroupChatClient ? '/usage-statistics' : '/disuse-explanation',
+              usesGroupChatClient ? '/usage-statistics' : '/explanation',
             );
           }}
         />

@@ -238,7 +238,7 @@ const UsageStatistics: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/thank-you');
+            browserHistory.push('/explanation');
           }}
         />
       </Box>

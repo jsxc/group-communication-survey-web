@@ -6,5 +6,5 @@ export {
   Expectation,
   Usage,
   UsageStatistics,
-  DisuseExplanation,
+  Explanation,
 } from './questions';
