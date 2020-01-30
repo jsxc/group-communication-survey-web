@@ -29,15 +29,15 @@ const Demographic: React.FC = () => {
   const validateAgeField = () => {
     const { age } = state;
 
-    const LOWER_AGE_BOUND = 13;
-    const UPPER_AGE_BOUND = 100;
+    const LOWER_BOUND = 13;
+    const UPPER_BOUND = 100;
 
     if (!age) {
       return 'Required';
     }
 
-    if (age < LOWER_AGE_BOUND || age > UPPER_AGE_BOUND) {
-      return `Age must be between ${LOWER_AGE_BOUND} and ${UPPER_AGE_BOUND}`;
+    if (age < LOWER_BOUND || age > UPPER_BOUND) {
+      return `Age must be between ${LOWER_BOUND} and ${UPPER_BOUND}`;
     }
 
     return null;
