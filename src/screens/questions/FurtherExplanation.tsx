@@ -11,8 +11,16 @@ const FurtherExplanation: React.FC = () => {
         <Paragraph>
           Due to various circumstances, individual members in a group chat may
           not receive some messages. As a result, statements or answers can
-          appear out of context. The box with the dashed border indicates the
-          absence of one or more messages.
+          appear out of context.
+        </Paragraph>
+
+        <Paragraph>
+          Not only can missing messages lead to misunderstandings, but also
+          messages outside the context in which they were sent. For example,
+          let's say you don't have Internet access and still send a message.
+          Since you are offline, this message will only be sent when you are
+          online again. During this time, the conversation in the group could
+          already be on a completely different topic.
         </Paragraph>
       </Box>
 
