@@ -37,7 +37,7 @@ const Demographic: React.FC = () => {
     }
 
     if (age < LOWER_BOUND || age > UPPER_BOUND) {
-      return `Age must be between ${LOWER_BOUND} and ${UPPER_BOUND}`;
+      return `Must be between ${LOWER_BOUND} and ${UPPER_BOUND}`;
     }
 
     return null;
