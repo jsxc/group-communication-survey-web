@@ -7,12 +7,20 @@ import {
   Definition,
   Expectation,
   Usage,
+  UsageStatistics,
   ThankYou,
 } from './screens';
 import { colors } from './constants';
 
 const App: React.FC = () => {
-  const screens = [Demographic, Definition, Expectation, Usage, ThankYou];
+  const screens = [
+    Demographic,
+    Definition,
+    Expectation,
+    Usage,
+    UsageStatistics,
+    ThankYou,
+  ];
 
   return (
     <Grommet theme={theme} full={true}>
