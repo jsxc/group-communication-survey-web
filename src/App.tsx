@@ -9,6 +9,7 @@ import {
   Usage,
   UsageStatistics,
   Explanation,
+  FurtherExplanation,
   ThankYou,
 } from './screens';
 import { colors } from './constants';
@@ -43,6 +44,7 @@ const App: React.FC = () => {
             <Route path="/usage" component={Usage} />
             <Route path="/usage-statistics" component={UsageStatistics} />
             <Route path="/explanation" component={Explanation} />
+            <Route path="/further-explanation" component={FurtherExplanation} />
             <Route path="/thank-you" component={ThankYou} />
             <Route path="*" component={() => <Redirect to="/" />} />
           </Switch>

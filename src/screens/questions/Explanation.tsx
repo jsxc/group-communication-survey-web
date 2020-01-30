@@ -36,7 +36,7 @@ const Explanation: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push('/thank-you');
+            browserHistory.push('/further-explanation');
           }}
         />
       </Box>
