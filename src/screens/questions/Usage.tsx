@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { getNextPathname } from '../../utilities';
 
 const Usage: React.FC = () => {
   const [state, setState] = useState({
@@ -9,10 +8,6 @@ const Usage: React.FC = () => {
   });
 
   const browserHistory = useHistory();
-
-  const {
-    location: { pathname },
-  } = browserHistory;
 
   const { usesGroupChatClient } = state;
 
@@ -43,7 +38,9 @@ const Usage: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push(getNextPathname(pathname));
+            browserHistory.push(
+              usesGroupChatClient ? '/usage-statistics' : '/disuse-explanation',
+            );
           }}
         />
       </Box>

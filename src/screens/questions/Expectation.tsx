@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../../components';
-import { getNextPathname } from '../../utilities';
 
 const Expectation: React.FC = () => {
   const [state, setState] = useState({
@@ -11,10 +10,6 @@ const Expectation: React.FC = () => {
   });
 
   const browserHistory = useHistory();
-
-  const {
-    location: { pathname },
-  } = browserHistory;
 
   const validateExpectationField = () => {
     const { expectation } = state;
@@ -70,7 +65,7 @@ const Expectation: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push(getNextPathname(pathname));
+            browserHistory.push('/usage');
           }}
         />
       </Box>

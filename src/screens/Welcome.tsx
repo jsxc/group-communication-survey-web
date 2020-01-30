@@ -1,14 +1,9 @@
 import React from 'react';
 import { Heading, Paragraph, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { getNextPathname } from '../utilities';
 
 const Welcome: React.FC = () => {
   const browserHistory = useHistory();
-
-  const {
-    location: { pathname },
-  } = browserHistory;
 
   return (
     <>
@@ -26,7 +21,7 @@ const Welcome: React.FC = () => {
         label="Next"
         margin="medium"
         onClick={() => {
-          browserHistory.push(getNextPathname(pathname));
+          browserHistory.push('/demographic');
         }}
       />
     </>

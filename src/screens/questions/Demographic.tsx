@@ -9,7 +9,6 @@ import {
   WorldMap,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { getNextPathname } from '../../utilities';
 import { ErrorText } from '../../components';
 
 const Demographic: React.FC = () => {
@@ -21,10 +20,6 @@ const Demographic: React.FC = () => {
   });
 
   const browserHistory = useHistory();
-
-  const {
-    location: { pathname },
-  } = browserHistory;
 
   const validateAgeField = () => {
     const { age } = state;
@@ -181,7 +176,7 @@ const Demographic: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push(getNextPathname(pathname));
+            browserHistory.push('/definition');
           }}
         />
       </Box>

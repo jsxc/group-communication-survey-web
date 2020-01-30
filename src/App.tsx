@@ -8,20 +8,12 @@ import {
   Expectation,
   Usage,
   UsageStatistics,
+  DisuseExplanation,
   ThankYou,
 } from './screens';
 import { colors } from './constants';
 
 const App: React.FC = () => {
-  const screens = [
-    Demographic,
-    Definition,
-    Expectation,
-    Usage,
-    UsageStatistics,
-    ThankYou,
-  ];
-
   return (
     <Grommet theme={theme} full={true}>
       <BrowserRouter>
@@ -45,21 +37,13 @@ const App: React.FC = () => {
         <Box align="center" pad="medium">
           <Switch>
             <Route path="/" exact component={Welcome} />
-
-            {(() => {
-              return (
-                <>
-                  {screens.map((screen, index) => (
-                    <Route
-                      path={`/${index + 1}`}
-                      component={screen}
-                      key={index}
-                    />
-                  ))}
-                </>
-              );
-            })()}
-
+            <Route path="/demographic" component={Demographic} />
+            <Route path="/definition" component={Definition} />
+            <Route path="/expectation" component={Expectation} />
+            <Route path="/usage" component={Usage} />
+            <Route path="/usage-statistics" component={UsageStatistics} />
+            <Route path="/disuse-explanation" component={DisuseExplanation} />
+            <Route path="/thank-you" component={ThankYou} />
             <Route path="*" component={() => <Redirect to="/" />} />
           </Switch>
         </Box>

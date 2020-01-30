@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Box, Form, Heading, FormField, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../../components';
-import { getNextPathname } from '../../utilities';
 
 const UsageStatistics: React.FC = () => {
   const [state, setState] = useState({
@@ -17,10 +16,6 @@ const UsageStatistics: React.FC = () => {
   });
 
   const browserHistory = useHistory();
-
-  const {
-    location: { pathname },
-  } = browserHistory;
 
   const validateGroupsCountField = () => {
     const { groupsCount } = state;
@@ -243,7 +238,7 @@ const UsageStatistics: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push(getNextPathname(pathname));
+            browserHistory.push('/thank-you');
           }}
         />
       </Box>
