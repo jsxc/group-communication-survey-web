@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { GiftedChat, Bubble } from 'react-web-gifted-chat';
@@ -35,7 +35,7 @@ const users = [
 const Chat1: React.FC = () => {
   const [Karl, Lara, Arthur] = users;
 
-  const [messages, setMessages] = useState(
+  const [messages] = useState(
     [
       {
         text: 'Did you watch the game yesterday?',
