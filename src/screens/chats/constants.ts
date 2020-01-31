@@ -34,4 +34,19 @@ export const users = {
     avatar:
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F9f%2F7a%2F74%2F9f7a74827c3d652094a14d48f3b7266d.gif&f=1&nofb=1',
   },
+  bernhardt: {
+    name: 'Bernhardt',
+    avatar:
+      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fww1.prweb.com%2Fprfiles%2F2016%2F09%2F08%2F13672217%2FFarron%2520Brown%2520the%2520manse%2520on%2520marsh.jpg&f=1&nofb=1',
+  },
+  carla: {
+    name: 'Carla',
+    avatar:
+      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-NBlKxm2CBqo%2FURn7BcdAPQI%2FAAAAAAAAHJM%2FzyJ2dHJO3vc%2Fs1600%2Fcarla%2Bossa4.jpeg&f=1&nofb=1',
+  },
+  doris: {
+    name: 'Doris',
+    avatar:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F48%2FDoris_Schretzmayer_Romy_2015.jpg%2F1200px-Doris_Schretzmayer_Romy_2015.jpg&f=1&nofb=1',
+  },
 };
