@@ -24,4 +24,14 @@ export const users = {
     avatar:
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.menshairstylestoday.com%2Fwp-content%2Fuploads%2F2017%2F01%2FMessy-Quiff-with-Beard.jpg&f=1&nofb=1',
   },
+  emil: {
+    name: 'Emil',
+    avatar:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fidealistico.files.wordpress.com%2F2011%2F06%2Fandersonweis.jpg&f=1&nofb=1',
+  },
+  tim: {
+    name: 'Tim',
+    avatar:
+      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F9f%2F7a%2F74%2F9f7a74827c3d652094a14d48f3b7266d.gif&f=1&nofb=1',
+  },
 };

@@ -4,53 +4,44 @@ import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
 import { users } from './constants';
 
-const ThirdChat: React.FC = () => {
-  const { ines, karl, richard } = users;
+const FourthChat: React.FC = () => {
+  const { emil, arthur, tim } = users;
 
   const messages = [
     {
-      text: 'Karl, did you prepare the presentation?',
+      text: 'Can someone lend me money for the lunch break?',
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: ines,
+      user: emil,
     },
     {
-      text: 'One or more messages are missing',
+      text: 'Yes of course',
       createdAt: new Date('2020-01-30T20:01:00'),
-      user: null,
-      isSystemMessage: true,
+      user: arthur,
     },
     {
-      text: 'I did it',
+      text: 'When are we meeting?',
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: karl,
+      user: arthur,
     },
     {
-      text: 'One or more messages are missing',
+      text: 'I would be there too',
       createdAt: new Date('2020-01-30T20:03:00'),
-      user: null,
-      isSystemMessage: true,
+      user: tim,
     },
     {
-      text: 'Oh and what about the invitation?',
+      text: 'After our meeting?',
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: ines,
+      user: emil,
     },
     {
-      text: 'Unfortunately I have not yet been able to do so',
+      text: 'Ok see you later',
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: karl,
-      inferenceQuote: 'Karl, did you prepare the presentation?',
+      user: arthur,
     },
     {
-      text: 'Should I still do that?',
+      text: 'cu',
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: richard,
-      inferenceQuote: 'I did it',
-    },
-    {
-      text: 'No, I can still manage it',
-      createdAt: new Date('2020-01-30T20:07:00'),
-      user: karl,
+      user: tim,
     },
   ];
 
@@ -81,4 +72,4 @@ const ThirdChat: React.FC = () => {
   );
 };
 
-export default ThirdChat;
+export default FourthChat;
