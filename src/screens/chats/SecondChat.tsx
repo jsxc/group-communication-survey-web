@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
-import { users } from './constants';
+import { users } from './data';
 
 const SecondChat: React.FC = () => {
   const { arthur, karl, lara } = users;

@@ -1,4 +1,4 @@
-export const users = {
+const users = {
   karl: {
     name: 'Karl',
     avatar:
@@ -50,3 +50,5 @@ export const users = {
       'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F48%2FDoris_Schretzmayer_Romy_2015.jpg%2F1200px-Doris_Schretzmayer_Romy_2015.jpg&f=1&nofb=1',
   },
 };
+
+export default users;
