@@ -19,18 +19,12 @@ type Data = {
   largestGroupMembersCount: number | null;
 };
 
-type Navigation = {
-  currentPageIndex: number;
-};
-
 type State = {
   data: Data;
-  navigation: Navigation;
 };
 
 type Actions = {
   setData: Dispatch<SetStateAction<Data>>;
-  setNavigation: Dispatch<SetStateAction<Navigation>>;
 };
 
 const GlobalStateContext = createContext<[State, Actions]>([
@@ -47,13 +41,9 @@ const GlobalStateContext = createContext<[State, Actions]>([
       smallestGroupMembersCount: null,
       largestGroupMembersCount: null,
     },
-    navigation: {
-      currentPageIndex: 0,
-    },
   },
   {
     setData: () => {},
-    setNavigation: () => {},
   },
 ]);
 
@@ -73,18 +63,12 @@ export const GlobalStateProvider: React.FC = props => {
     largestGroupMembersCount: null,
   });
 
-  const [navigation, setNavigation] = useState<Navigation>({
-    currentPageIndex: 0,
-  });
-
   const state: State = {
     data,
-    navigation,
   };
 
   const actions: Actions = {
     setData,
-    setNavigation,
   };
 
   return (

@@ -1,22 +1,8 @@
 import React from 'react';
-import { Grommet, Box, Heading, Meter, ThemeValue } from 'grommet';
-import { BrowserRouter, Switch, Route, Link, Redirect } from 'react-router-dom';
-import {
-  Welcome,
-  Demographic,
-  Definition,
-  Expectation,
-  Usage,
-  UsageStatistics,
-  Explanation,
-  FurtherExplanation,
-  FirstChat,
-  SecondChat,
-  ThirdChat,
-  FourthChat,
-  FifthChat,
-  ThankYou,
-} from './screens';
+import { Grommet, Box, ThemeValue } from 'grommet';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { navigationalMap } from './navigation';
+import { Header } from './components';
 import { GlobalStateProvider } from './hooks';
 import { colors } from './constants';
 
@@ -27,48 +13,20 @@ const App: React.FC = () => {
     <Grommet theme={theme} full={true}>
       <GlobalStateProvider>
         <BrowserRouter>
-          <Box
-            direction="row"
-            justify="between"
-            align="center"
-            pad="small"
-            background={colors.PRIMARY}
-          >
-            <Link style={styles.link} to="/">
-              <Heading level="3" margin="small">
-                Group Communication Survey
-                <span role="img" aria-label="Chat bubble emoji">
-                  {' 💬'}
-                </span>
-              </Heading>
-            </Link>
-
-            <Meter
-              margin="small"
-              values={[{ value: (100 * 1) / 5 }]}
-              aria-label="meter"
-            />
-          </Box>
+          <Header />
 
           <Box align="center" pad="medium">
             <Switch>
-              <Route path="/" exact component={Welcome} />
-              <Route path="/demographic" component={Demographic} />
-              <Route path="/definition" component={Definition} />
-              <Route path="/expectation" component={Expectation} />
-              <Route path="/usage" component={Usage} />
-              <Route path="/usage-statistics" component={UsageStatistics} />
-              <Route path="/explanation" component={Explanation} />
-              <Route
-                path="/further-explanation"
-                component={FurtherExplanation}
-              />
-              <Route path="/chat-1" component={FirstChat} />
-              <Route path="/chat-2" component={SecondChat} />
-              <Route path="/chat-3" component={ThirdChat} />
-              <Route path="/chat-4" component={FourthChat} />
-              <Route path="/chat-5" component={FifthChat} />
-              <Route path="/thank-you" component={ThankYou} />
+              {(() => {
+                return navigationalMap.map(entry => (
+                  <Route
+                    path={entry.path}
+                    exact={entry.path === '/'}
+                    component={entry.screen}
+                  />
+                ));
+              })()}
+
               <Route path="*" component={() => <Redirect to="/" />} />
             </Switch>
           </Box>
@@ -86,13 +44,6 @@ const theme: ThemeValue = {
     colors: {
       control: colors.PRIMARY,
     },
-  },
-};
-
-const styles = {
-  link: {
-    color: 'white',
-    textDecoration: 'none',
   },
 };
 
