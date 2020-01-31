@@ -1,23 +1,23 @@
 import React from 'react';
-import { Box } from 'grommet';
 
 const InferenceQuote: React.FC = props => {
   const { children } = props;
 
   return (
-    <Box
+    <div
       style={{
-        width: 50,
-        height: 60,
         marginBottom: -16,
         marginLeft: -25,
-        alignItems: 'center',
+        paddingLeft: 12,
+        paddingRight: 12,
+        paddingBottom: 4,
         background: '#b2b2b2',
         borderRadius: 20,
+        alignSelf: 'start',
       }}
     >
-      <p>{children}</p>
-    </Box>
+      <p style={{ fontSize: 14 }}>{children}</p>
+    </div>
   );
 };
 
