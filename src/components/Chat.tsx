@@ -19,6 +19,8 @@ type Message = {
 
 type Props = {
   messages: Message[];
+  animationInterval?: number;
+  onAnimationEnd?: () => void;
 };
 
 const randomId = (): string => {
@@ -39,21 +41,33 @@ const transformMessage = (message: Message): IMessage => {
 };
 
 const Chat: React.FC<Props> = props => {
-  const { messages } = props;
+  const { messages, animationInterval, onAnimationEnd } = props;
 
   const transformedMessages = messages.map(transformMessage);
+  const operationalAnimationInterval = animationInterval || 1000;
 
   const [timedMessages, setTimedMessages] = useState([]);
 
+  const appendTimedMessage = (message: IMessage): void => {
+    setTimedMessages(timedMessages => {
+      return GiftedChat.append(timedMessages, [message]);
+    });
+  };
+
   useEffect(() => {
     transformedMessages.forEach((message, index) => {
-      setTimeout(() => {
-        setTimedMessages(timedMessages => {
-          return GiftedChat.append(timedMessages, [message]);
-        });
-      }, index * 1000);
+      setTimeout(
+        () => appendTimedMessage(message),
+        index * operationalAnimationInterval,
+      );
     });
   }, []);
+
+  useEffect(() => {
+    if (transformedMessages.length === timedMessages.length) {
+      onAnimationEnd?.();
+    }
+  }, [timedMessages]);
 
   return (
     <Box style={{ width: 450, height: 500 }} border="all">
@@ -64,8 +78,6 @@ const Chat: React.FC<Props> = props => {
         messageIdGenerator={randomId}
         user={{ id: 1 }}
         messages={timedMessages}
-        renderMessageImage={() => null}
-        renderInputToolbar={() => null}
         renderBubble={props => {
           const { currentMessage } = props;
           const { image: inferenceQuote } = currentMessage;
@@ -80,7 +92,8 @@ const Chat: React.FC<Props> = props => {
             </Box>
           );
         }}
-        onSend={() => {}}
+        renderInputToolbar={() => null}
+        renderMessageImage={() => null}
       />
     </Box>
   );

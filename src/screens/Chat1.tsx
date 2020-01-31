@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../components';
@@ -91,16 +91,24 @@ const Chat1: React.FC = () => {
     },
   ];
 
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const browserHistory = useHistory();
 
   return (
     <>
-      <Chat messages={messages} />
+      <Chat
+        messages={messages}
+        onAnimationEnd={() => {
+          setAnimatedEnded(true);
+        }}
+      />
 
       <Box align="center" margin="medium">
         <Button
           type="submit"
           label="Next"
+          disabled={!hasAnimatedEnded}
           onClick={() => {
             browserHistory.push('/thank-you');
           }}
