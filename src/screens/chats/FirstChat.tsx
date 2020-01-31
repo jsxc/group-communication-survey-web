@@ -5,13 +5,13 @@ import { Chat } from '../../components';
 import { users } from './constants';
 
 const FirstChat: React.FC = () => {
-  const [Karl, Lara, Arthur] = users;
+  const { karl, lara, arthur } = users;
 
   const messages = [
     {
       text: 'Did you watch the game yesterday?',
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: Karl,
+      user: karl,
     },
     {
       text: 'One or more messages are missing',
@@ -22,7 +22,7 @@ const FirstChat: React.FC = () => {
     {
       text: '👍',
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: Lara,
+      user: lara,
     },
     {
       text: 'One or more messages are missing',
@@ -33,12 +33,12 @@ const FirstChat: React.FC = () => {
     {
       text: 'Was out yesterday',
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: Arthur,
+      user: arthur,
     },
     {
       text: 'That in Stuttgart',
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: Karl,
+      user: karl,
     },
     {
       text: 'One or more messages are missing',
@@ -49,28 +49,28 @@ const FirstChat: React.FC = () => {
     {
       text: 'That was Hammer',
       createdAt: new Date('2020-01-30T20:07:00'),
-      user: Karl,
+      user: karl,
     },
     {
       text: 'Visited Ingo',
       createdAt: new Date('2020-01-30T20:08:00'),
-      user: Arthur,
+      user: arthur,
       inferenceQuote: '👍',
     },
     {
       text: 'How is he?',
       createdAt: new Date('2020-01-30T20:09:00'),
-      user: Lara,
+      user: lara,
     },
     {
       text: 'Yes yes',
       createdAt: new Date('2020-01-30T20:10:00'),
-      user: Karl,
+      user: karl,
     },
     {
       text: 'Just ignore me',
       createdAt: new Date('2020-01-30T20:11:00'),
-      user: Karl,
+      user: karl,
     },
   ];
 

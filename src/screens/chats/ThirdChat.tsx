@@ -5,13 +5,13 @@ import { Chat } from '../../components';
 import { users } from './constants';
 
 const FirstChat: React.FC = () => {
-  const [Karl, Lara, Arthur, Ines, Richard] = users;
+  const { ines, karl, richard } = users;
 
   const messages = [
     {
       text: 'Karl, did you prepare the presentation?',
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: Ines,
+      user: ines,
     },
     {
       text: 'One or more messages are missing',
@@ -22,7 +22,7 @@ const FirstChat: React.FC = () => {
     {
       text: 'I did it',
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: Karl,
+      user: karl,
     },
     {
       text: 'One or more messages are missing',
@@ -33,24 +33,24 @@ const FirstChat: React.FC = () => {
     {
       text: 'Oh and what about the invitation?',
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: Ines,
+      user: ines,
     },
     {
       text: 'Unfortunately I have not yet been able to do so',
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: Karl,
+      user: karl,
       inferenceQuote: 'Karl, did you prepare the presentation?',
     },
     {
       text: 'Should I still do that?',
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: Richard,
+      user: richard,
       inferenceQuote: 'I did it',
     },
     {
       text: 'No, I can still manage it',
       createdAt: new Date('2020-01-30T20:07:00'),
-      user: Karl,
+      user: karl,
     },
   ];
 
