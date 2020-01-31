@@ -12,6 +12,7 @@ import {
   FurtherExplanation,
   FirstChat,
   SecondChat,
+  ThirdChat,
   ThankYou,
 } from './screens';
 import { colors } from './constants';
@@ -57,6 +58,7 @@ const App: React.FC = () => {
             <Route path="/further-explanation" component={FurtherExplanation} />
             <Route path="/chat-1" component={FirstChat} />
             <Route path="/chat-2" component={SecondChat} />
+            <Route path="/chat-3" component={ThirdChat} />
             <Route path="/thank-you" component={ThankYou} />
             <Route path="*" component={() => <Redirect to="/" />} />
           </Switch>
