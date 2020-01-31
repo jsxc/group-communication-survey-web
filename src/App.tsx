@@ -15,6 +15,8 @@ import {
 } from './screens';
 import { colors } from './constants';
 
+/* TODO: Reset app if an intermediary route is accessed */
+
 const App: React.FC = () => {
   return (
     <Grommet theme={theme} full={true}>
