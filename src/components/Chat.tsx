@@ -53,6 +53,7 @@ const Chat: React.FC<Props> = props => {
         user={{ id: 1 }}
         messages={transformedMessages}
         renderMessageImage={() => null}
+        renderInputToolbar={() => null}
         renderBubble={props => {
           const { currentMessage } = props;
           const { image: inferenceQuote } = currentMessage;
