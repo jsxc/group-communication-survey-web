@@ -19,7 +19,13 @@ const App: React.FC = () => {
   return (
     <Grommet theme={theme} full={true}>
       <BrowserRouter>
-        <Box pad="small" background={colors.PRIMARY}>
+        <Box
+          direction="row"
+          justify="between"
+          align="center"
+          pad="small"
+          background={colors.PRIMARY}
+        >
           <Link style={styles.link} to="/">
             <Heading level="3" margin="small">
               Group Communication Survey
