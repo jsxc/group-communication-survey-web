@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box } from 'grommet';
 import { GiftedChat, Bubble, IMessage } from 'react-web-gifted-chat';
 import InferenceQuote from './InferenceQuote';
@@ -41,17 +41,29 @@ const transformMessage = (message: Message): IMessage => {
 const Chat: React.FC<Props> = props => {
   const { messages } = props;
 
-  const transformedMessages = messages.map(transformMessage).reverse();
+  const transformedMessages = messages.map(transformMessage);
+
+  const [timedMessages, setTimedMessages] = useState([]);
+
+  useEffect(() => {
+    transformedMessages.forEach((message, index) => {
+      setTimeout(() => {
+        setTimedMessages(timedMessages => {
+          return GiftedChat.append(timedMessages, [message]);
+        });
+      }, index * 1000);
+    });
+  }, []);
 
   return (
-    <Box style={{ width: 500, height: 500 }} border="all">
+    <Box style={{ width: 450, height: 500 }} border="all">
       <GiftedChat
         timeFormat="HH:mm"
         alwaysShowSend={true}
         showAvatarForEveryMessage={true}
         messageIdGenerator={randomId}
         user={{ id: 1 }}
-        messages={transformedMessages}
+        messages={timedMessages}
         renderMessageImage={() => null}
         renderInputToolbar={() => null}
         renderBubble={props => {
