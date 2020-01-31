@@ -2,26 +2,31 @@ import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../components';
+import { useGlobalState } from '../hooks';
 
 const Definition: React.FC = () => {
+  const [globalState, globalActions] = useGlobalState();
+
+  const { data } = globalState;
+  const { setData } = globalActions;
+
+  const { definition } = data;
+
   const [state, setState] = useState({
-    definition: '',
     hasDefinitionBeenBlurred: false,
   });
+
+  const { hasDefinitionBeenBlurred } = state;
 
   const browserHistory = useHistory();
 
   const validateDefinitionField = () => {
-    const { definition } = state;
-
     if (!definition) {
       return 'Required';
     }
 
     return null;
   };
-
-  const { definition, hasDefinitionBeenBlurred } = state;
 
   const definitionFieldError = validateDefinitionField();
   const isInvalidForm = Boolean(definitionFieldError);
@@ -34,12 +39,13 @@ const Definition: React.FC = () => {
         </Heading>
 
         <TextArea
-          value={definition}
+          name="question-1"
+          value={definition || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               definition: value,
             }));
           }}

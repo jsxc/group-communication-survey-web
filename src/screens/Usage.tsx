@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { useGlobalState } from '../hooks';
+import { isNull } from '../utilities';
 
 const Usage: React.FC = () => {
-  const [state, setState] = useState({
-    usesGroupChatClient: false,
-  });
+  const [globalState, globalActions] = useGlobalState();
+
+  const { data } = globalState;
+  const { setData } = globalActions;
+
+  const { usesGroupChatClient } = data;
 
   const browserHistory = useHistory();
 
-  const { usesGroupChatClient } = state;
+  const validateUsesGroupChatClientField = () => {
+    if (isNull(usesGroupChatClient)) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
+  const usesGroupChatClientFieldError = validateUsesGroupChatClientField();
+  const isInvalidForm = Boolean(usesGroupChatClientFieldError);
 
   return (
     <Form>
@@ -19,14 +33,24 @@ const Usage: React.FC = () => {
         </Heading>
 
         <RadioButtonGroup
-          name="question"
+          name="question-1"
           options={['Yes', 'No']}
-          value={usesGroupChatClient ? 'Yes' : 'No'}
+          value={(() => {
+            if (isNull(usesGroupChatClient)) {
+              return '';
+            }
+
+            if (usesGroupChatClient) {
+              return 'Yes';
+            }
+
+            return 'No';
+          })()}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               usesGroupChatClient: value === 'Yes',
             }));
           }}
@@ -37,6 +61,7 @@ const Usage: React.FC = () => {
         <Button
           type="submit"
           label="Next"
+          disabled={isInvalidForm}
           onClick={() => {
             browserHistory.push(
               usesGroupChatClient ? '/usage-statistics' : '/explanation',

@@ -2,28 +2,43 @@ import React, { useState } from 'react';
 import { Box, Form, Heading, FormField, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../components';
+import { useGlobalState } from '../hooks';
+import { isNull } from '../utilities';
 
 const UsageStatistics: React.FC = () => {
+  const [globalState, globalActions] = useGlobalState();
+
+  const { data } = globalState;
+  const { setData } = globalActions;
+
+  const {
+    groupsCount,
+    regularlyUsedGroupsCount,
+    smallestGroupMembersCount,
+    largestGroupMembersCount,
+  } = data;
+
   const [state, setState] = useState({
-    groupsCount: 0,
-    regularlyUsedGroupsCount: 0,
-    smallestGroupMembersCount: 0,
-    largestGroupMembersCount: 0,
     hasGroupsCountBeenBlurred: false,
     hasRegularlyUsedGroupsCountBeenBlurred: false,
     hasSmallestGroupMembersCountBeenBlurred: false,
     hasLargestGroupMembersCountBeenBlurred: false,
   });
 
+  const {
+    hasGroupsCountBeenBlurred,
+    hasRegularlyUsedGroupsCountBeenBlurred,
+    hasSmallestGroupMembersCountBeenBlurred,
+    hasLargestGroupMembersCountBeenBlurred,
+  } = state;
+
   const browserHistory = useHistory();
 
   const validateGroupsCountField = () => {
-    const { groupsCount } = state;
-
     const LOWER_BOUND = 0;
     const UPPER_BOUND = 500;
 
-    if (!groupsCount) {
+    if (isNull(groupsCount)) {
       return 'Required';
     }
 
@@ -35,12 +50,10 @@ const UsageStatistics: React.FC = () => {
   };
 
   const validateRegularlyUsedGroupsCountField = () => {
-    const { groupsCount, regularlyUsedGroupsCount } = state;
-
     const LOWER_BOUND = 0;
     const UPPER_BOUND = groupsCount || 500;
 
-    if (!regularlyUsedGroupsCount) {
+    if (isNull(regularlyUsedGroupsCount)) {
       return 'Required';
     }
 
@@ -55,12 +68,10 @@ const UsageStatistics: React.FC = () => {
   };
 
   const validateSmallestGroupMembersCountField = () => {
-    const { smallestGroupMembersCount } = state;
-
     const LOWER_BOUND = 1;
     const UPPER_BOUND = 500;
 
-    if (!smallestGroupMembersCount) {
+    if (isNull(smallestGroupMembersCount)) {
       return 'Required';
     }
 
@@ -75,12 +86,10 @@ const UsageStatistics: React.FC = () => {
   };
 
   const validateLargestGroupMembersCountField = () => {
-    const { smallestGroupMembersCount, largestGroupMembersCount } = state;
-
     const LOWER_BOUND = smallestGroupMembersCount || 0;
     const UPPER_BOUND = 500;
 
-    if (!largestGroupMembersCount) {
+    if (isNull(largestGroupMembersCount)) {
       return 'Required';
     }
 
@@ -94,17 +103,6 @@ const UsageStatistics: React.FC = () => {
     return null;
   };
 
-  const {
-    groupsCount,
-    regularlyUsedGroupsCount,
-    smallestGroupMembersCount,
-    largestGroupMembersCount,
-    hasGroupsCountBeenBlurred,
-    hasRegularlyUsedGroupsCountBeenBlurred,
-    hasSmallestGroupMembersCountBeenBlurred,
-    hasLargestGroupMembersCountBeenBlurred,
-  } = state;
-
   const groupsCountFieldError = validateGroupsCountField();
   const regularlyUsedGroupsCountFieldError = validateRegularlyUsedGroupsCountField();
   const smallestGroupMembersCountFieldError = validateSmallestGroupMembersCountField();
@@ -112,7 +110,9 @@ const UsageStatistics: React.FC = () => {
 
   const isInvalidForm =
     Boolean(groupsCountFieldError) ||
-    Boolean(regularlyUsedGroupsCountFieldError);
+    Boolean(regularlyUsedGroupsCountFieldError) ||
+    Boolean(smallestGroupMembersCountFieldError) ||
+    Boolean(largestGroupMembersCountFieldError);
 
   return (
     <Form>
@@ -120,14 +120,14 @@ const UsageStatistics: React.FC = () => {
         <Heading level="4">How many groups do you have?</Heading>
 
         <FormField
-          type="number"
           name="question-1"
+          type="number"
           value={groupsCount || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               groupsCount: value ? parseInt(value) : null,
             }));
           }}
@@ -148,14 +148,14 @@ const UsageStatistics: React.FC = () => {
         <Heading level="4">How many groups do you use regularly?</Heading>
 
         <FormField
-          type="number"
           name="question-2"
+          type="number"
           value={regularlyUsedGroupsCount || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               regularlyUsedGroupsCount: value ? parseInt(value) : null,
             }));
           }}
@@ -178,14 +178,14 @@ const UsageStatistics: React.FC = () => {
         </Heading>
 
         <FormField
-          type="number"
           name="question-3"
+          type="number"
           value={smallestGroupMembersCount || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               smallestGroupMembersCount: value ? parseInt(value) : null,
             }));
           }}
@@ -208,14 +208,14 @@ const UsageStatistics: React.FC = () => {
         </Heading>
 
         <FormField
-          type="number"
           name="question-4"
+          type="number"
           value={largestGroupMembersCount || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               largestGroupMembersCount: value ? parseInt(value) : null,
             }));
           }}

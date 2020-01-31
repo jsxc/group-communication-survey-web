@@ -10,24 +10,38 @@ import {
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../components';
+import { useGlobalState } from '../hooks';
+import { isNull } from '../utilities';
 
 const Demographic: React.FC = () => {
+  const [globalState, globalActions] = useGlobalState();
+
+  const { data } = globalState;
+  const { setData } = globalActions;
+
+  const { isMale, age, region } = data;
+
   const [state, setState] = useState({
-    isMale: true,
-    age: 0,
-    region: '',
     hasAgeBeenBlurred: false,
   });
 
+  const { hasAgeBeenBlurred } = state;
+
   const browserHistory = useHistory();
 
-  const validateAgeField = () => {
-    const { age } = state;
+  const validateSexField = () => {
+    if (isNull(isMale)) {
+      return 'Required';
+    }
 
+    return null;
+  };
+
+  const validateAgeField = () => {
     const LOWER_BOUND = 13;
     const UPPER_BOUND = 100;
 
-    if (!age) {
+    if (isNull(age)) {
       return 'Required';
     }
 
@@ -39,21 +53,21 @@ const Demographic: React.FC = () => {
   };
 
   const validateRegionField = () => {
-    const { region } = state;
-
-    if (!region) {
+    if (isNull(region)) {
       return 'Required';
     }
 
     return null;
   };
 
-  const { isMale, age, region, hasAgeBeenBlurred } = state;
-
+  const sexFieldError = validateSexField();
   const ageFieldError = validateAgeField();
   const regionFieldError = validateRegionField();
 
-  const isInvalidForm = Boolean(ageFieldError) || Boolean(regionFieldError);
+  const isInvalidForm =
+    Boolean(sexFieldError) ||
+    Boolean(ageFieldError) ||
+    Boolean(regionFieldError);
 
   return (
     <Form>
@@ -63,12 +77,22 @@ const Demographic: React.FC = () => {
         <RadioButtonGroup
           name="question-1"
           options={['Male', 'Female']}
-          value={isMale ? 'Male' : 'Female'}
+          value={(() => {
+            if (isNull(isMale)) {
+              return '';
+            }
+
+            if (isMale) {
+              return 'Male';
+            }
+
+            return 'Female';
+          })()}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               isMale: value === 'Male',
             }));
           }}
@@ -79,13 +103,14 @@ const Demographic: React.FC = () => {
         <Heading level="4">How old are you?</Heading>
 
         <FormField
+          name="question-2"
           type="number"
           value={age || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               age: value ? parseInt(value) : null,
             }));
           }}
@@ -104,66 +129,67 @@ const Demographic: React.FC = () => {
         <Heading level="4">Which region are you from?</Heading>
 
         <WorldMap
+          name="question-3"
           fill="horizontal"
           continents={[
             {
               name: 'Africa',
               color: region === 'Africa' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'Africa',
-                });
+                }));
               },
             },
             {
               name: 'Europe',
               color: region === 'Europe' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'Europe',
-                });
+                }));
               },
             },
             {
               name: 'Asia',
               color: region === 'Asia' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'Asia',
-                });
+                }));
               },
             },
             {
               name: 'North America',
               color: region === 'North America' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'North America',
-                });
+                }));
               },
             },
             {
               name: 'South America',
               color: region === 'South America' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'South America',
-                });
+                }));
               },
             },
             {
               name: 'Australia',
               color: region === 'Australia' ? 'red' : 'grey',
               onClick: () => {
-                setState({
-                  ...state,
+                setData(data => ({
+                  ...data,
                   region: 'Australia',
-                });
+                }));
               },
             },
           ]}

@@ -2,26 +2,31 @@ import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../components';
+import { useGlobalState } from '../hooks';
 
 const Expectation: React.FC = () => {
+  const [globalState, globalActions] = useGlobalState();
+
+  const { data } = globalState;
+  const { setData } = globalActions;
+
+  const { expectation } = data;
+
   const [state, setState] = useState({
-    expectation: '',
     hasExpectationBeenBlurred: false,
   });
+
+  const { hasExpectationBeenBlurred } = state;
 
   const browserHistory = useHistory();
 
   const validateExpectationField = () => {
-    const { expectation } = state;
-
     if (!expectation) {
       return 'Required';
     }
 
     return null;
   };
-
-  const { expectation, hasExpectationBeenBlurred } = state;
 
   const definitionFieldError = validateExpectationField();
   const isInvalidForm = Boolean(definitionFieldError);
@@ -34,12 +39,13 @@ const Expectation: React.FC = () => {
         </Heading>
 
         <TextArea
-          value={expectation}
+          name="question-1"
+          value={expectation || ''}
           onChange={event => {
             const { value } = event.target;
 
-            setState(state => ({
-              ...state,
+            setData(data => ({
+              ...data,
               expectation: value,
             }));
           }}
