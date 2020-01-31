@@ -1,12 +1,12 @@
 import React from 'react';
-import { Box, Form, Paragraph, Button } from 'grommet';
+import { Box, Paragraph, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 
 const Explanation: React.FC = () => {
   const browserHistory = useHistory();
 
   return (
-    <Form>
+    <>
       <Box margin="medium">
         <Paragraph>
           As already mentioned, you will now see 5 group chat conversations,
@@ -40,7 +40,7 @@ const Explanation: React.FC = () => {
           }}
         />
       </Box>
-    </Form>
+    </>
   );
 };
 
