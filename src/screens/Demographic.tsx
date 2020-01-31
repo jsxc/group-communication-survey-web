@@ -9,7 +9,7 @@ import {
   WorldMap,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../../components';
+import { ErrorText } from '../components';
 
 const Demographic: React.FC = () => {
   const [state, setState] = useState({

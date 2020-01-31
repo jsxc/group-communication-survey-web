@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../../components';
+import { ErrorText } from '../components';
 
 const Definition: React.FC = () => {
   const [state, setState] = useState({
