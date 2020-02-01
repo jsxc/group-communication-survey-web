@@ -18,4 +18,5 @@ export {
   FirstChatFeedback,
   SecondChatFeedback,
   ThirdChatFeedback,
+  FourthChatFeedback,
 } from './chats-feedback';

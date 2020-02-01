@@ -64,7 +64,7 @@ const FourthChat: React.FC = () => {
           label="Next"
           disabled={!hasAnimatedEnded}
           onClick={() => {
-            browserHistory.push('/thank-you');
+            browserHistory.push('/chat-4-feedback');
           }}
         />
       </Box>
