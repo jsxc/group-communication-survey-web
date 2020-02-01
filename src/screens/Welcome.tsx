@@ -1,30 +1,38 @@
 import React from 'react';
-import { Heading, Paragraph, Button } from 'grommet';
+import { Box, Heading, Paragraph, Button } from 'grommet';
+import { Contact } from 'grommet-icons';
 import { useHistory } from 'react-router-dom';
+import { colors } from '../constants';
 
 const Welcome: React.FC = () => {
   const browserHistory = useHistory();
 
   return (
-    <>
-      <Heading level="3">Welcome to the survey</Heading>
+    <Box align="center" margin="large">
+      <Contact color={colors.PRIMARY} size="xlarge" />
 
-      <Paragraph>
-        Thank you for agreeing to participate in this study. First, you will be
-        asked a few general questions. Afterwards, you will be shown 5 different
-        group chat transcripts, alongside some questions. Thank you very much
-        for your participation.
-      </Paragraph>
+      <Box align="center" margin="large">
+        <Heading level="3" margin="xsmall">
+          Welcome to the survey
+        </Heading>
 
-      <Button
-        type="submit"
-        label="Next"
-        margin="medium"
-        onClick={() => {
-          browserHistory.push('/demographic');
-        }}
-      />
-    </>
+        <Paragraph>
+          Thank you for agreeing to participate in this study. First, you will
+          be asked a few general questions. Afterwards, you will be shown 5
+          different group chat transcripts, alongside some questions. Thank you
+          very much for your participation.
+        </Paragraph>
+
+        <Button
+          type="submit"
+          label="Next"
+          margin="medium"
+          onClick={() => {
+            browserHistory.push('/demographic');
+          }}
+        />
+      </Box>
+    </Box>
   );
 };
 

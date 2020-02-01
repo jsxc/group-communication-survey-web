@@ -1,12 +1,21 @@
 import React from 'react';
-import { Heading, Paragraph } from 'grommet';
+import { Box, Heading, Paragraph } from 'grommet';
+import { Checkmark } from 'grommet-icons';
+import { colors } from '../constants';
 
 const ThankYou: React.FC = () => {
   return (
-    <>
-      <Heading level="3">Thank you</Heading>
-      <Paragraph>Thank you for your participation</Paragraph>
-    </>
+    <Box align="center" margin="large">
+      <Checkmark color={colors.PRIMARY} size="xlarge" />
+
+      <Box align="center" margin="large">
+        <Heading level="3" margin="xsmall">
+          Thank you
+        </Heading>
+
+        <Paragraph>Thank you for your participation</Paragraph>
+      </Box>
+    </Box>
   );
 };
 
