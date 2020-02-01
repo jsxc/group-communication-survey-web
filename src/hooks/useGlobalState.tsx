@@ -7,16 +7,21 @@ import React, {
 } from 'react';
 
 type Data = {
-  isMale: boolean | null;
-  age: number | null;
-  region: string | null;
-  definition: string | null;
-  expectation: string | null;
-  usesGroupChatClient: boolean | null;
-  groupsCount: number | null;
-  regularlyUsedGroupsCount: number | null;
-  smallestGroupMembersCount: number | null;
-  largestGroupMembersCount: number | null;
+  isMale: boolean;
+  age: number;
+  region: string;
+  definition: string;
+  expectation: string;
+  usesGroupChatClient: boolean;
+  groupsCount: number;
+  regularlyUsedGroupsCount: number;
+  smallestGroupMembersCount: number;
+  largestGroupMembersCount: number;
+  firstChatFeedback: [number, number];
+  secondChatFeedback: [number, number, number];
+  thirdChatFeedback: [number, number, number];
+  fourthChatFeedback: [number, number];
+  fifthChatFeedback: [number, number, number];
 };
 
 type State = {
@@ -40,6 +45,11 @@ const GlobalStateContext = createContext<[State, Actions]>([
       regularlyUsedGroupsCount: null,
       smallestGroupMembersCount: null,
       largestGroupMembersCount: null,
+      firstChatFeedback: [null, null],
+      secondChatFeedback: [null, null, null],
+      thirdChatFeedback: [null, null, null],
+      fourthChatFeedback: [null, null],
+      fifthChatFeedback: [null, null, null],
     },
   },
   {
@@ -61,6 +71,11 @@ export const GlobalStateProvider: React.FC = props => {
     regularlyUsedGroupsCount: null,
     smallestGroupMembersCount: null,
     largestGroupMembersCount: null,
+    firstChatFeedback: [null, null],
+    secondChatFeedback: [null, null, null],
+    thirdChatFeedback: [null, null, null],
+    fourthChatFeedback: [null, null],
+    fifthChatFeedback: [null, null, null],
   });
 
   const state: State = {
