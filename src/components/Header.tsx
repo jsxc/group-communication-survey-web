@@ -13,7 +13,7 @@ const Header: React.FC = () => {
 
   const screensCount = navigationalMap.length;
 
-  const progressPercentage = (currentScreenIndex / screensCount) * 100;
+  const progressPercentage = (currentScreenIndex / (screensCount - 1)) * 100;
 
   return (
     <Box
