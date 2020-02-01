@@ -16,6 +16,7 @@ import {
   FourthChat,
   FourthChatFeedback,
   FifthChat,
+  FifthChatFeedback,
   ThankYou,
 } from '../screens';
 
@@ -37,6 +38,7 @@ const navigationalMap = [
   { path: '/chat-4', screen: FourthChat },
   { path: '/chat-4-feedback', screen: FourthChatFeedback },
   { path: '/chat-5', screen: FifthChat },
+  { path: '/chat-5-feedback', screen: FifthChatFeedback },
   { path: '/thank-you', screen: ThankYou },
 ];
 
