@@ -17,8 +17,9 @@ const App: React.FC = () => {
 
           <Box align="center" pad="medium">
             <Switch>
-              {navigationalMap.map(entry => (
+              {navigationalMap.map((entry, index) => (
                 <Route
+                  key={index}
                   path={entry.path}
                   exact={entry.path === '/'}
                   component={entry.screen}
