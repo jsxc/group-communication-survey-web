@@ -47,6 +47,7 @@ const Chat: React.FC<Props> = props => {
   const operationalAnimationInterval = animationInterval || 1000;
 
   const [timedMessages, setTimedMessages] = useState([]);
+  const [timeoutIds, setTimeoutIds] = useState([]);
 
   const appendTimedMessage = (message: IMessage): void => {
     setTimedMessages(timedMessages => {
@@ -56,11 +57,17 @@ const Chat: React.FC<Props> = props => {
 
   useEffect(() => {
     transformedMessages.forEach((message, index) => {
-      setTimeout(
+      const timeoutId = setTimeout(
         () => appendTimedMessage(message),
         index * operationalAnimationInterval,
       );
+
+      setTimeoutIds(timeoutIds => timeoutIds.concat(timeoutId));
     });
+
+    return () => {
+      timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
+    };
   }, []);
 
   useEffect(() => {
