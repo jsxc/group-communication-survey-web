@@ -6,14 +6,18 @@ import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from './utilities';
 import { isNull } from '../../utilities';
 
-const FirstChatFeedback: React.FC = () => {
+const SecondChatFeedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
 
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { firstChatFeedback } = data;
-  const [firstQuestionChoice, secondQuestionChoice] = firstChatFeedback;
+  const { secondChatFeedback } = data;
+  const [
+    firstQuestionChoice,
+    secondQuestionChoice,
+    thirdQuestionChoice,
+  ] = secondChatFeedback;
 
   const browserHistory = useHistory();
 
@@ -21,19 +25,22 @@ const FirstChatFeedback: React.FC = () => {
     choiceIndex: number,
   ) => {
     setData(data => {
-      const updatedFeedback = produce(data.firstChatFeedback, draftFeedback => {
-        draftFeedback[questionIndex] = choiceIndex;
-      });
+      const updatedFeedback = produce(
+        data.secondChatFeedback,
+        draftFeedback => {
+          draftFeedback[questionIndex] = choiceIndex;
+        },
+      );
 
       return {
         ...data,
-        firstChatFeedback: updatedFeedback,
+        secondChatFeedback: updatedFeedback,
       };
     });
   };
 
   const validateRadioFieldChoice = (index: number) => {
-    const choice = firstChatFeedback[index];
+    const choice = secondChatFeedback[index];
 
     if (isNull(choice)) {
       return 'Required';
@@ -54,11 +61,22 @@ const FirstChatFeedback: React.FC = () => {
     'There was too little information about this',
   ].map(constructRadioOptions);
 
+  const thirdQuestionOptions = [
+    'Yes',
+    'No',
+    'This was not mentioned in the conversation',
+    'There were contradicting statements',
+    'There was too little information about this',
+  ].map(constructRadioOptions);
+
   const firstQuestionChoiceError = validateRadioFieldChoice(0);
   const secondQuestionChoiceError = validateRadioFieldChoice(1);
+  const thirdQuestionChoiceError = validateRadioFieldChoice(2);
 
   const isInvalidForm =
-    Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
+    Boolean(firstQuestionChoiceError) ||
+    Boolean(secondQuestionChoiceError) ||
+    Boolean(thirdQuestionChoiceError);
 
   return (
     <Form>
@@ -92,7 +110,7 @@ const FirstChatFeedback: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">Did Lara watch the game?</Heading>
+        <Heading level="4">Is Arthur alright?</Heading>
 
         <RadioButtonGroup
           name="question-2"
@@ -113,13 +131,37 @@ const FirstChatFeedback: React.FC = () => {
         />
       </Box>
 
+      <Box margin="medium">
+        <Heading level="4">
+          Does Arthur know the other driver involved in the accident?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-3"
+          options={thirdQuestionOptions}
+          value={(() => {
+            if (isNull(thirdQuestionChoice)) {
+              return '';
+            }
+
+            return String(thirdQuestionChoice);
+          })()}
+          onChange={event => {
+            const { value } = event.target;
+            const choice = Number(value);
+
+            setQuestionChoice(2)(choice);
+          }}
+        />
+      </Box>
+
       <Box align="center" margin="medium">
         <Button
           type="submit"
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/chat-2');
+            browserHistory.push('/chat-3');
           }}
         />
       </Box>
@@ -127,4 +169,4 @@ const FirstChatFeedback: React.FC = () => {
   );
 };
 
-export default FirstChatFeedback;
+export default SecondChatFeedback;

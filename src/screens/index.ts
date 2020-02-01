@@ -14,4 +14,4 @@ export {
   FourthChat,
   FifthChat,
 } from './chats';
-export { FirstChatFeedback } from './chats-feedback';
+export { FirstChatFeedback, SecondChatFeedback } from './chats-feedback';
