@@ -9,6 +9,7 @@ import React, {
 type ChatFeedback = number[];
 
 type Data = {
+  name: string;
   isMale: boolean;
   age: number;
   region: string;
@@ -24,6 +25,7 @@ type Data = {
   thirdChatFeedback: ChatFeedback;
   fourthChatFeedback: ChatFeedback;
   fifthChatFeedback: ChatFeedback;
+  opinionOnRepresentations: string;
 };
 
 type State = {
@@ -37,6 +39,7 @@ type Actions = {
 const GlobalStateContext = createContext<[State, Actions]>([
   {
     data: {
+      name: null,
       isMale: null,
       age: null,
       region: null,
@@ -52,6 +55,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       thirdChatFeedback: [null, null, null],
       fourthChatFeedback: [null, null],
       fifthChatFeedback: [null, null, null],
+      opinionOnRepresentations: null,
     },
   },
   {
@@ -63,6 +67,7 @@ export const GlobalStateProvider: React.FC = props => {
   const { children } = props;
 
   const [data, setData] = useState<Data>({
+    name: null,
     isMale: null,
     age: null,
     region: null,
@@ -78,6 +83,7 @@ export const GlobalStateProvider: React.FC = props => {
     thirdChatFeedback: [null, null, null],
     fourthChatFeedback: [null, null],
     fifthChatFeedback: [null, null, null],
+    opinionOnRepresentations: null,
   });
 
   const state: State = {
