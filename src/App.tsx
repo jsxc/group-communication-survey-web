@@ -17,15 +17,13 @@ const App: React.FC = () => {
 
           <Box align="center" pad="medium">
             <Switch>
-              {(() => {
-                return navigationalMap.map(entry => (
-                  <Route
-                    path={entry.path}
-                    exact={entry.path === '/'}
-                    component={entry.screen}
-                  />
-                ));
-              })()}
+              {navigationalMap.map(entry => (
+                <Route
+                  path={entry.path}
+                  exact={entry.path === '/'}
+                  component={entry.screen}
+                />
+              ))}
 
               <Route path="*" component={() => <Redirect to="/" />} />
             </Switch>
