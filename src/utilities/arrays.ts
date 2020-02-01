@@ -1,3 +1,7 @@
+/**
+ * Injects a replacement element at a specified
+ * index in the given array
+ */
 export const replaceAt = <T>(index: number) => (replacement: T) => (
   array: T[],
 ): T[] => {
