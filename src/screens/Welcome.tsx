@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Heading, Paragraph, Button } from 'grommet';
-import { Contact } from 'grommet-icons';
+import { Chat } from 'grommet-icons';
 import { useHistory } from 'react-router-dom';
 import { colors } from '../constants';
 
@@ -9,7 +9,7 @@ const Welcome: React.FC = () => {
 
   return (
     <Box align="center" margin="large">
-      <Contact color={colors.PRIMARY} size="xlarge" />
+      <Chat color={colors.PRIMARY} size="xlarge" />
 
       <Box align="center" margin="large">
         <Heading level="3" margin="xsmall">
