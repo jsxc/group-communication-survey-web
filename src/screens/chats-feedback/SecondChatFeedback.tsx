@@ -1,10 +1,9 @@
 import React from 'react';
 import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import produce from 'immer';
 import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from './utilities';
-import { isNull } from '../../utilities';
+import { isNull, replaceAt } from '../../utilities';
 
 const SecondChatFeedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
@@ -25,11 +24,8 @@ const SecondChatFeedback: React.FC = () => {
     choiceIndex: number,
   ) => {
     setData(data => {
-      const updatedFeedback = produce(
+      const updatedFeedback = replaceAt<number>(questionIndex)(choiceIndex)(
         data.secondChatFeedback,
-        draftFeedback => {
-          draftFeedback[questionIndex] = choiceIndex;
-        },
       );
 
       return {
