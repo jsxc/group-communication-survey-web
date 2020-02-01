@@ -6,6 +6,8 @@ import React, {
   SetStateAction,
 } from 'react';
 
+type ChatFeedback = number[];
+
 type Data = {
   isMale: boolean;
   age: number;
@@ -17,11 +19,11 @@ type Data = {
   regularlyUsedGroupsCount: number;
   smallestGroupMembersCount: number;
   largestGroupMembersCount: number;
-  firstChatFeedback: [number, number];
-  secondChatFeedback: [number, number, number];
-  thirdChatFeedback: [number, number, number];
-  fourthChatFeedback: [number, number];
-  fifthChatFeedback: [number, number, number];
+  firstChatFeedback: ChatFeedback;
+  secondChatFeedback: ChatFeedback;
+  thirdChatFeedback: ChatFeedback;
+  fourthChatFeedback: ChatFeedback;
+  fifthChatFeedback: ChatFeedback;
 };
 
 type State = {
