@@ -9,7 +9,7 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en) `v10.15.3`
-- [Yarn](https://yarnpkg.com/lang/en/) `v1.19.1`
+- [Yarn](https://yarnpkg.com/lang/en/)
 
 ### Running
 
