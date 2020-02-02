@@ -28,12 +28,18 @@ type Data = {
   opinionOnRepresentations: string;
 };
 
+type Navigation = {
+  hasStarted: boolean;
+};
+
 type State = {
   data: Data;
+  navigation: Navigation;
 };
 
 type Actions = {
   setData: Dispatch<SetStateAction<Data>>;
+  setNavigation: Dispatch<SetStateAction<Navigation>>;
 };
 
 const GlobalStateContext = createContext<[State, Actions]>([
@@ -57,9 +63,13 @@ const GlobalStateContext = createContext<[State, Actions]>([
       fifthChatFeedback: [null, null, null],
       opinionOnRepresentations: null,
     },
+    navigation: {
+      hasStarted: false,
+    },
   },
   {
     setData: () => {},
+    setNavigation: () => {},
   },
 ]);
 
@@ -86,12 +96,18 @@ export const GlobalStateProvider: React.FC = props => {
     opinionOnRepresentations: null,
   });
 
+  const [navigation, setNavigation] = useState<Navigation>({
+    hasStarted: false,
+  });
+
   const state: State = {
     data,
+    navigation,
   };
 
   const actions: Actions = {
     setData,
+    setNavigation,
   };
 
   return (

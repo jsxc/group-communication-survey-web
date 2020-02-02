@@ -1,10 +1,15 @@
 import React from 'react';
 import { Box, Heading, Meter } from 'grommet';
 import { useLocation, Link } from 'react-router-dom';
+import { useGlobalState } from '../hooks';
 import { navigationalMap } from '../navigation';
 import { colors } from '../constants';
 
 const Header: React.FC = () => {
+  const [, globalActions] = useGlobalState();
+
+  const { setNavigation } = globalActions;
+
   const location = useLocation();
 
   const currentScreenIndex = navigationalMap.findIndex(
@@ -29,6 +34,12 @@ const Header: React.FC = () => {
           textDecoration: 'none',
         }}
         to="/"
+        onClick={() => {
+          setNavigation(navigation => ({
+            ...navigation,
+            hasStarted: false,
+          }));
+        }}
       >
         <Heading level="3" margin="small">
           Group Communication Survey

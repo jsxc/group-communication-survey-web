@@ -2,9 +2,14 @@ import React from 'react';
 import { Box, Heading, Paragraph, Button } from 'grommet';
 import { Chat } from 'grommet-icons';
 import { useHistory } from 'react-router-dom';
+import { useGlobalState } from '../hooks';
 import { colors } from '../constants';
 
 const Welcome: React.FC = () => {
+  const [, globalActions] = useGlobalState();
+
+  const { setNavigation } = globalActions;
+
   const browserHistory = useHistory();
 
   return (
@@ -28,6 +33,11 @@ const Welcome: React.FC = () => {
           label="Next"
           margin="medium"
           onClick={() => {
+            setNavigation(navigation => ({
+              ...navigation,
+              hasStarted: true,
+            }));
+
             browserHistory.push('/demographic');
           }}
         />

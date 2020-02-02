@@ -7,12 +7,19 @@ import { useGlobalState } from './hooks';
 import { colors } from './constants';
 
 const App: React.FC = () => {
+  const [globalState] = useGlobalState();
+
+  const { navigation } = globalState;
+  const { hasStarted } = navigation;
+
   return (
     <Grommet theme={theme} full={true}>
       <BrowserRouter>
         <Header />
 
         <Box align="center" pad="medium">
+          {hasStarted ? null : <Redirect to="/" />}
+
           <Switch>
             {navigationalMap.map((entry, index) => (
               <Route
