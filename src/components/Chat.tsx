@@ -92,7 +92,9 @@ const Chat: React.FC<Props> = props => {
           return (
             <Box>
               {inferenceQuote ? (
-                <InferenceQuote>{inferenceQuote}</InferenceQuote>
+                <InferenceQuote tooltipText="The sender saw this message last">
+                  {inferenceQuote}
+                </InferenceQuote>
               ) : null}
 
               <Bubble {...props} renderUsernameOnMessage={true} />
