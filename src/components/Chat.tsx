@@ -68,12 +68,16 @@ const Chat: React.FC<Props> = props => {
     return () => {
       timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
     };
+
+    /* eslint-disable-next-line */
   }, []);
 
   useEffect(() => {
     if (transformedMessages.length === timedMessages.length) {
       onAnimationEnd?.();
     }
+
+    /* eslint-disable-next-line */
   }, [timedMessages]);
 
   return (
