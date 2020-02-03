@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button, TextInput } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 import { ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
+import { urls } from '../constants';
 
 const Feedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
@@ -93,8 +95,16 @@ const Feedback: React.FC = () => {
           type="submit"
           label="Done"
           disabled={isInvalidForm}
-          onClick={() => {
-            browserHistory.push('/thank-you');
+          onClick={async () => {
+            try {
+              await axios.post(urls.server.endpoints.surveyResult, data);
+
+              browserHistory.push('/thank-you');
+            } catch (error) {
+              alert(
+                'An error has occurred. Please inform the survey conductor.',
+              );
+            }
           }}
         />
       </Box>
