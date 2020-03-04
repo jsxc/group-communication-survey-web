@@ -1,9 +1,9 @@
 import { random } from '../../../utilities';
 
-export const constructRadioOptions = (label: string, index: number) => {
+export const constructRadioOptions = (label: string) => {
   return {
     id: randomId(),
-    value: String(index),
+    value: label,
     label,
   };
 };

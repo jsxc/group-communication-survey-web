@@ -19,7 +19,23 @@ const Demographic: React.FC = () => {
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { isMale, age, region } = data;
+  const {
+    'Specify your sex:': sex,
+    'How old are you?': age,
+    'Which region are you from?': region,
+  } = data;
+
+  const setSex = (sex: string) => {
+    return setData(data => ({ ...data, 'Specify your sex:': sex }));
+  };
+
+  const setAge = (age: number) => {
+    return setData(data => ({ ...data, 'How old are you?': age }));
+  };
+
+  const setRegion = (region: string) => {
+    return setData(data => ({ ...data, 'Which region are you from?': region }));
+  };
 
   const [state, setState] = useState({
     hasAgeBeenBlurred: false,
@@ -30,7 +46,7 @@ const Demographic: React.FC = () => {
   const browserHistory = useHistory();
 
   const validateSexField = () => {
-    if (isNull(isMale)) {
+    if (isNull(sex)) {
       return 'Required';
     }
 
@@ -77,24 +93,10 @@ const Demographic: React.FC = () => {
         <RadioButtonGroup
           name="question-1"
           options={['Male', 'Female']}
-          value={(() => {
-            if (isNull(isMale)) {
-              return '';
-            }
-
-            if (isMale) {
-              return 'Male';
-            }
-
-            return 'Female';
-          })()}
+          value={sex}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              isMale: value === 'Male',
-            }));
+            setSex(value);
           }}
         />
       </Box>
@@ -108,11 +110,7 @@ const Demographic: React.FC = () => {
           value={age || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              age: value ? parseInt(value) : null,
-            }));
+            setAge(value ? parseInt(value) : null);
           }}
           onBlur={() => {
             setState(state => ({
@@ -136,60 +134,42 @@ const Demographic: React.FC = () => {
               name: 'Africa',
               color: region === 'Africa' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'Africa',
-                }));
+                setRegion('Africa');
               },
             },
             {
               name: 'Europe',
               color: region === 'Europe' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'Europe',
-                }));
+                setRegion('Europe');
               },
             },
             {
               name: 'Asia',
               color: region === 'Asia' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'Asia',
-                }));
+                setRegion('Asia');
               },
             },
             {
               name: 'North America',
               color: region === 'North America' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'North America',
-                }));
+                setRegion('North America');
               },
             },
             {
               name: 'South America',
               color: region === 'South America' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'South America',
-                }));
+                setRegion('South America');
               },
             },
             {
               name: 'Australia',
               color: region === 'Australia' ? 'red' : 'grey',
               onClick: () => {
-                setData(data => ({
-                  ...data,
-                  region: 'Australia',
-                }));
+                setRegion('Australia');
               },
             },
           ]}

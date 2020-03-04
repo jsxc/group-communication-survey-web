@@ -3,7 +3,7 @@ import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from './utilities';
-import { isNull, replaceAt } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const FifthChatFeedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
@@ -12,31 +12,26 @@ const FifthChatFeedback: React.FC = () => {
   const { setData } = globalActions;
 
   const { fifthChatFeedback } = data;
-  const [
-    firstQuestionChoice,
-    secondQuestionChoice,
-    thirdQuestionChoice,
-  ] = fifthChatFeedback;
+  const {
+    'How well did you understand the conversation?': firstQuestionChoice,
+    'How many people reported sick?': secondQuestionChoice,
+    'Is the day going smoothly?': thirdQuestionChoice,
+  } = fifthChatFeedback;
 
   const browserHistory = useHistory();
 
-  const setQuestionChoice = (questionIndex: number) => (
-    choiceIndex: number,
-  ) => {
-    setData(data => {
-      const updatedFeedback = replaceAt<number>(questionIndex)(choiceIndex)(
-        data.fifthChatFeedback,
-      );
-
-      return {
-        ...data,
-        fifthChatFeedback: updatedFeedback,
-      };
-    });
+  const setQuestionChoice = (question: string) => (choice: string) => {
+    return setData(data => ({
+      ...data,
+      fifthChatFeedback: {
+        ...data.fifthChatFeedback,
+        [question]: choice,
+      },
+    }));
   };
 
-  const validateRadioFieldChoice = (index: number) => {
-    const choice = fifthChatFeedback[index];
+  const validateRadioFieldChoice = (question: string) => {
+    const choice = fifthChatFeedback[question];
 
     if (isNull(choice)) {
       return 'Required';
@@ -59,9 +54,15 @@ const FifthChatFeedback: React.FC = () => {
     'There was too little information about this',
   ].map(constructRadioOptions);
 
-  const firstQuestionChoiceError = validateRadioFieldChoice(0);
-  const secondQuestionChoiceError = validateRadioFieldChoice(1);
-  const thirdQuestionChoiceError = validateRadioFieldChoice(2);
+  const firstQuestionChoiceError = validateRadioFieldChoice(
+    'How well did you understand the conversation?',
+  );
+  const secondQuestionChoiceError = validateRadioFieldChoice(
+    'How many people reported sick?',
+  );
+  const thirdQuestionChoiceError = validateRadioFieldChoice(
+    'Is the day going smoothly?',
+  );
 
   const isInvalidForm =
     Boolean(firstQuestionChoiceError) ||
@@ -83,18 +84,12 @@ const FifthChatFeedback: React.FC = () => {
           direction="row"
           name="question-1"
           options={firstQuestionOptions}
-          value={(() => {
-            if (isNull(firstQuestionChoice)) {
-              return '';
-            }
-
-            return String(firstQuestionChoice);
-          })()}
+          value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(0)(choice);
+            setQuestionChoice('How well did you understand the conversation?')(
+              value,
+            );
           }}
         />
       </Box>
@@ -105,18 +100,10 @@ const FifthChatFeedback: React.FC = () => {
         <RadioButtonGroup
           name="question-2"
           options={secondQuestionOptions}
-          value={(() => {
-            if (isNull(secondQuestionChoice)) {
-              return '';
-            }
-
-            return String(secondQuestionChoice);
-          })()}
+          value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(1)(choice);
+            setQuestionChoice('How many people reported sick?')(value);
           }}
         />
       </Box>
@@ -127,18 +114,10 @@ const FifthChatFeedback: React.FC = () => {
         <RadioButtonGroup
           name="question-3"
           options={thirdQuestionOptions}
-          value={(() => {
-            if (isNull(thirdQuestionChoice)) {
-              return '';
-            }
-
-            return String(thirdQuestionChoice);
-          })()}
+          value={thirdQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(2)(choice);
+            setQuestionChoice('Is the day going smoothly?')(value);
           }}
         />
       </Box>

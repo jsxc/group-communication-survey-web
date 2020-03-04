@@ -3,7 +3,7 @@ import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from './utilities';
-import { isNull, replaceAt } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const ThirdChatFeedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
@@ -12,31 +12,26 @@ const ThirdChatFeedback: React.FC = () => {
   const { setData } = globalActions;
 
   const { thirdChatFeedback } = data;
-  const [
-    firstQuestionChoice,
-    secondQuestionChoice,
-    thirdQuestionChoice,
-  ] = thirdChatFeedback;
+  const {
+    'How well did you understand the conversation?': firstQuestionChoice,
+    'Did Karl prepare the presentation?': secondQuestionChoice,
+    'Did Karl prepare the invitation?': thirdQuestionChoice,
+  } = thirdChatFeedback;
 
   const browserHistory = useHistory();
 
-  const setQuestionChoice = (questionIndex: number) => (
-    choiceIndex: number,
-  ) => {
-    setData(data => {
-      const updatedFeedback = replaceAt<number>(questionIndex)(choiceIndex)(
-        data.thirdChatFeedback,
-      );
-
-      return {
-        ...data,
-        thirdChatFeedback: updatedFeedback,
-      };
-    });
+  const setQuestionChoice = (question: string) => (choice: string) => {
+    return setData(data => ({
+      ...data,
+      thirdChatFeedback: {
+        ...data.thirdChatFeedback,
+        [question]: choice,
+      },
+    }));
   };
 
-  const validateRadioFieldChoice = (index: number) => {
-    const choice = thirdChatFeedback[index];
+  const validateRadioFieldChoice = (question: string) => {
+    const choice = thirdChatFeedback[question];
 
     if (isNull(choice)) {
       return 'Required';
@@ -65,9 +60,15 @@ const ThirdChatFeedback: React.FC = () => {
     'There was too little information about this',
   ].map(constructRadioOptions);
 
-  const firstQuestionChoiceError = validateRadioFieldChoice(0);
-  const secondQuestionChoiceError = validateRadioFieldChoice(1);
-  const thirdQuestionChoiceError = validateRadioFieldChoice(2);
+  const firstQuestionChoiceError = validateRadioFieldChoice(
+    'How well did you understand the conversation?',
+  );
+  const secondQuestionChoiceError = validateRadioFieldChoice(
+    'Did Karl prepare the presentation?',
+  );
+  const thirdQuestionChoiceError = validateRadioFieldChoice(
+    'Did Karl prepare the invitation?',
+  );
 
   const isInvalidForm =
     Boolean(firstQuestionChoiceError) ||
@@ -89,18 +90,12 @@ const ThirdChatFeedback: React.FC = () => {
           direction="row"
           name="question-1"
           options={firstQuestionOptions}
-          value={(() => {
-            if (isNull(firstQuestionChoice)) {
-              return '';
-            }
-
-            return String(firstQuestionChoice);
-          })()}
+          value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(0)(choice);
+            setQuestionChoice('How well did you understand the conversation?')(
+              value,
+            );
           }}
         />
       </Box>
@@ -111,18 +106,10 @@ const ThirdChatFeedback: React.FC = () => {
         <RadioButtonGroup
           name="question-2"
           options={secondQuestionOptions}
-          value={(() => {
-            if (isNull(secondQuestionChoice)) {
-              return '';
-            }
-
-            return String(secondQuestionChoice);
-          })()}
+          value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(1)(choice);
+            setQuestionChoice('Did Karl prepare the presentation?')(value);
           }}
         />
       </Box>
@@ -133,18 +120,10 @@ const ThirdChatFeedback: React.FC = () => {
         <RadioButtonGroup
           name="question-3"
           options={thirdQuestionOptions}
-          value={(() => {
-            if (isNull(thirdQuestionChoice)) {
-              return '';
-            }
-
-            return String(thirdQuestionChoice);
-          })()}
+          value={thirdQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(2)(choice);
+            setQuestionChoice('Did Karl prepare the invitation?')(value);
           }}
         />
       </Box>

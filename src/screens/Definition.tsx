@@ -10,7 +10,16 @@ const Definition: React.FC = () => {
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { definition } = data;
+  const {
+    'What do you think are properties that define group communication?': definition,
+  } = data;
+
+  const setDefinition = (definition: string) => {
+    return setData(data => ({
+      ...data,
+      'What do you think are properties that define group communication?': definition,
+    }));
+  };
 
   const [state, setState] = useState({
     hasDefinitionBeenBlurred: false,
@@ -43,11 +52,7 @@ const Definition: React.FC = () => {
           value={definition || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              definition: value,
-            }));
+            setDefinition(value);
           }}
           onBlur={() => {
             setState(state => ({

@@ -3,7 +3,7 @@ import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from './utilities';
-import { isNull, replaceAt } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const FirstChatFeedback: React.FC = () => {
   const [globalState, globalActions] = useGlobalState();
@@ -12,27 +12,25 @@ const FirstChatFeedback: React.FC = () => {
   const { setData } = globalActions;
 
   const { firstChatFeedback } = data;
-  const [firstQuestionChoice, secondQuestionChoice] = firstChatFeedback;
+  const {
+    'How well did you understand the conversation?': firstQuestionChoice,
+    'Did Lara watch the game?': secondQuestionChoice,
+  } = firstChatFeedback;
+
+  const setQuestionChoice = (question: string) => (choice: string) => {
+    return setData(data => ({
+      ...data,
+      firstChatFeedback: {
+        ...data.firstChatFeedback,
+        [question]: choice,
+      },
+    }));
+  };
 
   const browserHistory = useHistory();
 
-  const setQuestionChoice = (questionIndex: number) => (
-    choiceIndex: number,
-  ) => {
-    setData(data => {
-      const updatedFeedback = replaceAt<number>(questionIndex)(choiceIndex)(
-        data.firstChatFeedback,
-      );
-
-      return {
-        ...data,
-        firstChatFeedback: updatedFeedback,
-      };
-    });
-  };
-
-  const validateRadioFieldChoice = (index: number) => {
-    const choice = firstChatFeedback[index];
+  const validateRadioFieldChoice = (question: string) => {
+    const choice = firstChatFeedback[question];
 
     if (isNull(choice)) {
       return 'Required';
@@ -53,8 +51,12 @@ const FirstChatFeedback: React.FC = () => {
     'There was too little information about this',
   ].map(constructRadioOptions);
 
-  const firstQuestionChoiceError = validateRadioFieldChoice(0);
-  const secondQuestionChoiceError = validateRadioFieldChoice(1);
+  const firstQuestionChoiceError = validateRadioFieldChoice(
+    'How well did you understand the conversation?',
+  );
+  const secondQuestionChoiceError = validateRadioFieldChoice(
+    'Did Lara watch the game?',
+  );
 
   const isInvalidForm =
     Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
@@ -74,18 +76,12 @@ const FirstChatFeedback: React.FC = () => {
           direction="row"
           name="question-1"
           options={firstQuestionOptions}
-          value={(() => {
-            if (isNull(firstQuestionChoice)) {
-              return '';
-            }
-
-            return String(firstQuestionChoice);
-          })()}
+          value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(0)(choice);
+            setQuestionChoice('How well did you understand the conversation?')(
+              value,
+            );
           }}
         />
       </Box>
@@ -96,18 +92,10 @@ const FirstChatFeedback: React.FC = () => {
         <RadioButtonGroup
           name="question-2"
           options={secondQuestionOptions}
-          value={(() => {
-            if (isNull(secondQuestionChoice)) {
-              return '';
-            }
-
-            return String(secondQuestionChoice);
-          })()}
+          value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            const choice = Number(value);
-
-            setQuestionChoice(1)(choice);
+            setQuestionChoice('Did Lara watch the game?')(value);
           }}
         />
       </Box>

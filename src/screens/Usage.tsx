@@ -10,7 +10,16 @@ const Usage: React.FC = () => {
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { usesGroupChatClient } = data;
+  const {
+    'Do you use group chat clients such as WhatsApp?': usesGroupChatClient,
+  } = data;
+
+  const setUsesGroupChatClient = (usesGroupChatClient: string) => {
+    return setData(data => ({
+      ...data,
+      'Do you use group chat clients such as WhatsApp?': usesGroupChatClient,
+    }));
+  };
 
   const browserHistory = useHistory();
 
@@ -35,24 +44,10 @@ const Usage: React.FC = () => {
         <RadioButtonGroup
           name="question-1"
           options={['Yes', 'No']}
-          value={(() => {
-            if (isNull(usesGroupChatClient)) {
-              return '';
-            }
-
-            if (usesGroupChatClient) {
-              return 'Yes';
-            }
-
-            return 'No';
-          })()}
+          value={usesGroupChatClient}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              usesGroupChatClient: value === 'Yes',
-            }));
+            setUsesGroupChatClient(value);
           }}
         />
       </Box>
@@ -64,7 +59,9 @@ const Usage: React.FC = () => {
           disabled={isInvalidForm}
           onClick={() => {
             browserHistory.push(
-              usesGroupChatClient ? '/usage-statistics' : '/explanation',
+              usesGroupChatClient === 'Yes'
+                ? '/usage-statistics'
+                : '/explanation',
             );
           }}
         />

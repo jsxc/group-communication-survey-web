@@ -12,11 +12,39 @@ const UsageStatistics: React.FC = () => {
   const { setData } = globalActions;
 
   const {
-    groupsCount,
-    regularlyUsedGroupsCount,
-    smallestGroupMembersCount,
-    largestGroupMembersCount,
+    'How many groups do you have?': groupsCount,
+    'How many groups do you use regularly?': regularlyUsedGroupsCount,
+    'How many members does the smallest group have?': smallestGroupMembersCount,
+    'How many members does the largest group have?': largestGroupMembersCount,
   } = data;
+
+  const setGroupsCount = (groupsCount: number) => {
+    return setData(data => ({
+      ...data,
+      'How many groups do you have?': groupsCount,
+    }));
+  };
+
+  const setRegularlyUsedGroupsCount = (regularlyUsedGroupsCount: number) => {
+    return setData(data => ({
+      ...data,
+      'How many groups do you use regularly?': regularlyUsedGroupsCount,
+    }));
+  };
+
+  const setSmallestGroupMembersCount = (smallestGroupMembersCount: number) => {
+    return setData(data => ({
+      ...data,
+      'How many members does the smallest group have?': smallestGroupMembersCount,
+    }));
+  };
+
+  const setLargestGroupMembersCount = (largestGroupMembersCount: number) => {
+    return setData(data => ({
+      ...data,
+      'How many members does the largest group have?': largestGroupMembersCount,
+    }));
+  };
 
   const [state, setState] = useState({
     hasGroupsCountBeenBlurred: false,
@@ -125,11 +153,7 @@ const UsageStatistics: React.FC = () => {
           value={groupsCount || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              groupsCount: value ? parseInt(value) : null,
-            }));
+            setGroupsCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
             setState(state => ({
@@ -153,11 +177,7 @@ const UsageStatistics: React.FC = () => {
           value={regularlyUsedGroupsCount || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              regularlyUsedGroupsCount: value ? parseInt(value) : null,
-            }));
+            setRegularlyUsedGroupsCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
             setState(state => ({
@@ -183,11 +203,7 @@ const UsageStatistics: React.FC = () => {
           value={smallestGroupMembersCount || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              smallestGroupMembersCount: value ? parseInt(value) : null,
-            }));
+            setSmallestGroupMembersCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
             setState(state => ({
@@ -213,11 +229,7 @@ const UsageStatistics: React.FC = () => {
           value={largestGroupMembersCount || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              largestGroupMembersCount: value ? parseInt(value) : null,
-            }));
+            setLargestGroupMembersCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
             setState(state => ({

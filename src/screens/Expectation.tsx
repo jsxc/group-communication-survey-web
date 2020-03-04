@@ -10,7 +10,14 @@ const Expectation: React.FC = () => {
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { expectation } = data;
+  const { 'What are you expecting from a digital group?': expectation } = data;
+
+  const setExpectation = (expectation: string) => {
+    return setData(data => ({
+      ...data,
+      'What are you expecting from a digital group?': expectation,
+    }));
+  };
 
   const [state, setState] = useState({
     hasExpectationBeenBlurred: false,
@@ -43,11 +50,7 @@ const Expectation: React.FC = () => {
           value={expectation || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              expectation: value,
-            }));
+            setExpectation(value);
           }}
           onBlur={() => {
             setState(state => ({

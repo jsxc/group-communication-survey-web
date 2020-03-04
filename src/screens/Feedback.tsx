@@ -12,7 +12,24 @@ const Feedback: React.FC = () => {
   const { data } = globalState;
   const { setData } = globalActions;
 
-  const { name, opinionOnRepresentations } = data;
+  const {
+    'What is your name?': name,
+    'What do you think of the new representations?': opinionOnRepresentations,
+  } = data;
+
+  const setName = (name: string) => {
+    return setData(data => ({
+      ...data,
+      'What is your name?': name,
+    }));
+  };
+
+  const setOpinionOnRepresentations = (opinionOnRepresentations: string) => {
+    return setData(data => ({
+      ...data,
+      'What do you think of the new representations?': opinionOnRepresentations,
+    }));
+  };
 
   const [state, setState] = useState({
     hasOpinionOnRepresentationsBeenBlurred: false,
@@ -38,10 +55,7 @@ const Feedback: React.FC = () => {
       <Heading level="3">Almost there. Only the following questions.</Heading>
 
       <Box margin="medium">
-        <Heading level="4">
-          If you would like, you could tell me your name here so that I may ask
-          you follow-up questions.
-        </Heading>
+        <Heading level="4">What is your name?</Heading>
 
         <TextInput
           name="question-1"
@@ -49,11 +63,7 @@ const Feedback: React.FC = () => {
           placeholder="Your name (optional)"
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              name: value,
-            }));
+            setName(value);
           }}
         />
       </Box>
@@ -68,11 +78,7 @@ const Feedback: React.FC = () => {
           value={opinionOnRepresentations || ''}
           onChange={event => {
             const { value } = event.target;
-
-            setData(data => ({
-              ...data,
-              opinionOnRepresentations: value,
-            }));
+            setOpinionOnRepresentations(value);
           }}
           onBlur={() => {
             setState(state => ({
