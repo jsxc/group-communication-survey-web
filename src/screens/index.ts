@@ -8,6 +8,7 @@ export { default as Explanation } from './Explanation';
 export { default as FurtherExplanation } from './FurtherExplanation';
 export { default as Feedback } from './Feedback';
 export { default as ThankYou } from './ThankYou';
+export { FirstExplanation } from './explanations';
 export {
   FirstChat,
   SecondChat,

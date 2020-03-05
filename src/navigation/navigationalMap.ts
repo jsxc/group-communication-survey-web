@@ -7,6 +7,7 @@ import {
   UsageStatistics,
   Explanation,
   FurtherExplanation,
+  FirstExplanation,
   FirstChat,
   FirstChatFeedback,
   SecondChat,
@@ -24,6 +25,7 @@ import {
 const navigationalMap = [
   { path: '/', screen: Welcome },
   { path: '/demographic', screen: Demographic },
+  { path: '/explanation/1', screen: FirstExplanation },
   { path: '/definition', screen: Definition },
   { path: '/expectation', screen: Expectation },
   { path: '/usage', screen: Usage },
