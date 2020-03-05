@@ -4,6 +4,17 @@
 
 <h1 align="center">Group Communication Survey Web</h1>
 
+## Production
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+
+### Running
+
+- `❯ docker-compose up -d --build`
+
 ## Development
 
 ### Prerequisites
