@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
-import { urls } from '../constants';
+import { match } from '../utilities';
+import { uris } from '../constants';
 
 const Feedback: React.FC = () => {
   const browserHistory = useHistory();
@@ -100,7 +101,12 @@ const Feedback: React.FC = () => {
           disabled={isInvalidForm}
           onClick={async () => {
             try {
-              await axios.post(urls.server.endpoints.surveyResult, data);
+              const uri = match([
+                { if: 'development', then: uris.server.development },
+                { if: 'production', then: uris.server.production },
+              ])(process.env.NODE_ENV);
+
+              await axios.post(uri, data);
 
               browserHistory.push('/thank-you');
             } catch (error) {

@@ -1,8 +1,7 @@
-export const urls = {
+export const uris = {
   server: {
-    endpoints: {
-      surveyResult: 'https://api.jsxc.dev/api/survey-result',
-    },
+    development: 'http://localhost:4000/api/survey-result',
+    production: 'https://api.jsxc.dev/api/survey-result',
   },
 };
 
