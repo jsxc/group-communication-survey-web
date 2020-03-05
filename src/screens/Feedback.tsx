@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { Box, Form, Heading, TextArea, Button, TextInput } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import Spinner from 'react-spinners/MoonLoader';
 import axios from 'axios';
 import { ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
 import { match } from '../utilities';
-import { uris } from '../constants';
+import { uris, colors } from '../constants';
 
 const Feedback: React.FC = () => {
   const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
   const [state, setState] = useState({
     hasOpinionOnRepresentationsBeenBlurred: false,
+    isFetching: false,
   });
 
   const { data } = globalState;
@@ -21,7 +23,7 @@ const Feedback: React.FC = () => {
     'What is your name?': name,
     'What do you think of the new representations?': opinionOnRepresentations,
   } = data;
-  const { hasOpinionOnRepresentationsBeenBlurred } = state;
+  const { hasOpinionOnRepresentationsBeenBlurred, isFetching } = state;
 
   const setName = (name: string) => {
     return setData(data => ({
@@ -95,27 +97,33 @@ const Feedback: React.FC = () => {
       </Box>
 
       <Box align="center" margin="medium">
-        <Button
-          type="submit"
-          label="Done"
-          disabled={isInvalidForm}
-          onClick={async () => {
-            try {
-              const uri = match([
-                { if: 'development', then: uris.server.development },
-                { if: 'production', then: uris.server.production },
-              ])(process.env.NODE_ENV);
+        {isFetching ? null : (
+          <Button
+            type="submit"
+            label="Done"
+            disabled={isInvalidForm}
+            onClick={async () => {
+              try {
+                const uri = match([
+                  { if: 'development', then: uris.server.development },
+                  { if: 'production', then: uris.server.production },
+                ])(process.env.NODE_ENV);
 
-              await axios.post(uri, data);
+                setState(state => ({ ...state, isFetching: true }));
+                await axios.post(uri, data);
+                setState(state => ({ ...state, isFetching: false }));
 
-              browserHistory.push('/thank-you');
-            } catch (error) {
-              alert(
-                'An error has occurred. Please inform the survey conductor.',
-              );
-            }
-          }}
-        />
+                browserHistory.push('/thank-you');
+              } catch (error) {
+                alert(
+                  'An error has occurred. Please inform the survey conductor.',
+                );
+              }
+            }}
+          />
+        )}
+
+        <Spinner loading={isFetching} size={30} color={colors.PRIMARY} />
       </Box>
     </Form>
   );
