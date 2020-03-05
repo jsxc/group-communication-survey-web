@@ -61,6 +61,7 @@ const ThirdChat: React.FC = () => {
     <>
       <Chat
         messages={messages}
+        animationInterval={process.env.NODE_ENV === 'development' ? 100 : 1000}
         onAnimationEnd={() => {
           setAnimatedEnded(true);
         }}
