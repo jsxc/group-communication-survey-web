@@ -68,7 +68,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           Even if I'm not allowed to talk, I always have the possibility to do
           so.
         </Heading>
@@ -88,7 +88,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I am always able to hear everyone speaking.</Heading>
+        <Heading level="4">I am always able to hear everyone speaking.</Heading>
 
         <RadioButtonGroup
           name="question-2"
@@ -105,7 +105,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I am always attentive during a discussion.</Heading>
+        <Heading level="4">I am always attentive during a discussion.</Heading>
 
         <RadioButtonGroup
           name="question-3"
@@ -122,7 +122,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           I always understand every statement acousticly and contentually.
         </Heading>
 
@@ -141,7 +141,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I am never distracted during a discussion.</Heading>
+        <Heading level="4">I am never distracted during a discussion.</Heading>
 
         <RadioButtonGroup
           name="question-5"
@@ -158,7 +158,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I always know who is talking.</Heading>
+        <Heading level="4">I always know who is talking.</Heading>
 
         <RadioButtonGroup
           name="question-6"
@@ -173,7 +173,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I always know the person who is speaking.</Heading>
+        <Heading level="4">I always know the person who is speaking.</Heading>
 
         <RadioButtonGroup
           name="question-7"
@@ -190,7 +190,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">I always know every participant in a group.</Heading>
+        <Heading level="4">I always know every participant in a group.</Heading>
 
         <RadioButtonGroup
           name="question-8"
@@ -207,7 +207,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           If there are no tapping devices a single member can not prove that
           someone said something.
         </Heading>
@@ -227,7 +227,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           If there are no tapping devices a single member can not prove that
           someone was a member of a specific group.
         </Heading>
@@ -247,7 +247,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           It is sometimes important that no member in a group can prove that
           someone said something.
         </Heading>
@@ -267,7 +267,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           Confidential private topics are only discussed in small groups.
         </Heading>
 
@@ -286,7 +286,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           I always leave a group with an announcement.
         </Heading>
 
@@ -305,7 +305,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="5">
+        <Heading level="4">
           If I want to leave a group in my favorite chat app, I will always give
           a reason.
         </Heading>
