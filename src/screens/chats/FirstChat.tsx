@@ -93,7 +93,7 @@ const FirstChat: React.FC = () => {
           label="Next"
           disabled={!hasAnimatedEnded}
           onClick={() => {
-            browserHistory.push('/chat-1-feedback');
+            browserHistory.push('/feedback/1');
           }}
         />
       </Box>

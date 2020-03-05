@@ -73,7 +73,7 @@ const ThirdChat: React.FC = () => {
           label="Next"
           disabled={!hasAnimatedEnded}
           onClick={() => {
-            browserHistory.push('/chat-3-feedback');
+            browserHistory.push('/feedback/3');
           }}
         />
       </Box>

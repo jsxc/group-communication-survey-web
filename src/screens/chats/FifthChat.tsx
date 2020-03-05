@@ -70,7 +70,7 @@ const FifthChat: React.FC = () => {
           label="Next"
           disabled={!hasAnimatedEnded}
           onClick={() => {
-            browserHistory.push('/chat-5-feedback');
+            browserHistory.push('/feedback/5');
           }}
         />
       </Box>

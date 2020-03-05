@@ -100,7 +100,7 @@ const SecondChat: React.FC = () => {
           label="Next"
           disabled={!hasAnimatedEnded}
           onClick={() => {
-            browserHistory.push('/chat-2-feedback');
+            browserHistory.push('/feedback/2');
           }}
         />
       </Box>

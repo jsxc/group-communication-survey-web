@@ -105,7 +105,7 @@ const FirstChatFeedback: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/chat-2');
+            browserHistory.push('/chats/2');
           }}
         />
       </Box>

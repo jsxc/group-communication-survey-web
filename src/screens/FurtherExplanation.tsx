@@ -29,7 +29,7 @@ const FurtherExplanation: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push('/chat-1');
+            browserHistory.push('/chats/1');
           }}
         />
       </Box>
