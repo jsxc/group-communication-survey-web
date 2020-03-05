@@ -9,13 +9,13 @@ const FirstExplanation: React.FC = () => {
     <>
       <Box margin="medium">
         <Paragraph>
-          In this survey we define a group as set of people who like to
+          In this survey we define a group as a set of people who like to
           communicate with each other. This can be a group of workmates, school
           friends, relatives or cooking enthusiasts.
         </Paragraph>
 
         <Paragraph>
-          The term "group chat" referes to your favorite digital messenger like
+          The term "group chat" refers to your favorite digital messenger like
           WhatsApp, Threema, Signal or whatever you are using.
         </Paragraph>
 
