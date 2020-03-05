@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
-import { constructRadioOptions } from '../chats-feedback/utilities'; /* TODO */
+import { constructRadioOptions } from '../chats-feedback/utilities';
 import { isNull, any } from '../../utilities';
 
 const FirstQuestion: React.FC = () => {
@@ -13,46 +13,46 @@ const FirstQuestion: React.FC = () => {
   const { setData } = globalActions;
 
   const {
-    'Even if I am not allowed to talk, I always have the possibility to do so': firstStatementChoice,
-    'I am always able to hear everyone speaking': secondStatementChoice,
-    'I am always attentive during a discussion': thirdStatementChoice,
-    'I always understand every statement acousticly and contentually': fourthStatementChoice,
-    'I am never distracted during a discussion': fifthStatementChoice,
-    'I always know who is talking': sixthStatementChoice,
-    'I always know the person who is speaking': seventhStatementChoice,
-    'I always know every participant in a group': eighthStatementChoice,
-    'If there are no tapping devices a single member can not prove that someone said something': ninthStatementChoice,
-    'If there are no tapping devices a single member can not prove that someone was a member of a specific group': tenthStatementChoice,
-    'It is sometimes important that no member in a group can prove that someone said something': eleventhStatementChoice,
-    'Confidential private topics are only discussed in small groups': twelfthStatementChoice,
-    'I always leave a group with an announcement': thirteenthStatementChoice,
-    'If I want to leave a group in my favorite chat app, I will always give a reason': fourteenthStatementChoice,
+    'Even if I am not allowed to talk, I always have the possibility to do so': firstQuestionChoice,
+    'I am always able to hear everyone speaking': secondQuestionChoice,
+    'I am always attentive during a discussion': thirdQuestionChoice,
+    'I always understand every statement acousticly and contentually': fourthQuestionChoice,
+    'I am never distracted during a discussion': fifthQuestionChoice,
+    'I always know who is talking': sixthQuestionChoice,
+    'I always know the person who is speaking': seventhQuestionChoice,
+    'I always know every participant in a group': eighthQuestionChoice,
+    'If there are no tapping devices a single member can not prove that someone said something': ninthQuestionChoice,
+    'If there are no tapping devices a single member can not prove that someone was a member of a specific group': tenthQuestionChoice,
+    'It is sometimes important that no member in a group can prove that someone said something': eleventhQuestionChoice,
+    'Confidential private topics are only discussed in small groups': twelfthQuestionChoice,
+    'I always leave a group with an announcement': thirteenthQuestionChoice,
+    'If I want to leave a group in my favorite chat app, I will always give a reason': fourteenthQuestionChoice,
   } = data;
 
-  const setStatementChoice = (statement: string) => (choice: string) => {
+  const setQuestionChoice = (question: string) => (choice: string) => {
     return setData(data => ({
       ...data,
-      [statement]: choice,
+      [question]: choice,
     }));
   };
 
   const options = ['0', '1', '2', '3', '4'];
 
   const isInvalidForm = any(isNull)([
-    firstStatementChoice,
-    secondStatementChoice,
-    thirdStatementChoice,
-    fourthStatementChoice,
-    fifthStatementChoice,
-    sixthStatementChoice,
-    seventhStatementChoice,
-    eighthStatementChoice,
-    ninthStatementChoice,
-    tenthStatementChoice,
-    eleventhStatementChoice,
-    twelfthStatementChoice,
-    thirteenthStatementChoice,
-    fourteenthStatementChoice,
+    firstQuestionChoice,
+    secondQuestionChoice,
+    thirdQuestionChoice,
+    fourthQuestionChoice,
+    fifthQuestionChoice,
+    sixthQuestionChoice,
+    seventhQuestionChoice,
+    eighthQuestionChoice,
+    ninthQuestionChoice,
+    tenthQuestionChoice,
+    eleventhQuestionChoice,
+    twelfthQuestionChoice,
+    thirteenthQuestionChoice,
+    fourteenthQuestionChoice,
   ]);
 
   return (
@@ -77,10 +77,10 @@ const FirstQuestion: React.FC = () => {
           name="question-1"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={firstStatementChoice}
+          value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'Even if I am not allowed to talk, I always have the possibility to do so',
             )(value);
           }}
@@ -94,10 +94,10 @@ const FirstQuestion: React.FC = () => {
           name="question-2"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={secondStatementChoice}
+          value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I am always able to hear everyone speaking')(
+            setQuestionChoice('I am always able to hear everyone speaking')(
               value,
             );
           }}
@@ -111,10 +111,10 @@ const FirstQuestion: React.FC = () => {
           name="question-3"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={thirdStatementChoice}
+          value={thirdQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I am always attentive during a discussion')(
+            setQuestionChoice('I am always attentive during a discussion')(
               value,
             );
           }}
@@ -130,10 +130,10 @@ const FirstQuestion: React.FC = () => {
           name="question-4"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={fourthStatementChoice}
+          value={fourthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'I always understand every statement acousticly and contentually',
             )(value);
           }}
@@ -147,10 +147,10 @@ const FirstQuestion: React.FC = () => {
           name="question-5"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={fifthStatementChoice}
+          value={fifthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I am never distracted during a discussion')(
+            setQuestionChoice('I am never distracted during a discussion')(
               value,
             );
           }}
@@ -164,10 +164,10 @@ const FirstQuestion: React.FC = () => {
           name="question-6"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={sixthStatementChoice}
+          value={sixthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I always know who is talking')(value);
+            setQuestionChoice('I always know who is talking')(value);
           }}
         />
       </Box>
@@ -179,10 +179,10 @@ const FirstQuestion: React.FC = () => {
           name="question-7"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={seventhStatementChoice}
+          value={seventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I always know the person who is speaking')(
+            setQuestionChoice('I always know the person who is speaking')(
               value,
             );
           }}
@@ -196,10 +196,10 @@ const FirstQuestion: React.FC = () => {
           name="question-8"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={eighthStatementChoice}
+          value={eighthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I always know every participant in a group')(
+            setQuestionChoice('I always know every participant in a group')(
               value,
             );
           }}
@@ -216,10 +216,10 @@ const FirstQuestion: React.FC = () => {
           name="question-9"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={ninthStatementChoice}
+          value={ninthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'If there are no tapping devices a single member can not prove that someone said something',
             )(value);
           }}
@@ -236,10 +236,10 @@ const FirstQuestion: React.FC = () => {
           name="question-10"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={tenthStatementChoice}
+          value={tenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'If there are no tapping devices a single member can not prove that someone was a member of a specific group',
             )(value);
           }}
@@ -256,10 +256,10 @@ const FirstQuestion: React.FC = () => {
           name="question-11"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={eleventhStatementChoice}
+          value={eleventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'It is sometimes important that no member in a group can prove that someone said something',
             )(value);
           }}
@@ -275,10 +275,10 @@ const FirstQuestion: React.FC = () => {
           name="question-12"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={twelfthStatementChoice}
+          value={twelfthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'Confidential private topics are only discussed in small groups',
             )(value);
           }}
@@ -294,10 +294,10 @@ const FirstQuestion: React.FC = () => {
           name="question-13"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={thirteenthStatementChoice}
+          value={thirteenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice('I always leave a group with an announcement')(
+            setQuestionChoice('I always leave a group with an announcement')(
               value,
             );
           }}
@@ -314,10 +314,10 @@ const FirstQuestion: React.FC = () => {
           name="question-14"
           direction="row"
           options={options.map(constructRadioOptions)}
-          value={fourteenthStatementChoice}
+          value={fourteenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
-            setStatementChoice(
+            setQuestionChoice(
               'If I want to leave a group in my favorite chat app, I will always give a reason',
             )(value);
           }}
