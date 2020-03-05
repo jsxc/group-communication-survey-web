@@ -30,7 +30,7 @@ const FirstExplanation: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push('/');
+            browserHistory.push('/questions/1');
           }}
         />
       </Box>

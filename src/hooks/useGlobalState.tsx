@@ -11,6 +11,20 @@ type Data = {
   'Specify your sex:': string;
   'How old are you?': number;
   'Which region are you from?': string;
+  'Even if I am not allowed to talk, I always have the possibility to do so': string;
+  'I am always able to hear everyone speaking': string;
+  'I am always attentive during a discussion': string;
+  'I always understand every statement acousticly and contentually': string;
+  'I am never distracted during a discussion': string;
+  'I always know who is talking': string;
+  'I always know the person who is speaking': string;
+  'I always know every participant in a group': string;
+  'If there are no tapping devices a single member can not prove that someone said something': string;
+  'If there are no tapping devices a single member can not prove that someone was a member of a specific group': string;
+  'It is sometimes important that no member in a group can prove that someone said something': string;
+  'Confidential private topics are only discussed in small groups': string;
+  'I always leave a group with an announcement': string;
+  'If I want to leave a group in my favorite chat app, I will always give a reason': string;
   'What do you think are properties that define group communication?': string;
   'What are you expecting from a digital group?': string;
   'Do you use group chat clients such as WhatsApp?': string;
@@ -65,6 +79,20 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Specify your sex:': null,
       'How old are you?': null,
       'Which region are you from?': null,
+      'Even if I am not allowed to talk, I always have the possibility to do so': null,
+      'I am always able to hear everyone speaking': null,
+      'I am always attentive during a discussion': null,
+      'I always understand every statement acousticly and contentually': null,
+      'I am never distracted during a discussion': null,
+      'I always know who is talking': null,
+      'I always know the person who is speaking': null,
+      'I always know every participant in a group': null,
+      'If there are no tapping devices a single member can not prove that someone said something': null,
+      'If there are no tapping devices a single member can not prove that someone was a member of a specific group': null,
+      'It is sometimes important that no member in a group can prove that someone said something': null,
+      'Confidential private topics are only discussed in small groups': null,
+      'I always leave a group with an announcement': null,
+      'If I want to leave a group in my favorite chat app, I will always give a reason': null,
       'What do you think are properties that define group communication?': null,
       'What are you expecting from a digital group?': null,
       'Do you use group chat clients such as WhatsApp?': null,
@@ -115,6 +143,20 @@ export const GlobalStateProvider: React.FC = props => {
     'Specify your sex:': null,
     'How old are you?': null,
     'Which region are you from?': null,
+    'Even if I am not allowed to talk, I always have the possibility to do so': null,
+    'I am always able to hear everyone speaking': null,
+    'I am always attentive during a discussion': null,
+    'I always understand every statement acousticly and contentually': null,
+    'I am never distracted during a discussion': null,
+    'I always know who is talking': null,
+    'I always know the person who is speaking': null,
+    'I always know every participant in a group': null,
+    'If there are no tapping devices a single member can not prove that someone said something': null,
+    'If there are no tapping devices a single member can not prove that someone was a member of a specific group': null,
+    'It is sometimes important that no member in a group can prove that someone said something': null,
+    'Confidential private topics are only discussed in small groups': null,
+    'I always leave a group with an announcement': null,
+    'If I want to leave a group in my favorite chat app, I will always give a reason': null,
     'What do you think are properties that define group communication?': null,
     'What are you expecting from a digital group?': null,
     'Do you use group chat clients such as WhatsApp?': null,

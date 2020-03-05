@@ -1,6 +1,7 @@
 import {
   Welcome,
   Demographic,
+  FirstQuestion,
   Definition,
   Expectation,
   Usage,
@@ -26,6 +27,7 @@ const navigationalMap = [
   { path: '/', screen: Welcome },
   { path: '/demographic', screen: Demographic },
   { path: '/explanation/1', screen: FirstExplanation },
+  { path: '/questions/1', screen: FirstQuestion },
   { path: '/definition', screen: Definition },
   { path: '/expectation', screen: Expectation },
   { path: '/usage', screen: Usage },
