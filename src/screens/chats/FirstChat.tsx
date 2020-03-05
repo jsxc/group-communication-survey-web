@@ -5,6 +5,9 @@ import { Chat } from '../../components';
 import { users } from './data';
 
 const FirstChat: React.FC = () => {
+  const browserHistory = useHistory();
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const { karl, lara, arthur } = users;
 
   const messages = [
@@ -73,10 +76,6 @@ const FirstChat: React.FC = () => {
       user: karl,
     },
   ];
-
-  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
-
-  const browserHistory = useHistory();
 
   return (
     <>

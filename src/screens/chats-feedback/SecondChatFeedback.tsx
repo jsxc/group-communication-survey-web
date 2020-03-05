@@ -6,6 +6,7 @@ import { constructRadioOptions } from './utilities';
 import { isNull } from '../../utilities';
 
 const SecondChatFeedback: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
 
   const { data } = globalState;
@@ -17,8 +18,6 @@ const SecondChatFeedback: React.FC = () => {
     'Is Arthur alright?': secondQuestionChoice,
     'Does Arthur know the other driver involved in the accident?': thirdQuestionChoice,
   } = secondChatFeedback;
-
-  const browserHistory = useHistory();
 
   const setQuestionChoice = (question: string) => (choice: string) => {
     return setData(data => ({

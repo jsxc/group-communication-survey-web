@@ -7,7 +7,11 @@ import { useGlobalState } from '../hooks';
 import { urls } from '../constants';
 
 const Feedback: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
+  const [state, setState] = useState({
+    hasOpinionOnRepresentationsBeenBlurred: false,
+  });
 
   const { data } = globalState;
   const { setData } = globalActions;
@@ -16,6 +20,7 @@ const Feedback: React.FC = () => {
     'What is your name?': name,
     'What do you think of the new representations?': opinionOnRepresentations,
   } = data;
+  const { hasOpinionOnRepresentationsBeenBlurred } = state;
 
   const setName = (name: string) => {
     return setData(data => ({
@@ -30,14 +35,6 @@ const Feedback: React.FC = () => {
       'What do you think of the new representations?': opinionOnRepresentations,
     }));
   };
-
-  const [state, setState] = useState({
-    hasOpinionOnRepresentationsBeenBlurred: false,
-  });
-
-  const { hasOpinionOnRepresentationsBeenBlurred } = state;
-
-  const browserHistory = useHistory();
 
   const validateOpinionOnRepresentationsField = () => {
     if (!opinionOnRepresentations) {

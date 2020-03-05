@@ -5,12 +5,17 @@ import { ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
 
 const Expectation: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
+  const [state, setState] = useState({
+    hasExpectationBeenBlurred: false,
+  });
 
   const { data } = globalState;
   const { setData } = globalActions;
 
   const { 'What are you expecting from a digital group?': expectation } = data;
+  const { hasExpectationBeenBlurred } = state;
 
   const setExpectation = (expectation: string) => {
     return setData(data => ({
@@ -18,14 +23,6 @@ const Expectation: React.FC = () => {
       'What are you expecting from a digital group?': expectation,
     }));
   };
-
-  const [state, setState] = useState({
-    hasExpectationBeenBlurred: false,
-  });
-
-  const { hasExpectationBeenBlurred } = state;
-
-  const browserHistory = useHistory();
 
   const validateExpectationField = () => {
     if (!expectation) {

@@ -5,7 +5,11 @@ import { ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
 
 const Definition: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
+  const [state, setState] = useState({
+    hasDefinitionBeenBlurred: false,
+  });
 
   const { data } = globalState;
   const { setData } = globalActions;
@@ -13,6 +17,7 @@ const Definition: React.FC = () => {
   const {
     'What do you think are properties that define group communication?': definition,
   } = data;
+  const { hasDefinitionBeenBlurred } = state;
 
   const setDefinition = (definition: string) => {
     return setData(data => ({
@@ -20,14 +25,6 @@ const Definition: React.FC = () => {
       'What do you think are properties that define group communication?': definition,
     }));
   };
-
-  const [state, setState] = useState({
-    hasDefinitionBeenBlurred: false,
-  });
-
-  const { hasDefinitionBeenBlurred } = state;
-
-  const browserHistory = useHistory();
 
   const validateDefinitionField = () => {
     if (!definition) {

@@ -5,6 +5,7 @@ import { useGlobalState } from '../hooks';
 import { isNull } from '../utilities';
 
 const Usage: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
 
   const { data } = globalState;
@@ -20,8 +21,6 @@ const Usage: React.FC = () => {
       'Do you use group chat clients such as WhatsApp?': usesGroupChatClient,
     }));
   };
-
-  const browserHistory = useHistory();
 
   const validateUsesGroupChatClientField = () => {
     if (isNull(usesGroupChatClient)) {

@@ -6,11 +6,10 @@ import { useGlobalState } from '../hooks';
 import { colors } from '../constants';
 
 const Welcome: React.FC = () => {
+  const browserHistory = useHistory();
   const [, globalActions] = useGlobalState();
 
   const { setNavigation } = globalActions;
-
-  const browserHistory = useHistory();
 
   return (
     <Box align="center" margin="large">

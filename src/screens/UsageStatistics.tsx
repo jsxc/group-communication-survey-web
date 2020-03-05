@@ -6,7 +6,14 @@ import { useGlobalState } from '../hooks';
 import { isNull } from '../utilities';
 
 const UsageStatistics: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
+  const [state, setState] = useState({
+    hasGroupsCountBeenBlurred: false,
+    hasRegularlyUsedGroupsCountBeenBlurred: false,
+    hasSmallestGroupMembersCountBeenBlurred: false,
+    hasLargestGroupMembersCountBeenBlurred: false,
+  });
 
   const { data } = globalState;
   const { setData } = globalActions;
@@ -17,6 +24,12 @@ const UsageStatistics: React.FC = () => {
     'How many members does the smallest group have?': smallestGroupMembersCount,
     'How many members does the largest group have?': largestGroupMembersCount,
   } = data;
+  const {
+    hasGroupsCountBeenBlurred,
+    hasRegularlyUsedGroupsCountBeenBlurred,
+    hasSmallestGroupMembersCountBeenBlurred,
+    hasLargestGroupMembersCountBeenBlurred,
+  } = state;
 
   const setGroupsCount = (groupsCount: number) => {
     return setData(data => ({
@@ -45,22 +58,6 @@ const UsageStatistics: React.FC = () => {
       'How many members does the largest group have?': largestGroupMembersCount,
     }));
   };
-
-  const [state, setState] = useState({
-    hasGroupsCountBeenBlurred: false,
-    hasRegularlyUsedGroupsCountBeenBlurred: false,
-    hasSmallestGroupMembersCountBeenBlurred: false,
-    hasLargestGroupMembersCountBeenBlurred: false,
-  });
-
-  const {
-    hasGroupsCountBeenBlurred,
-    hasRegularlyUsedGroupsCountBeenBlurred,
-    hasSmallestGroupMembersCountBeenBlurred,
-    hasLargestGroupMembersCountBeenBlurred,
-  } = state;
-
-  const browserHistory = useHistory();
 
   const validateGroupsCountField = () => {
     const LOWER_BOUND = 0;

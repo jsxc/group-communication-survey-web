@@ -5,6 +5,9 @@ import { Chat } from '../../components';
 import { users } from './data';
 
 const FifthChat: React.FC = () => {
+  const browserHistory = useHistory();
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const { bernhardt, carla, doris } = users;
 
   const messages = [
@@ -50,10 +53,6 @@ const FifthChat: React.FC = () => {
       user: carla,
     },
   ];
-
-  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
-
-  const browserHistory = useHistory();
 
   return (
     <>

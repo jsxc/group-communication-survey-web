@@ -14,7 +14,11 @@ import { useGlobalState } from '../hooks';
 import { isNull } from '../utilities';
 
 const Demographic: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
+  const [state, setState] = useState({
+    hasAgeBeenBlurred: false,
+  });
 
   const { data } = globalState;
   const { setData } = globalActions;
@@ -24,6 +28,7 @@ const Demographic: React.FC = () => {
     'How old are you?': age,
     'Which region are you from?': region,
   } = data;
+  const { hasAgeBeenBlurred } = state;
 
   const setSex = (sex: string) => {
     return setData(data => ({ ...data, 'Specify your sex:': sex }));
@@ -36,14 +41,6 @@ const Demographic: React.FC = () => {
   const setRegion = (region: string) => {
     return setData(data => ({ ...data, 'Which region are you from?': region }));
   };
-
-  const [state, setState] = useState({
-    hasAgeBeenBlurred: false,
-  });
-
-  const { hasAgeBeenBlurred } = state;
-
-  const browserHistory = useHistory();
 
   const validateSexField = () => {
     if (isNull(sex)) {

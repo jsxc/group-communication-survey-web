@@ -5,6 +5,9 @@ import { Chat } from '../../components';
 import { users } from './data';
 
 const SecondChat: React.FC = () => {
+  const browserHistory = useHistory();
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const { arthur, karl, lara } = users;
 
   const messages = [
@@ -80,10 +83,6 @@ const SecondChat: React.FC = () => {
       user: lara,
     },
   ];
-
-  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
-
-  const browserHistory = useHistory();
 
   return (
     <>

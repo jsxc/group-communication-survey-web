@@ -5,6 +5,9 @@ import { Chat } from '../../components';
 import { users } from './data';
 
 const ThirdChat: React.FC = () => {
+  const browserHistory = useHistory();
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const { ines, karl, richard } = users;
 
   const messages = [
@@ -53,10 +56,6 @@ const ThirdChat: React.FC = () => {
       user: karl,
     },
   ];
-
-  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
-
-  const browserHistory = useHistory();
 
   return (
     <>

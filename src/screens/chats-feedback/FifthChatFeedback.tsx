@@ -6,6 +6,7 @@ import { constructRadioOptions } from './utilities';
 import { isNull } from '../../utilities';
 
 const FifthChatFeedback: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
 
   const { data } = globalState;
@@ -17,8 +18,6 @@ const FifthChatFeedback: React.FC = () => {
     'How many people reported sick?': secondQuestionChoice,
     'Is the day going smoothly?': thirdQuestionChoice,
   } = fifthChatFeedback;
-
-  const browserHistory = useHistory();
 
   const setQuestionChoice = (question: string) => (choice: string) => {
     return setData(data => ({

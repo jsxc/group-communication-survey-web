@@ -6,6 +6,7 @@ import { constructRadioOptions } from './utilities';
 import { isNull } from '../../utilities';
 
 const FirstChatFeedback: React.FC = () => {
+  const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
 
   const { data } = globalState;
@@ -26,8 +27,6 @@ const FirstChatFeedback: React.FC = () => {
       },
     }));
   };
-
-  const browserHistory = useHistory();
 
   const validateRadioFieldChoice = (question: string) => {
     const choice = firstChatFeedback[question];

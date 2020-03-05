@@ -5,6 +5,9 @@ import { Chat } from '../../components';
 import { users } from './data';
 
 const FourthChat: React.FC = () => {
+  const browserHistory = useHistory();
+  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
+
   const { emil, arthur, tim } = users;
 
   const messages = [
@@ -44,10 +47,6 @@ const FourthChat: React.FC = () => {
       user: tim,
     },
   ];
-
-  const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
-
-  const browserHistory = useHistory();
 
   return (
     <>
