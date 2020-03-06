@@ -97,6 +97,8 @@ type Data = {
   "What is your most common reaction if you are added to a group which you don't like to be part of?": string;
   'How often does this happen?': string;
   "What are you doing if you don't want to participate in a digital group?": string;
+  'Which visualization would you like to have integrated in your favorite chat app?': string;
+  'Which feature are you missing in your favorite chat app?': string;
   firstChatFeedback: {
     'How well did you understand the conversation?': string;
     'Did Lara watch the game?': string;
@@ -230,6 +232,8 @@ const GlobalStateContext = createContext<[State, Actions]>([
       "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
       'How often does this happen?': null,
       "What are you doing if you don't want to participate in a digital group?": null,
+      'Which visualization would you like to have integrated in your favorite chat app?': null,
+      'Which feature are you missing in your favorite chat app?': null,
       firstChatFeedback: {
         'How well did you understand the conversation?': null,
         'Did Lara watch the game?': null,
@@ -359,6 +363,8 @@ export const GlobalStateProvider: React.FC = props => {
     "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
     'How often does this happen?': null,
     "What are you doing if you don't want to participate in a digital group?": null,
+    'Which visualization would you like to have integrated in your favorite chat app?': null,
+    'Which feature are you missing in your favorite chat app?': null,
     firstChatFeedback: {
       'How well did you understand the conversation?': null,
       'Did Lara watch the game?': null,
