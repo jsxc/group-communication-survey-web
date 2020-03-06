@@ -87,6 +87,16 @@ type Data = {
   'How many groups do you use regularly?': number;
   'How many members does the smallest group have?': number;
   'How many members does the largest group have?': number;
+  'Do you expect that everyone reads your message in a group chat?': string;
+  'Do you thing everyone is reading all your messages in a group chat?': string;
+  'Are you always reading all messages in a group chat?': string;
+  'Would you publish all your conversations in your favorite group chat app?': string;
+  'Would you publish a complete list of groups you are part of in your favorite group chat app?': string;
+  'How do you react if a new member joins a group of good friends/business group/club group?': string;
+  "What is your most common reaction if a new member, which you don't like, is added to a group?": string;
+  "What is your most common reaction if you are added to a group which you don't like to be part of?": string;
+  'How often does this happen?': string;
+  "What are you doing if you don't want to participate in a digital group?": string;
   firstChatFeedback: {
     'How well did you understand the conversation?': string;
     'Did Lara watch the game?': string;
@@ -210,6 +220,16 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'How many groups do you use regularly?': null,
       'How many members does the smallest group have?': null,
       'How many members does the largest group have?': null,
+      'Do you expect that everyone reads your message in a group chat?': null,
+      'Do you thing everyone is reading all your messages in a group chat?': null,
+      'Are you always reading all messages in a group chat?': null,
+      'Would you publish all your conversations in your favorite group chat app?': null,
+      'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,
+      'How do you react if a new member joins a group of good friends/business group/club group?': null,
+      "What is your most common reaction if a new member, which you don't like, is added to a group?": null,
+      "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
+      'How often does this happen?': null,
+      "What are you doing if you don't want to participate in a digital group?": null,
       firstChatFeedback: {
         'How well did you understand the conversation?': null,
         'Did Lara watch the game?': null,
@@ -329,6 +349,16 @@ export const GlobalStateProvider: React.FC = props => {
     'How many groups do you use regularly?': null,
     'How many members does the smallest group have?': null,
     'How many members does the largest group have?': null,
+    'Do you expect that everyone reads your message in a group chat?': null,
+    'Do you thing everyone is reading all your messages in a group chat?': null,
+    'Are you always reading all messages in a group chat?': null,
+    'Would you publish all your conversations in your favorite group chat app?': null,
+    'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,
+    'How do you react if a new member joins a group of good friends/business group/club group?': null,
+    "What is your most common reaction if a new member, which you don't like, is added to a group?": null,
+    "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
+    'How often does this happen?': null,
+    "What are you doing if you don't want to participate in a digital group?": null,
     firstChatFeedback: {
       'How well did you understand the conversation?': null,
       'Did Lara watch the game?': null,

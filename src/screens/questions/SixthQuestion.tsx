@@ -309,7 +309,7 @@ const SixthQuestion: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/explanation');
+            browserHistory.push('/questions/7');
           }}
         />
       </Box>

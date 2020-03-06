@@ -12,6 +12,7 @@ export {
   FourthQuestion,
   FifthQuestion,
   SixthQuestion,
+  SeventhQuestion,
 } from './questions';
 export {
   FirstChat,

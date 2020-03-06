@@ -4,3 +4,4 @@ export { default as ThirdQuestion } from './ThirdQuestion';
 export { default as FourthQuestion } from './FourthQuestion';
 export { default as FifthQuestion } from './FifthQuestion';
 export { default as SixthQuestion } from './SixthQuestion';
+export { default as SeventhQuestion } from './SeventhQuestion';
