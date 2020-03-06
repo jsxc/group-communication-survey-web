@@ -1,11 +1,19 @@
 import React, { useState } from 'react';
-import { Box, Form, Heading, FormField, Button } from 'grommet';
+import {
+  Box,
+  Form,
+  Heading,
+  FormField,
+  Button,
+  RadioButtonGroup,
+} from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../components';
-import { useGlobalState } from '../hooks';
-import { isNull } from '../utilities';
+import { ErrorText } from '../../components';
+import { useGlobalState } from '../../hooks';
+import { constructRadioOptions } from '../chats-feedback/utilities';
+import { isNull } from '../../utilities';
 
-const UsageStatistics: React.FC = () => {
+const SixthQuestion: React.FC = () => {
   const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
   const [state, setState] = useState({
@@ -19,6 +27,8 @@ const UsageStatistics: React.FC = () => {
   const { setData } = globalActions;
 
   const {
+    'Which is your favorite digital group chat messenger?': favoriteChatApp,
+    'Which digital group chat messenger do you use most?': mostUsedChatApp,
     'How many groups do you have?': groupsCount,
     'How many groups do you use regularly?': regularlyUsedGroupsCount,
     'How many members does the smallest group have?': smallestGroupMembersCount,
@@ -30,6 +40,20 @@ const UsageStatistics: React.FC = () => {
     hasSmallestGroupMembersCountBeenBlurred,
     hasLargestGroupMembersCountBeenBlurred,
   } = state;
+
+  const setFavoriteChatApp = (favoriteChatApp: string) => {
+    return setData(data => ({
+      ...data,
+      'Which is your favorite digital group chat messenger?': favoriteChatApp,
+    }));
+  };
+
+  const setMostUsedChatApp = (mostUsedChatApp: string) => {
+    return setData(data => ({
+      ...data,
+      'Which digital group chat messenger do you use most?': mostUsedChatApp,
+    }));
+  };
 
   const setGroupsCount = (groupsCount: number) => {
     return setData(data => ({
@@ -134,6 +158,8 @@ const UsageStatistics: React.FC = () => {
   const largestGroupMembersCountFieldError = validateLargestGroupMembersCountField();
 
   const isInvalidForm =
+    isNull(favoriteChatApp) ||
+    isNull(mostUsedChatApp) ||
     Boolean(groupsCountFieldError) ||
     Boolean(regularlyUsedGroupsCountFieldError) ||
     Boolean(smallestGroupMembersCountFieldError) ||
@@ -141,6 +167,42 @@ const UsageStatistics: React.FC = () => {
 
   return (
     <Form>
+      <Box margin="medium">
+        <Heading level="4">
+          Which is your favorite digital group chat messenger?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-4"
+          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP'].map(
+            constructRadioOptions,
+          )}
+          value={favoriteChatApp}
+          onChange={event => {
+            const { value } = event.target;
+            setFavoriteChatApp(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4">
+          Which digital group chat messenger do you use most?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-4"
+          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP'].map(
+            constructRadioOptions,
+          )}
+          value={mostUsedChatApp}
+          onChange={event => {
+            const { value } = event.target;
+            setMostUsedChatApp(value);
+          }}
+        />
+      </Box>
+
       <Box margin="medium">
         <Heading level="4">How many groups do you have?</Heading>
 
@@ -255,4 +317,4 @@ const UsageStatistics: React.FC = () => {
   );
 };
 
-export default UsageStatistics;
+export default SixthQuestion;

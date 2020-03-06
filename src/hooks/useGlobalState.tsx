@@ -81,6 +81,8 @@ type Data = {
   };
   "How do you react if a new person joins a group that you don't like?": string;
   'Do you use programs that allow you to communicate with groups?': string;
+  'Which is your favorite digital group chat messenger?': string;
+  'Which digital group chat messenger do you use most?': string;
   'How many groups do you have?': number;
   'How many groups do you use regularly?': number;
   'How many members does the smallest group have?': number;
@@ -202,6 +204,8 @@ const GlobalStateContext = createContext<[State, Actions]>([
       },
       "How do you react if a new person joins a group that you don't like?": null,
       'Do you use programs that allow you to communicate with groups?': null,
+      'Which is your favorite digital group chat messenger?': null,
+      'Which digital group chat messenger do you use most?': null,
       'How many groups do you have?': null,
       'How many groups do you use regularly?': null,
       'How many members does the smallest group have?': null,
@@ -319,6 +323,8 @@ export const GlobalStateProvider: React.FC = props => {
     },
     "How do you react if a new person joins a group that you don't like?": null,
     'Do you use programs that allow you to communicate with groups?': null,
+    'Which is your favorite digital group chat messenger?': null,
+    'Which digital group chat messenger do you use most?': null,
     'How many groups do you have?': null,
     'How many groups do you use regularly?': null,
     'How many members does the smallest group have?': null,

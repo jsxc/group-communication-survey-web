@@ -1,6 +1,5 @@
 export { default as Welcome } from './Welcome';
 export { default as Demographic } from './Demographic';
-export { default as UsageStatistics } from './UsageStatistics';
 export { default as Explanation } from './Explanation';
 export { default as FurtherExplanation } from './FurtherExplanation';
 export { default as Feedback } from './Feedback';
@@ -12,6 +11,7 @@ export {
   ThirdQuestion,
   FourthQuestion,
   FifthQuestion,
+  SixthQuestion,
 } from './questions';
 export {
   FirstChat,
