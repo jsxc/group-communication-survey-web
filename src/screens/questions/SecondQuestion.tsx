@@ -93,6 +93,7 @@ const SecondQuestion: React.FC = () => {
               }}
             />
           </Box>
+
           <Box margin="medium">
             <Heading level="4">
               What is the most common reaction if two or more people are talking
