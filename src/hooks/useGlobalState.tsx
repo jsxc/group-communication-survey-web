@@ -34,6 +34,15 @@ type Data = {
   'What is your most common reaction if a statement is unclear to you?': string;
   'What is your reaction if you were not able to understand something acousticly?': string;
   'Is there a difference in communication between business and leisure groups?': string;
+  'What are you doing if you do not know someone in a group?': string;
+  'Are you always knowing who will hear your message?': string;
+  'Are you aware of that?': string;
+  'In which cases is it especially important for you who will hear your messages?': string;
+  'Would it be sometimes important for you that nobody in the group can prove that you said something?': string;
+  'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': string;
+  'Do you thing there are use cases in which plausible deniability of group membership is important?': string;
+  'Would it influence your behaviour if everything you say would be immediately published?': string;
+  'Are there special requirements for groups if confidential topics are discussed?': string;
   'What do you think are properties that define group communication?': string;
   'What are you expecting from a digital group?': string;
   'Do you use group chat clients such as WhatsApp?': string;
@@ -111,6 +120,15 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'What is your most common reaction if a statement is unclear to you?': null,
       'What is your reaction if you were not able to understand something acousticly?': null,
       'Is there a difference in communication between business and leisure groups?': null,
+      'What are you doing if you do not know someone in a group?': null,
+      'Are you always knowing who will hear your message?': null,
+      'Are you aware of that?': null,
+      'In which cases is it especially important for you who will hear your messages?': null,
+      'Would it be sometimes important for you that nobody in the group can prove that you said something?': null,
+      'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
+      'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
+      'Would it influence your behaviour if everything you say would be immediately published?': null,
+      'Are there special requirements for groups if confidential topics are discussed?': null,
       'What do you think are properties that define group communication?': null,
       'What are you expecting from a digital group?': null,
       'Do you use group chat clients such as WhatsApp?': null,
@@ -184,6 +202,15 @@ export const GlobalStateProvider: React.FC = props => {
     'What is your most common reaction if a statement is unclear to you?': null,
     'What is your reaction if you were not able to understand something acousticly?': null,
     'Is there a difference in communication between business and leisure groups?': null,
+    'What are you doing if you do not know someone in a group?': null,
+    'Are you always knowing who will hear your message?': null,
+    'Are you aware of that?': null,
+    'In which cases is it especially important for you who will hear your messages?': null,
+    'Would it be sometimes important for you that nobody in the group can prove that you said something?': null,
+    'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
+    'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
+    'Would it influence your behaviour if everything you say would be immediately published?': null,
+    'Are there special requirements for groups if confidential topics are discussed?': null,
     'What do you think are properties that define group communication?': null,
     'What are you expecting from a digital group?': null,
     'Do you use group chat clients such as WhatsApp?': null,

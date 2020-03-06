@@ -9,7 +9,7 @@ export { default as FurtherExplanation } from './FurtherExplanation';
 export { default as Feedback } from './Feedback';
 export { default as ThankYou } from './ThankYou';
 export { FirstExplanation } from './explanations';
-export { FirstQuestion, SecondQuestion } from './questions';
+export { FirstQuestion, SecondQuestion, ThirdQuestion } from './questions';
 export {
   FirstChat,
   SecondChat,
