@@ -238,7 +238,7 @@ const ThirdQuestion: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/questions/3');
+            browserHistory.push('/questions/4');
           }}
         />
       </Box>

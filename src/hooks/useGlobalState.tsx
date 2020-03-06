@@ -43,6 +43,43 @@ type Data = {
   'Do you thing there are use cases in which plausible deniability of group membership is important?': string;
   'Would it influence your behaviour if everything you say would be immediately published?': string;
   'Are there special requirements for groups if confidential topics are discussed?': string;
+  'Which statements are true for the admission of a new member in a business group?': {
+    'Everyone can join': boolean;
+    "It's ok if someone knows the new member": boolean;
+    'I have to know the new member': boolean;
+    'The new member has to be part of an organization or similar': boolean;
+    "If I don't know the new member, I get to know him": boolean;
+    'The new member is mostly invited/introduced by a member': boolean;
+    'The new member is mostly requesting admission': boolean;
+    'Before a new member is admitted into the group, this decision is discussed internally': boolean;
+    "If I'm not satisfied with the new member I leave the group": boolean;
+    "If I'm not satisfied with the new member I stop contributing": boolean;
+  };
+  'Which statements are true for the admission of a new member in a casual group?': {
+    'Everyone can join': boolean;
+    "It's ok if someone knows the new member": boolean;
+    'I have to know the new member': boolean;
+    'The new member has to be part of an organization or similar': boolean;
+    "If I don't know the new member, I get to know him": boolean;
+    'The new member is mostly invited/introduced by a member': boolean;
+    'The new member is mostly requesting admission': boolean;
+    'Before a new member is admitted into the group, this decision is discussed internally': boolean;
+    "If I'm not satisfied with the new member I leave the group": boolean;
+    "If I'm not satisfied with the new member I stop contributing": boolean;
+  };
+  'Which statements are true for the admission of a new member in a confidential group?': {
+    'Everyone can join': boolean;
+    "It's ok if someone knows the new member": boolean;
+    'I have to know the new member': boolean;
+    'The new member has to be part of an organization or similar': boolean;
+    "If I don't know the new member, I get to know him": boolean;
+    'The new member is mostly invited/introduced by a member': boolean;
+    'The new member is mostly requesting admission': boolean;
+    'Before a new member is admitted into the group, this decision is discussed internally': boolean;
+    "If I'm not satisfied with the new member I leave the group": boolean;
+    "If I'm not satisfied with the new member I stop contributing": boolean;
+  };
+  "How do you react if a new person joins a group that you don't like?": string;
   'What do you think are properties that define group communication?': string;
   'What are you expecting from a digital group?': string;
   'Do you use group chat clients such as WhatsApp?': string;
@@ -129,6 +166,43 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
       'Would it influence your behaviour if everything you say would be immediately published?': null,
       'Are there special requirements for groups if confidential topics are discussed?': null,
+      'Which statements are true for the admission of a new member in a business group?': {
+        'Everyone can join': false,
+        "It's ok if someone knows the new member": false,
+        'I have to know the new member': false,
+        'The new member has to be part of an organization or similar': false,
+        "If I don't know the new member, I get to know him": false,
+        'The new member is mostly invited/introduced by a member': false,
+        'The new member is mostly requesting admission': false,
+        'Before a new member is admitted into the group, this decision is discussed internally': false,
+        "If I'm not satisfied with the new member I leave the group": false,
+        "If I'm not satisfied with the new member I stop contributing": false,
+      },
+      'Which statements are true for the admission of a new member in a casual group?': {
+        'Everyone can join': false,
+        "It's ok if someone knows the new member": false,
+        'I have to know the new member': false,
+        'The new member has to be part of an organization or similar': false,
+        "If I don't know the new member, I get to know him": false,
+        'The new member is mostly invited/introduced by a member': false,
+        'The new member is mostly requesting admission': false,
+        'Before a new member is admitted into the group, this decision is discussed internally': false,
+        "If I'm not satisfied with the new member I leave the group": false,
+        "If I'm not satisfied with the new member I stop contributing": false,
+      },
+      'Which statements are true for the admission of a new member in a confidential group?': {
+        'Everyone can join': false,
+        "It's ok if someone knows the new member": false,
+        'I have to know the new member': false,
+        'The new member has to be part of an organization or similar': false,
+        "If I don't know the new member, I get to know him": false,
+        'The new member is mostly invited/introduced by a member': false,
+        'The new member is mostly requesting admission': false,
+        'Before a new member is admitted into the group, this decision is discussed internally': false,
+        "If I'm not satisfied with the new member I leave the group": false,
+        "If I'm not satisfied with the new member I stop contributing": false,
+      },
+      "How do you react if a new person joins a group that you don't like?": null,
       'What do you think are properties that define group communication?': null,
       'What are you expecting from a digital group?': null,
       'Do you use group chat clients such as WhatsApp?': null,
@@ -211,6 +285,43 @@ export const GlobalStateProvider: React.FC = props => {
     'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
     'Would it influence your behaviour if everything you say would be immediately published?': null,
     'Are there special requirements for groups if confidential topics are discussed?': null,
+    'Which statements are true for the admission of a new member in a business group?': {
+      'Everyone can join': false,
+      "It's ok if someone knows the new member": false,
+      'I have to know the new member': false,
+      'The new member has to be part of an organization or similar': false,
+      "If I don't know the new member, I get to know him": false,
+      'The new member is mostly invited/introduced by a member': false,
+      'The new member is mostly requesting admission': false,
+      'Before a new member is admitted into the group, this decision is discussed internally': false,
+      "If I'm not satisfied with the new member I leave the group": false,
+      "If I'm not satisfied with the new member I stop contributing": false,
+    },
+    'Which statements are true for the admission of a new member in a casual group?': {
+      'Everyone can join': false,
+      "It's ok if someone knows the new member": false,
+      'I have to know the new member': false,
+      'The new member has to be part of an organization or similar': false,
+      "If I don't know the new member, I get to know him": false,
+      'The new member is mostly invited/introduced by a member': false,
+      'The new member is mostly requesting admission': false,
+      'Before a new member is admitted into the group, this decision is discussed internally': false,
+      "If I'm not satisfied with the new member I leave the group": false,
+      "If I'm not satisfied with the new member I stop contributing": false,
+    },
+    'Which statements are true for the admission of a new member in a confidential group?': {
+      'Everyone can join': false,
+      "It's ok if someone knows the new member": false,
+      'I have to know the new member': false,
+      'The new member has to be part of an organization or similar': false,
+      "If I don't know the new member, I get to know him": false,
+      'The new member is mostly invited/introduced by a member': false,
+      'The new member is mostly requesting admission': false,
+      'Before a new member is admitted into the group, this decision is discussed internally': false,
+      "If I'm not satisfied with the new member I leave the group": false,
+      "If I'm not satisfied with the new member I stop contributing": false,
+    },
+    "How do you react if a new person joins a group that you don't like?": null,
     'What do you think are properties that define group communication?': null,
     'What are you expecting from a digital group?': null,
     'Do you use group chat clients such as WhatsApp?': null,
