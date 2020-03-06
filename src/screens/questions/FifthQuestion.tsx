@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { useGlobalState } from '../hooks';
-import { isNull } from '../utilities';
+import { useGlobalState } from '../../hooks';
+import { isNull } from '../../utilities';
 
-const Usage: React.FC = () => {
+const FifthQuestion: React.FC = () => {
   const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
 
@@ -12,13 +12,13 @@ const Usage: React.FC = () => {
   const { setData } = globalActions;
 
   const {
-    'Do you use group chat clients such as WhatsApp?': usesGroupChatClient,
+    'Do you use programs that allow you to communicate with groups?': usesGroupChatClient,
   } = data;
 
   const setUsesGroupChatClient = (usesGroupChatClient: string) => {
     return setData(data => ({
       ...data,
-      'Do you use group chat clients such as WhatsApp?': usesGroupChatClient,
+      'Do you use programs that allow you to communicate with groups?': usesGroupChatClient,
     }));
   };
 
@@ -37,7 +37,7 @@ const Usage: React.FC = () => {
     <Form>
       <Box margin="medium">
         <Heading level="4">
-          Do you use group chat clients such as WhatsApp?
+          Do you use programs that allow you to communicate with groups?
         </Heading>
 
         <RadioButtonGroup
@@ -69,4 +69,4 @@ const Usage: React.FC = () => {
   );
 };
 
-export default Usage;
+export default FifthQuestion;

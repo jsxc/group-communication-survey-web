@@ -80,7 +80,7 @@ type Data = {
     "If I'm not satisfied with the new member I stop contributing": boolean;
   };
   "How do you react if a new person joins a group that you don't like?": string;
-  'Do you use group chat clients such as WhatsApp?': string;
+  'Do you use programs that allow you to communicate with groups?': string;
   'How many groups do you have?': number;
   'How many groups do you use regularly?': number;
   'How many members does the smallest group have?': number;
@@ -201,7 +201,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
         "If I'm not satisfied with the new member I stop contributing": false,
       },
       "How do you react if a new person joins a group that you don't like?": null,
-      'Do you use group chat clients such as WhatsApp?': null,
+      'Do you use programs that allow you to communicate with groups?': null,
       'How many groups do you have?': null,
       'How many groups do you use regularly?': null,
       'How many members does the smallest group have?': null,
@@ -318,7 +318,7 @@ export const GlobalStateProvider: React.FC = props => {
       "If I'm not satisfied with the new member I stop contributing": false,
     },
     "How do you react if a new person joins a group that you don't like?": null,
-    'Do you use group chat clients such as WhatsApp?': null,
+    'Do you use programs that allow you to communicate with groups?': null,
     'How many groups do you have?': null,
     'How many groups do you use regularly?': null,
     'How many members does the smallest group have?': null,
