@@ -2,8 +2,7 @@ import React from 'react';
 import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
-import { constructRadioOptions } from '../chats-feedback/utilities';
-import { isNull, any } from '../../utilities';
+import { isNull, any, constructRadioOptions } from '../../utilities';
 
 const ThirdQuestion: React.FC = () => {
   const browserHistory = useHistory();

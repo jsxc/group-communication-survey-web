@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box } from 'grommet';
 import { GiftedChat, Bubble, IMessage } from 'react-web-gifted-chat';
 import InferenceQuote from './InferenceQuote';
-import { random } from '../utilities';
+import { randomId } from '../utilities';
 
 type User = {
   name: string;
@@ -21,10 +21,6 @@ type Props = {
   messages: Message[];
   animationInterval?: number;
   onAnimationEnd?: () => void;
-};
-
-const randomId = (): string => {
-  return String(random(1000, 9999));
 };
 
 const transformMessage = (message: Message): IMessage => {

@@ -10,8 +10,7 @@ import {
 import { useHistory } from 'react-router-dom';
 import { ErrorText } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { constructRadioOptions } from '../chats-feedback/utilities';
-import { isNull } from '../../utilities';
+import { isNull, constructRadioOptions } from '../../utilities';
 
 const SixthQuestion: React.FC = () => {
   const browserHistory = useHistory();

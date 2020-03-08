@@ -9,8 +9,7 @@ import {
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
-import { constructRadioOptions } from '../chats-feedback/utilities';
-import { isNull } from '../../utilities';
+import { isNull, constructRadioOptions } from '../../utilities';
 
 const FourthQuestion: React.FC = () => {
   const browserHistory = useHistory();

@@ -1,4 +1,4 @@
-import { random } from '../../../utilities';
+import { randomId } from './random';
 
 export const constructRadioOptions = (label: string) => {
   return {
@@ -6,8 +6,4 @@ export const constructRadioOptions = (label: string) => {
     value: label,
     label,
   };
-};
-
-const randomId = (): string => {
-  return String(random(1000, 9999));
 };
