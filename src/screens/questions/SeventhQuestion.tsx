@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
+import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../../hooks';
 import { constructRadioOptions } from '../chats-feedback/utilities';
