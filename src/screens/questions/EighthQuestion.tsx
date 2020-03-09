@@ -118,7 +118,7 @@ const EighthQuestion: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/explanation');
+            browserHistory.push('/explanations/2');
           }}
         />
       </Box>

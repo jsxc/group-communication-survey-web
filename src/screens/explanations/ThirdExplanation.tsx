@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Form, Paragraph, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 
-const FurtherExplanation: React.FC = () => {
+const ThirdExplanation: React.FC = () => {
   const browserHistory = useHistory();
 
   return (
@@ -37,4 +37,4 @@ const FurtherExplanation: React.FC = () => {
   );
 };
 
-export default FurtherExplanation;
+export default ThirdExplanation;

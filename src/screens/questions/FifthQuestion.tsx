@@ -58,7 +58,9 @@ const FifthQuestion: React.FC = () => {
           disabled={isInvalidForm}
           onClick={() => {
             browserHistory.push(
-              usesGroupChatClient === 'Yes' ? '/questions/6' : '/explanation',
+              usesGroupChatClient === 'Yes'
+                ? '/questions/6'
+                : '/explanations/1',
             );
           }}
         />

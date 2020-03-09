@@ -179,7 +179,7 @@ const Demographic: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/explanation/1');
+            browserHistory.push('/explanations/1');
           }}
         />
       </Box>
