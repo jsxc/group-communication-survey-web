@@ -68,8 +68,8 @@ const FourthQuestion: React.FC = () => {
         </Heading>
 
         <>
-          {choices.map(subquestion => (
-            <Box pad="xxsmall">
+          {choices.map((subquestion, index) => (
+            <Box key={index} pad="xxsmall">
               <CheckBox
                 label={subquestion}
                 checked={firstQuestionChoices[subquestion]}
