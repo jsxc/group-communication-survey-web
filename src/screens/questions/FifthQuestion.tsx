@@ -60,7 +60,7 @@ const FifthQuestion: React.FC = () => {
             browserHistory.push(
               usesGroupChatClient === 'Yes'
                 ? '/questions/6'
-                : '/explanations/1',
+                : '/explanations/2',
             );
           }}
         />
