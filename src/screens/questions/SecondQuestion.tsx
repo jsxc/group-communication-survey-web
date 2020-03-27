@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, TextArea, Button } from 'grommet';
+import { Box, Form, TextInput, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -115,6 +115,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
+          other={true}
           options={[
             'Mobil phones',
             'Side conversations',
@@ -138,6 +139,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-5"
+          other={true}
           options={[
             'I just announce',
             'I wait until everyone is paying attention',
@@ -161,6 +163,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-6"
+          other={true}
           options={[
             'I try to make sense of the further discussion',
             'I ask someone in the group',
@@ -183,6 +186,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-7"
+          other={true}
           options={[
             'I ignore it',
             'I ask someone in the group',
@@ -206,6 +210,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-8"
+          other={true}
           options={[
             'I ignore it',
             'I try to make sense of it',
@@ -230,6 +235,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-9"
+          other={true}
           options={[
             'Business groups have more often stricter rules',
             'In business meetings I am more reserved',

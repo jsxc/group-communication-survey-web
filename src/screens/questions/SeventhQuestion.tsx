@@ -147,6 +147,7 @@ const SeventhQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-6"
+          other={true}
           options={[
             'I aknowledge it',
             'I ask the new group why the new member joined',
@@ -172,6 +173,7 @@ const SeventhQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-7"
+          other={true}
           options={[
             'I leave the group',
             'I try to get along with him',
@@ -195,6 +197,7 @@ const SeventhQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-8"
+          other={true}
           options={[
             'I leave it',
             'I ignore it',
@@ -218,6 +221,7 @@ const SeventhQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-9"
+          other={true}
           options={[
             'Once a day',
             'Several times a day',
@@ -242,6 +246,7 @@ const SeventhQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-10"
+          other={true}
           options={[
             'I leave the group',
             'I ignore the group',

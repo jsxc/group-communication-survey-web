@@ -134,6 +134,7 @@ const FourthQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
+          other={true}
           options={[
             'I leave the group',
             'I try to get along with the new member',

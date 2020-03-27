@@ -166,6 +166,7 @@ const SixthQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
+          other={true}
           options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={favoriteChatApp}
           onChange={event => {
@@ -182,6 +183,7 @@ const SixthQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
+          other={true}
           options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={mostUsedChatApp}
           onChange={event => {

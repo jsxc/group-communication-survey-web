@@ -56,6 +56,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-1"
+          other={true}
           options={[
             'I ignore it',
             "I ignore it, if it's a causual group",
@@ -119,6 +120,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
+          other={true}
           options={['Confidential topics', 'In general', 'Never']}
           value={fourthQuestionChoice}
           onChange={event => {
@@ -214,6 +216,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-9"
+          other={true}
           options={[
             'No',
             'Every member should be known',
