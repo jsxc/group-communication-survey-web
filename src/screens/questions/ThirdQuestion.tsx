@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, Button } from 'grommet';
+import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull, any } from '../../utilities';
 
@@ -50,7 +50,7 @@ const ThirdQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(firstQuestionChoice)}>
           What are you doing if you do not know someone in a group?
         </Heading>
 
@@ -76,7 +76,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(secondQuestionChoice)}>
           Are you always knowing who will hear your message?
         </Heading>
 
@@ -95,7 +95,9 @@ const ThirdQuestion: React.FC = () => {
 
       {secondQuestionChoice === 'No' ? (
         <Box margin="medium">
-          <Heading level="4">Are you aware of that?</Heading>
+          <Heading level="4" error={isNull(thirdQuestionChoice)}>
+            Are you aware of that?
+          </Heading>
 
           <RadioButtonGroup
             name="question-3"
@@ -110,7 +112,7 @@ const ThirdQuestion: React.FC = () => {
       ) : null}
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourthQuestionChoice)}>
           In which cases is it especially important for you who will hear your
           messages?
         </Heading>
@@ -129,7 +131,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fifthQuestionChoice)}>
           Would it be sometimes important for you that nobody in the group can
           prove that you said something?
         </Heading>
@@ -148,7 +150,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(sixthQuestionChoice)}>
           Would it be sometimes important for you that nobody in the group can
           prove that you were part in a group?
         </Heading>
@@ -167,7 +169,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(seventhQuestionChoice)}>
           Do you thing there are use cases in which plausible deniability of
           group membership is important?
         </Heading>
@@ -186,7 +188,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(eighthQuestionChoice)}>
           Would it influence your behaviour if everything you say would be
           immediately published?
         </Heading>
@@ -205,7 +207,7 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(ninthQuestionChoice)}>
           Are there special requirements for groups if confidential topics are
           discussed?
         </Heading>

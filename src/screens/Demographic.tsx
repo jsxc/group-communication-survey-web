@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import {
   Box,
   Form,
-  Heading,
   FormField,
   Button,
   RadioButtonGroup,
   WorldMap,
 } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../components';
+import { Heading, ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
 import { isNull } from '../utilities';
 
@@ -85,7 +84,9 @@ const Demographic: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">Specify your sex:</Heading>
+        <Heading level="4" error={Boolean(sexFieldError)}>
+          Specify your sex:
+        </Heading>
 
         <RadioButtonGroup
           name="question-1"
@@ -99,7 +100,9 @@ const Demographic: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">How old are you?</Heading>
+        <Heading level="4" error={Boolean(ageFieldError)}>
+          How old are you?
+        </Heading>
 
         <FormField
           name="question-2"
@@ -121,7 +124,9 @@ const Demographic: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">Which region are you from?</Heading>
+        <Heading level="4" error={Boolean(regionFieldError)}>
+          Which region are you from?
+        </Heading>
 
         <WorldMap
           name="question-3"

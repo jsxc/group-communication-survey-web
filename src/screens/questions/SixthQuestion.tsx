@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Form, Heading, FormField, Button } from 'grommet';
+import { Box, Form, FormField, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup, ErrorText } from '../../components';
+import { Heading, RadioButtonGroup, ErrorText } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull } from '../../utilities';
 
@@ -160,7 +160,7 @@ const SixthQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(favoriteChatApp)}>
           Which is your favorite digital group chat messenger?
         </Heading>
 
@@ -176,7 +176,7 @@ const SixthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(mostUsedChatApp)}>
           Which digital group chat messenger do you use most?
         </Heading>
 
@@ -192,7 +192,9 @@ const SixthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">How many groups do you have?</Heading>
+        <Heading level="4" error={Boolean(groupsCountFieldError)}>
+          How many groups do you have?
+        </Heading>
 
         <FormField
           name="question-1"
@@ -216,7 +218,9 @@ const SixthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">How many groups do you use regularly?</Heading>
+        <Heading level="4" error={Boolean(regularlyUsedGroupsCountFieldError)}>
+          How many groups do you use regularly?
+        </Heading>
 
         <FormField
           name="question-2"
@@ -240,7 +244,7 @@ const SixthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(smallestGroupMembersCountFieldError)}>
           How many members does the smallest group have?
         </Heading>
 
@@ -266,7 +270,7 @@ const SixthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(largestGroupMembersCountFieldError)}>
           How many members does the largest group have?
         </Heading>
 

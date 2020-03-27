@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Form, Heading, TextArea, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../../components';
+import { Heading, ErrorText } from '../../components';
 import { useGlobalState } from '../../hooks';
 
 const EighthQuestion: React.FC = () => {
@@ -52,7 +52,7 @@ const EighthQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(firstQuestionFieldError)}>
           Which visualization would you like to have integrated in your favorite
           chat app?
         </Heading>
@@ -83,7 +83,7 @@ const EighthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(secondQuestionFieldError)}>
           Which feature are you missing in your favorite chat app?
         </Heading>
 

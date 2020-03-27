@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, Button, CheckBox } from 'grommet';
+import { Box, Form, Button, CheckBox } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull } from '../../utilities';
 
@@ -63,7 +63,7 @@ const FourthQuestion: React.FC = () => {
 
         <>
           {choices.map((subquestion, index) => (
-            <Box key={index} pad="xxsmall">
+            <Box style={{ marginLeft: 16 }} key={index} pad="xxsmall">
               <CheckBox
                 label={subquestion}
                 checked={firstQuestionChoices[subquestion]}
@@ -86,8 +86,8 @@ const FourthQuestion: React.FC = () => {
         </Heading>
 
         <>
-          {choices.map(subquestion => (
-            <Box pad="xxsmall">
+          {choices.map((subquestion, index) => (
+            <Box style={{ marginLeft: 16 }} key={index} pad="xxsmall">
               <CheckBox
                 label={subquestion}
                 checked={secondQuestionChoices[subquestion]}
@@ -110,8 +110,8 @@ const FourthQuestion: React.FC = () => {
         </Heading>
 
         <>
-          {choices.map(subquestion => (
-            <Box pad="xxsmall">
+          {choices.map((subquestion, index) => (
+            <Box style={{ marginLeft: 16 }} key={index} pad="xxsmall">
               <CheckBox
                 label={subquestion}
                 checked={thirdQuestionChoices[subquestion]}
@@ -128,7 +128,7 @@ const FourthQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourthQuestionChoice)}>
           How do you react if a new person joins a group that you don't like?
         </Heading>
 

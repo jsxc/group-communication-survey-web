@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Box, Form, Heading, TextArea, Button, TextInput } from 'grommet';
+import { Box, Form, TextArea, Button, TextInput } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import Spinner from 'react-spinners/MoonLoader';
 import axios from 'axios';
-import { ErrorText } from '../components';
+import { Heading, ErrorText } from '../components';
 import { useGlobalState } from '../hooks';
 import { match } from '../utilities';
 import { uris, colors } from '../constants';
@@ -69,7 +69,7 @@ const Feedback: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(opinionOnRepresentationsFieldError)}>
           What do you think of the new representations?
         </Heading>
 

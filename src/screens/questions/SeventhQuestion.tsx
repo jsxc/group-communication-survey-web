@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, Button } from 'grommet';
+import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull, any } from '../../utilities';
 
@@ -48,7 +48,7 @@ const SeventhQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(firstQuestionChoice)}>
           Do you expect that everyone reads your message in a group chat?
         </Heading>
 
@@ -66,7 +66,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(secondQuestionChoice)}>
           Do you thing everyone is reading all your messages in a group chat?
         </Heading>
 
@@ -84,7 +84,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(thirdQuestionChoice)}>
           Are you always reading all messages in a group chat?
         </Heading>
 
@@ -102,7 +102,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourthQuestionChoice)}>
           Would you publish all your conversations in your favorite group chat
           app?
         </Heading>
@@ -121,7 +121,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fifthQuestionChoice)}>
           Would you publish a complete list of groups you are part of in your
           favorite group chat app?
         </Heading>
@@ -140,7 +140,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(sixthQuestionChoice)}>
           How do you react if a new member joins a group of good
           friends/business group/club group?
         </Heading>
@@ -165,7 +165,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(seventhQuestionChoice)}>
           What is your most common reaction if a new member, which you don't
           like, is added to a group?
         </Heading>
@@ -188,7 +188,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(eighthQuestionChoice)}>
           What is your most common reaction if you are added to a group which
           you don't like to be part of?
         </Heading>
@@ -212,7 +212,9 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">How often does this happen?</Heading>
+        <Heading level="4" error={isNull(ninthQuestionChoice)}>
+          How often does this happen?
+        </Heading>
 
         <RadioButtonGroup
           name="question-9"
@@ -233,7 +235,7 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(tenthQuestionChoice)}>
           What are you doing if you don't want to participate in a digital
           group?
         </Heading>

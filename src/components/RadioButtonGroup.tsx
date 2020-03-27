@@ -32,7 +32,7 @@ const RadioButtonGroup: React.FC<Props> = props => {
   }
 
   return (
-    <Box direction={rest.direction}>
+    <Box direction={rest.direction} style={{ marginLeft: 16 }}>
       {scale ? (
         <Text style={{ marginRight: 12 }}>{firstOptionLabel}</Text>
       ) : null}

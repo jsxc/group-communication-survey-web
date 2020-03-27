@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, TextArea, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull, any } from '../../utilities';
 
@@ -50,7 +50,7 @@ const SecondQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(firstQuestionChoice)}>
           Are there cases where two or more people are talking at the same time?
         </Heading>
 
@@ -70,7 +70,7 @@ const SecondQuestion: React.FC = () => {
       {firstQuestionChoice === 'Yes' ? (
         <>
           <Box margin="medium">
-            <Heading level="4">
+            <Heading level="4" error={isNull(secondQuestionChoice)}>
               What is the result if two or more people are talking at the same
               time?
             </Heading>
@@ -88,7 +88,7 @@ const SecondQuestion: React.FC = () => {
           </Box>
 
           <Box margin="medium">
-            <Heading level="4">
+            <Heading level="4" error={isNull(thirdQuestionChoice)}>
               What is the most common reaction if two or more people are talking
               at the same time?
             </Heading>
@@ -108,7 +108,7 @@ const SecondQuestion: React.FC = () => {
       ) : null}
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourthQuestionChoice)}>
           What do you thing are the most frequent reasons of distraction even if
           you are interested at some discussion?
         </Heading>
@@ -132,7 +132,7 @@ const SecondQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fifthQuestionChoice)}>
           What are you doing if you are announcing something important?
         </Heading>
 
@@ -154,7 +154,7 @@ const SecondQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(sixthQuestionChoice)}>
           Imagine you were distracted and you are now unable to follow the
           conversation. How do you react?
         </Heading>
@@ -177,7 +177,7 @@ const SecondQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(seventhQuestionChoice)}>
           What is your most common reaction if a statement is unclear to you?
         </Heading>
 
@@ -199,7 +199,7 @@ const SecondQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(eighthQuestionChoice)}>
           What is your reaction if you were not able to understand something
           acousticly?
         </Heading>
@@ -223,7 +223,7 @@ const SecondQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(ninthQuestionChoice)}>
           Is there a difference in communication between business and leisure
           groups?
         </Heading>

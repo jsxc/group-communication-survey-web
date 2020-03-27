@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, Button } from 'grommet';
+import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull } from '../../utilities';
 
@@ -61,7 +61,7 @@ const FourthChatFeedback: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={Boolean(firstQuestionChoiceError)}>
           How well did you understand the conversation?
         </Heading>
 
@@ -83,7 +83,9 @@ const FourthChatFeedback: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">Will Emil be lent money?</Heading>
+        <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
+          Will Emil be lent money?
+        </Heading>
 
         <RadioButtonGroup
           name="question-2"

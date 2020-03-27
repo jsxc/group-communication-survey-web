@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Form, Heading, Button } from 'grommet';
+import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { RadioButtonGroup } from '../../components';
+import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
 import { isNull, any } from '../../utilities';
 
@@ -58,13 +58,13 @@ const FirstQuestion: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading style={{ marginBottom: 0 }} level="4">
+        <Heading level="4">
           How far do you agree with the following statements?
         </Heading>
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(firstQuestionChoice)}>
           Even if I'm not allowed to talk, I always have the possibility to do
           so.
         </Heading>
@@ -87,7 +87,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I am always able to hear everyone speaking.</Heading>
+        <Heading level="4" error={isNull(secondQuestionChoice)}>
+          I am always able to hear everyone speaking.
+        </Heading>
 
         <RadioButtonGroup
           name="question-2"
@@ -107,7 +109,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I am always attentive during a discussion.</Heading>
+        <Heading level="4" error={isNull(thirdQuestionChoice)}>
+          I am always attentive during a discussion.
+        </Heading>
 
         <RadioButtonGroup
           name="question-3"
@@ -127,7 +131,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourthQuestionChoice)}>
           I always understand every statement acousticly and contentually.
         </Heading>
 
@@ -149,7 +153,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I am never distracted during a discussion.</Heading>
+        <Heading level="4" error={isNull(fifthQuestionChoice)}>
+          I am never distracted during a discussion.
+        </Heading>
 
         <RadioButtonGroup
           name="question-5"
@@ -169,7 +175,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I always know who is talking.</Heading>
+        <Heading level="4" error={isNull(sixthQuestionChoice)}>
+          I always know who is talking.
+        </Heading>
 
         <RadioButtonGroup
           name="question-6"
@@ -187,7 +195,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I always know the person who is speaking.</Heading>
+        <Heading level="4" error={isNull(seventhQuestionChoice)}>
+          I always know the person who is speaking.
+        </Heading>
 
         <RadioButtonGroup
           name="question-7"
@@ -207,7 +217,9 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">I always know every participant in a group.</Heading>
+        <Heading level="4" error={isNull(eighthQuestionChoice)}>
+          I always know every participant in a group.
+        </Heading>
 
         <RadioButtonGroup
           name="question-8"
@@ -227,7 +239,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(ninthQuestionChoice)}>
           If there are no tapping devices a single member can not prove that
           someone said something.
         </Heading>
@@ -250,7 +262,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(tenthQuestionChoice)}>
           If there are no tapping devices a single member can not prove that
           someone was a member of a specific group.
         </Heading>
@@ -273,7 +285,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(eleventhQuestionChoice)}>
           It is sometimes important that no member in a group can prove that
           someone said something.
         </Heading>
@@ -296,7 +308,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(twelfthQuestionChoice)}>
           Confidential private topics are only discussed in small groups.
         </Heading>
 
@@ -318,7 +330,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(thirteenthQuestionChoice)}>
           I always leave a group with an announcement.
         </Heading>
 
@@ -340,7 +352,7 @@ const FirstQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4">
+        <Heading level="4" error={isNull(fourteenthQuestionChoice)}>
           If I want to leave a group in my favorite chat app, I will always give
           a reason.
         </Heading>
