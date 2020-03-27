@@ -2,7 +2,7 @@ import React from 'react';
 import { Grommet, Box, ThemeValue } from 'grommet';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { navigationalMap } from './navigation';
-import { Header } from './components';
+import { Header, ScrollToTop } from './components';
 import { useGlobalState } from './hooks';
 import { colors } from './constants';
 
@@ -13,12 +13,14 @@ const App: React.FC = () => {
   const { hasStarted } = navigation;
 
   return (
-    <Grommet theme={theme} full={true}>
+    <Grommet theme={theme}>
       <BrowserRouter>
         <Header />
 
         <Box align="center" pad="medium">
           {hasStarted ? null : <Redirect to="/" />}
+
+          <ScrollToTop />
 
           <Switch>
             {navigationalMap.map((entry, index) => (
