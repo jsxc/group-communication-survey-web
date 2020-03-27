@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
-import {
-  Box,
-  Form,
-  Heading,
-  FormField,
-  Button,
-  RadioButtonGroup,
-} from 'grommet';
+import { Box, Form, Heading, FormField, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { ErrorText } from '../../components';
+import { RadioButtonGroup, ErrorText } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, constructRadioOptions } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const SixthQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -173,9 +166,7 @@ const SixthQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
-          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP'].map(
-            constructRadioOptions,
-          )}
+          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={favoriteChatApp}
           onChange={event => {
             const { value } = event.target;
@@ -191,9 +182,7 @@ const SixthQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
-          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP'].map(
-            constructRadioOptions,
-          )}
+          options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={mostUsedChatApp}
           onChange={event => {
             const { value } = event.target;

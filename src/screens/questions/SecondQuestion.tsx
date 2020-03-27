@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  Box,
-  Form,
-  Heading,
-  TextArea,
-  Button,
-  RadioButtonGroup,
-} from 'grommet';
+import { Box, Form, Heading, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, any, constructRadioOptions } from '../../utilities';
+import { isNull, any } from '../../utilities';
 
 const SecondQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -62,7 +56,7 @@ const SecondQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-1"
-          options={['Yes', 'No'].map(constructRadioOptions)}
+          options={['Yes', 'No']}
           value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -126,7 +120,7 @@ const SecondQuestion: React.FC = () => {
             'Side conversations',
             'Weariness',
             'World of ideas',
-          ].map(constructRadioOptions)}
+          ]}
           value={fourthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -148,7 +142,7 @@ const SecondQuestion: React.FC = () => {
             'I just announce',
             'I wait until everyone is paying attention',
             'I require some kind of feedback, like a nod',
-          ].map(constructRadioOptions)}
+          ]}
           value={fifthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -171,7 +165,7 @@ const SecondQuestion: React.FC = () => {
             'I try to make sense of the further discussion',
             'I ask someone in the group',
             'I announce that I could not follow the conversation and ask if they can summaries the last minute',
-          ].map(constructRadioOptions)}
+          ]}
           value={sixthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -193,7 +187,7 @@ const SecondQuestion: React.FC = () => {
             'I ignore it',
             'I ask someone in the group',
             'I ask the group',
-          ].map(constructRadioOptions)}
+          ]}
           value={seventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -217,7 +211,7 @@ const SecondQuestion: React.FC = () => {
             'I try to make sense of it',
             'I ask someone in the group',
             'I ask the group',
-          ].map(constructRadioOptions)}
+          ]}
           value={eighthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -243,7 +237,7 @@ const SecondQuestion: React.FC = () => {
             'Leisure groups are more causual',
             'Communication in both groups is completly different',
             'The basic concept of both is the same',
-          ].map(constructRadioOptions)}
+          ]}
           value={ninthQuestionChoice}
           onChange={event => {
             const { value } = event.target;

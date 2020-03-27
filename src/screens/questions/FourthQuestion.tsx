@@ -1,15 +1,9 @@
 import React from 'react';
-import {
-  Box,
-  Form,
-  Heading,
-  Button,
-  RadioButtonGroup,
-  CheckBox,
-} from 'grommet';
+import { Box, Form, Heading, Button, CheckBox } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, constructRadioOptions } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const FourthQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -146,7 +140,7 @@ const FourthQuestion: React.FC = () => {
             'If I like the group more than I dislike the new member I stay, otherwise I leave',
             'I try to convince all other members to exclude the new person',
             'I try to start a new group with a subset of the previous group',
-          ].map(constructRadioOptions)}
+          ]}
           value={fourthQuestionChoice}
           onChange={event => {
             const { value } = event.target;

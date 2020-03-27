@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
+import { Box, Form, Heading, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, constructRadioOptions } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const FirstChatFeedback: React.FC = () => {
   const browserHistory = useHistory();
@@ -37,9 +38,7 @@ const FirstChatFeedback: React.FC = () => {
     return null;
   };
 
-  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'].map(
-    constructRadioOptions,
-  );
+  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
 
   const secondQuestionOptions = [
     'Yes',
@@ -47,7 +46,7 @@ const FirstChatFeedback: React.FC = () => {
     'This was not mentioned in the conversation',
     'There were contradicting statements',
     'There was too little information about this',
-  ].map(constructRadioOptions);
+  ];
 
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
@@ -62,17 +61,16 @@ const FirstChatFeedback: React.FC = () => {
   return (
     <Form>
       <Box margin="medium">
-        <Heading style={{ marginBottom: 0 }} level="4">
+        <Heading level="4">
           How well did you understand the conversation?
         </Heading>
-
-        <Text style={{ marginBottom: 12, fontStyle: 'italic' }} size="small">
-          (On a scale of 0 to 5; 0 being very badly and 5 being very well)
-        </Text>
 
         <RadioButtonGroup
           direction="row"
           name="question-1"
+          scale={true}
+          firstOptionLabel="Very badly"
+          lastOptionLabel="Very well"
           options={firstQuestionOptions}
           value={firstQuestionChoice}
           onChange={event => {

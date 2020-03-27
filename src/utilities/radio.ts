@@ -7,3 +7,10 @@ export const constructRadioOptions = (label: string) => {
     label,
   };
 };
+
+export const obscureScaleLabels = radioOption => {
+  return {
+    ...radioOption,
+    label: '',
+  };
+};

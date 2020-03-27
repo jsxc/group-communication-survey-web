@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Form, Heading, Text, Button, RadioButtonGroup } from 'grommet';
+import { Box, Form, Heading, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, any, constructRadioOptions } from '../../utilities';
+import { isNull, any } from '../../utilities';
 
 const FirstQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -35,7 +36,7 @@ const FirstQuestion: React.FC = () => {
     }));
   };
 
-  const options = ['0', '1', '2', '3', '4'];
+  const options = ['0', '1', '2', '3', '4', '5'];
 
   const isInvalidForm = any(isNull)([
     firstQuestionChoice,
@@ -60,10 +61,6 @@ const FirstQuestion: React.FC = () => {
         <Heading style={{ marginBottom: 0 }} level="4">
           How far do you agree with the following statements?
         </Heading>
-
-        <Text style={{ fontStyle: 'italic' }} size="small">
-          [0=Disagree, 4=Agree]
-        </Text>
       </Box>
 
       <Box margin="medium">
@@ -75,7 +72,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-1"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -92,7 +92,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-2"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -109,7 +112,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-3"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={thirdQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -128,7 +134,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-4"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={fourthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -145,7 +154,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-5"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={fifthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -162,7 +174,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-6"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={sixthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -177,7 +192,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-7"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={seventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -194,7 +212,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-8"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={eighthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -214,7 +235,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-9"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={ninthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -234,7 +258,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-10"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={tenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -254,7 +281,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-11"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={eleventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -273,7 +303,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-12"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={twelfthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -292,7 +325,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-13"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={thirteenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -312,7 +348,10 @@ const FirstQuestion: React.FC = () => {
         <RadioButtonGroup
           name="question-14"
           direction="row"
-          options={options.map(constructRadioOptions)}
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={options}
           value={fourteenthQuestionChoice}
           onChange={event => {
             const { value } = event.target;

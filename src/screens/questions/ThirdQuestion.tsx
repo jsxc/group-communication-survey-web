@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Form, Heading, Button, RadioButtonGroup } from 'grommet';
+import { Box, Form, Heading, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
+import { RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, any, constructRadioOptions } from '../../utilities';
+import { isNull, any } from '../../utilities';
 
 const ThirdQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -63,7 +64,7 @@ const ThirdQuestion: React.FC = () => {
             'I ask the person to introduce himself',
             'If I think the person does not belong to the group I ask him to leave',
             'If I think the person does not belong to the group I will leave the group',
-          ].map(constructRadioOptions)}
+          ]}
           value={firstQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -81,7 +82,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-2"
-          options={['No', 'Yes'].map(constructRadioOptions)}
+          options={['No', 'Yes']}
           value={secondQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -98,7 +99,7 @@ const ThirdQuestion: React.FC = () => {
 
           <RadioButtonGroup
             name="question-3"
-            options={['Yes', 'No'].map(constructRadioOptions)}
+            options={['Yes', 'No']}
             value={thirdQuestionChoice}
             onChange={event => {
               const { value } = event.target;
@@ -116,9 +117,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-4"
-          options={['Confidential topics', 'In general', 'Never'].map(
-            constructRadioOptions,
-          )}
+          options={['Confidential topics', 'In general', 'Never']}
           value={fourthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -137,7 +136,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-5"
-          options={['Yes', 'No'].map(constructRadioOptions)}
+          options={['Yes', 'No']}
           value={fifthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -156,7 +155,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-6"
-          options={['Yes', 'No'].map(constructRadioOptions)}
+          options={['Yes', 'No']}
           value={sixthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -175,9 +174,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-7"
-          options={['Yes', 'No', 'Not in my region, but there are places'].map(
-            constructRadioOptions,
-          )}
+          options={['Yes', 'No', 'Not in my region, but there are places']}
           value={seventhQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -196,7 +193,7 @@ const ThirdQuestion: React.FC = () => {
 
         <RadioButtonGroup
           name="question-8"
-          options={['Yes', 'No'].map(constructRadioOptions)}
+          options={['Yes', 'No']}
           value={eighthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
@@ -220,7 +217,7 @@ const ThirdQuestion: React.FC = () => {
             'Every member should be known',
             'There should be no stranger listening',
             "It's important that every member is trustworthy",
-          ].map(constructRadioOptions)}
+          ]}
           value={ninthQuestionChoice}
           onChange={event => {
             const { value } = event.target;
