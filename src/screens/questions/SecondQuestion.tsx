@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, TextInput, TextArea, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
