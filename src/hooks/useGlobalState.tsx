@@ -101,7 +101,7 @@ type Data = {
   'Which feature are you missing in your favorite chat app?': string;
   firstChatFeedback: {
     'How well did you understand the conversation?': string;
-    'Did Lara watch the game?': string;
+    'Did you notice something?': string;
   };
   secondChatFeedback: {
     'How well did you understand the conversation?': string;
@@ -236,7 +236,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Which feature are you missing in your favorite chat app?': null,
       firstChatFeedback: {
         'How well did you understand the conversation?': null,
-        'Did Lara watch the game?': null,
+        'Did you notice something?': null,
       },
       secondChatFeedback: {
         'How well did you understand the conversation?': null,
@@ -367,7 +367,7 @@ export const GlobalStateProvider: React.FC = props => {
     'Which feature are you missing in your favorite chat app?': null,
     firstChatFeedback: {
       'How well did you understand the conversation?': null,
-      'Did Lara watch the game?': null,
+      'Did you notice something?': null,
     },
     secondChatFeedback: {
       'How well did you understand the conversation?': null,

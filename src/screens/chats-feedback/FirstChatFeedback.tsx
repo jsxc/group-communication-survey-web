@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -15,7 +15,7 @@ const FirstChatFeedback: React.FC = () => {
   const { firstChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Did Lara watch the game?': secondQuestionChoice,
+    'Did you notice something?': secondQuestionChoice,
   } = firstChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -40,19 +40,11 @@ const FirstChatFeedback: React.FC = () => {
 
   const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
 
-  const secondQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
-
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
   const secondQuestionChoiceError = validateRadioFieldChoice(
-    'Did Lara watch the game?',
+    'Did you notice something?',
   );
 
   const isInvalidForm =
@@ -84,16 +76,15 @@ const FirstChatFeedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Did Lara watch the game?
+          Did you notice something?
         </Heading>
 
-        <RadioButtonGroup
+        <TextArea
           name="question-2"
-          options={secondQuestionOptions}
-          value={secondQuestionChoice}
+          value={secondQuestionChoice || ''}
           onChange={event => {
             const { value } = event.target;
-            setQuestionChoice('Did Lara watch the game?')(value);
+            setQuestionChoice('Did you notice something?')(value);
           }}
         />
       </Box>
