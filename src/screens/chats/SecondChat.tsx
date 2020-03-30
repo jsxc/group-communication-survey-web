@@ -8,79 +8,72 @@ const SecondChat: React.FC = () => {
   const browserHistory = useHistory();
   const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
 
-  const { arthur, karl, lara } = users;
+  const { karl, lara, arthur } = users;
 
   const messages = [
     {
-      text: 'Hey guys can anyone take me tomorrow?',
+      text: 'Did you watch the game yesterday?',
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: arthur,
+      user: karl,
     },
     {
-      text: "What's wrong?",
+      text: 'One or more messages are missing',
       createdAt: new Date('2020-01-30T20:01:00'),
-      user: karl,
+      user: null,
+      isSystemMessage: true,
     },
     {
-      text: "You actually don't miss a chance to pose with your cart ...",
+      text: '👍',
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: karl,
-    },
-    {
-      text: 'Everything alright?',
-      createdAt: new Date('2020-01-30T20:03:00'),
       user: lara,
     },
     {
-      text: 'Well, stupid story 😂',
+      text: 'One or more messages are missing',
+      createdAt: new Date('2020-01-30T20:03:00'),
+      user: null,
+      isSystemMessage: true,
+    },
+    {
+      text: 'Was out yesterday',
       createdAt: new Date('2020-01-30T20:04:00'),
       user: arthur,
     },
     {
-      text: 'A tractor and my BMW had a disagreement',
+      text: 'That in Stuttgart',
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: arthur,
+      user: karl,
     },
     {
-      text: '???',
+      text: 'One or more messages are missing',
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: lara,
+      user: null,
+      isSystemMessage: true,
     },
     {
-      text: '😂 Oh dear, I feel bad',
+      text: 'That was Hammer',
       createdAt: new Date('2020-01-30T20:07:00'),
       user: karl,
     },
     {
-      text:
-        "He said he had to cut the curve and my parked BMW didn't want to make room",
+      text: 'Visited Ingo',
       createdAt: new Date('2020-01-30T20:08:00'),
       user: arthur,
+      inferenceQuote: '👍',
     },
     {
-      text: 'Do you have the other driver?',
+      text: 'How is he?',
       createdAt: new Date('2020-01-30T20:09:00'),
+      user: lara,
+    },
+    {
+      text: 'Yes yes',
+      createdAt: new Date('2020-01-30T20:10:00'),
       user: karl,
     },
     {
-      text: 'Yup',
-      createdAt: new Date('2020-01-30T20:10:00'),
-      user: arthur,
-    },
-    {
-      text: 'But are you okay?',
+      text: 'Just ignore me',
       createdAt: new Date('2020-01-30T20:11:00'),
-      user: lara,
-    },
-    {
-      text: 'No',
-      createdAt: new Date('2020-01-30T20:12:00'),
-      user: arthur,
-    },
-    {
-      text: "But that's stupid",
-      createdAt: new Date('2020-01-30T20:13:00'),
-      user: lara,
+      user: karl,
     },
   ];
 
