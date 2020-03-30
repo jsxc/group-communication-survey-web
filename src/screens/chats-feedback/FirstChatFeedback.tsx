@@ -38,12 +38,22 @@ const FirstChatFeedback: React.FC = () => {
     return null;
   };
 
+  const validateTextField = (question: string) => {
+    const choice = firstChatFeedback[question];
+
+    if (!choice) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
   const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
 
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
-  const secondQuestionChoiceError = validateRadioFieldChoice(
+  const secondQuestionChoiceError = validateTextField(
     'Did you notice something?',
   );
 
