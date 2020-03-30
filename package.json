@@ -12,7 +12,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.0",
     "axios": "^0.19.2",
-    "grommet": "^2.11.2",
+    "grommet": "^2.11.3",
     "grommet-icons": "^4.4.0",
     "lodash.isnull": "^3.0.0",
     "react": "^16.12.0",
