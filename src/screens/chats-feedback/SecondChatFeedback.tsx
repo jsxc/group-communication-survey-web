@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, TextArea, Button, Image } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -15,7 +15,7 @@ const SecondChatFeedback: React.FC = () => {
   const { secondChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Is Arthur alright?': secondQuestionChoice,
+    'Could you explain the purpose of the added chat elements?': secondQuestionChoice,
   } = secondChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -38,21 +38,23 @@ const SecondChatFeedback: React.FC = () => {
     return null;
   };
 
-  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
+  const validateTextField = (question: string) => {
+    const choice = secondChatFeedback[question];
 
-  const secondQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
+    if (!choice) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
+  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
 
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
-  const secondQuestionChoiceError = validateRadioFieldChoice(
-    'Is Arthur alright?',
+  const secondQuestionChoiceError = validateTextField(
+    'Could you explain the purpose of the added chat elements?',
   );
 
   const isInvalidForm =
@@ -84,16 +86,23 @@ const SecondChatFeedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Is Arthur alright?
+          Could you explain the purpose of the added chat elements?
         </Heading>
 
-        <RadioButtonGroup
+        <Image
+          style={{ width: 400, marginBottom: 24, alignSelf: 'center' }}
+          src={require('../../assets/images/chat-2.png')}
+          alt="Chat screenshot"
+        />
+
+        <TextArea
           name="question-2"
-          options={secondQuestionOptions}
-          value={secondQuestionChoice}
+          value={secondQuestionChoice || ''}
           onChange={event => {
             const { value } = event.target;
-            setQuestionChoice('Is Arthur alright?')(value);
+            setQuestionChoice(
+              'Could you explain the purpose of the added chat elements?',
+            )(value);
           }}
         />
       </Box>
