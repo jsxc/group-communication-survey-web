@@ -17,21 +17,9 @@ const FirstChat: React.FC = () => {
       user: karl,
     },
     {
-      text: 'One or more messages are missing',
-      createdAt: new Date('2020-01-30T20:01:00'),
-      user: null,
-      isSystemMessage: true,
-    },
-    {
       text: '👍',
       createdAt: new Date('2020-01-30T20:02:00'),
       user: lara,
-    },
-    {
-      text: 'One or more messages are missing',
-      createdAt: new Date('2020-01-30T20:03:00'),
-      user: null,
-      isSystemMessage: true,
     },
     {
       text: 'Was out yesterday',
@@ -44,12 +32,6 @@ const FirstChat: React.FC = () => {
       user: karl,
     },
     {
-      text: 'One or more messages are missing',
-      createdAt: new Date('2020-01-30T20:06:00'),
-      user: null,
-      isSystemMessage: true,
-    },
-    {
       text: 'That was Hammer',
       createdAt: new Date('2020-01-30T20:07:00'),
       user: karl,
@@ -58,7 +40,6 @@ const FirstChat: React.FC = () => {
       text: 'Visited Ingo',
       createdAt: new Date('2020-01-30T20:08:00'),
       user: arthur,
-      inferenceQuote: '👍',
     },
     {
       text: 'How is he?',
