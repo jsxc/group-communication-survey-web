@@ -20,15 +20,15 @@ const Feedback: React.FC = () => {
   const { setData } = globalActions;
 
   const {
-    'What is your name?': name,
+    'What is your email address?': email,
     'What do you think of the new representations?': opinionOnRepresentations,
   } = data;
   const { hasOpinionOnRepresentationsBeenBlurred, isFetching } = state;
 
-  const setName = (name: string) => {
+  const setEmail = (email: string) => {
     return setData(data => ({
       ...data,
-      'What is your name?': name,
+      'What is your email address?': email,
     }));
   };
 
@@ -55,15 +55,15 @@ const Feedback: React.FC = () => {
       <Heading level="3">Almost there. Only the following questions.</Heading>
 
       <Box margin="medium">
-        <Heading level="4">What is your name?</Heading>
+        <Heading level="4">What is your email address?</Heading>
 
         <TextInput
           name="question-1"
-          value={name || ''}
-          placeholder="Your name (optional)"
+          value={email || ''}
+          placeholder="Your email address (optional)"
           onChange={event => {
             const { value } = event.target;
-            setName(value);
+            setEmail(value);
           }}
         />
       </Box>

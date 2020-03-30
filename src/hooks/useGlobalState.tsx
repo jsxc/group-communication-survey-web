@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 
 type Data = {
-  'What is your name?': string;
+  'What is your email address?': string;
   'Specify your sex:': string;
   'How old are you?': number;
   'Which region are you from?': string;
@@ -142,7 +142,7 @@ type Actions = {
 const GlobalStateContext = createContext<[State, Actions]>([
   {
     data: {
-      'What is your name?': null,
+      'What is your email address?': null,
       'Specify your sex:': null,
       'How old are you?': null,
       'Which region are you from?': null,
@@ -273,7 +273,7 @@ export const GlobalStateProvider: React.FC = props => {
   const { children } = props;
 
   const [data, setData] = useState<Data>({
-    'What is your name?': null,
+    'What is your email address?': null,
     'Specify your sex:': null,
     'How old are you?': null,
     'Which region are you from?': null,
