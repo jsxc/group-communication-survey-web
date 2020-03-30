@@ -6,6 +6,7 @@ export {
   FirstExplanation,
   SecondExplanation,
   ThirdExplanation,
+  FourthExplanation,
 } from './explanations';
 export {
   FirstQuestion,

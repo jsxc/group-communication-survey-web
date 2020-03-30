@@ -113,7 +113,7 @@ const SecondChatFeedback: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/chats/3');
+            browserHistory.push('/explanations/4');
           }}
         />
       </Box>
