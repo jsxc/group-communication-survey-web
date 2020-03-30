@@ -16,7 +16,6 @@ const SecondChatFeedback: React.FC = () => {
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
     'Is Arthur alright?': secondQuestionChoice,
-    'Does Arthur know the other driver involved in the accident?': thirdQuestionChoice,
   } = secondChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -49,28 +48,15 @@ const SecondChatFeedback: React.FC = () => {
     'There was too little information about this',
   ];
 
-  const thirdQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
-
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
   const secondQuestionChoiceError = validateRadioFieldChoice(
     'Is Arthur alright?',
   );
-  const thirdQuestionChoiceError = validateRadioFieldChoice(
-    'Does Arthur know the other driver involved in the accident?',
-  );
 
   const isInvalidForm =
-    Boolean(firstQuestionChoiceError) ||
-    Boolean(secondQuestionChoiceError) ||
-    Boolean(thirdQuestionChoiceError);
+    Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
 
   return (
     <Form>
@@ -108,24 +94,6 @@ const SecondChatFeedback: React.FC = () => {
           onChange={event => {
             const { value } = event.target;
             setQuestionChoice('Is Arthur alright?')(value);
-          }}
-        />
-      </Box>
-
-      <Box margin="medium">
-        <Heading level="4" error={Boolean(thirdQuestionChoiceError)}>
-          Does Arthur know the other driver involved in the accident?
-        </Heading>
-
-        <RadioButtonGroup
-          name="question-3"
-          options={thirdQuestionOptions}
-          value={thirdQuestionChoice}
-          onChange={event => {
-            const { value } = event.target;
-            setQuestionChoice(
-              'Does Arthur know the other driver involved in the accident?',
-            )(value);
           }}
         />
       </Box>

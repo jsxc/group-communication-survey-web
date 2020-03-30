@@ -106,7 +106,6 @@ type Data = {
   secondChatFeedback: {
     'How well did you understand the conversation?': string;
     'Is Arthur alright?': string;
-    'Does Arthur know the other driver involved in the accident?': string;
   };
   thirdChatFeedback: {
     'How well did you understand the conversation?': string;
@@ -241,7 +240,6 @@ const GlobalStateContext = createContext<[State, Actions]>([
       secondChatFeedback: {
         'How well did you understand the conversation?': null,
         'Is Arthur alright?': null,
-        'Does Arthur know the other driver involved in the accident?': null,
       },
       thirdChatFeedback: {
         'How well did you understand the conversation?': null,
@@ -372,7 +370,6 @@ export const GlobalStateProvider: React.FC = props => {
     secondChatFeedback: {
       'How well did you understand the conversation?': null,
       'Is Arthur alright?': null,
-      'Does Arthur know the other driver involved in the accident?': null,
     },
     thirdChatFeedback: {
       'How well did you understand the conversation?': null,
