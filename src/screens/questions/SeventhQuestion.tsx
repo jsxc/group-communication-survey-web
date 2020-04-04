@@ -26,7 +26,7 @@ const SeventhQuestion: React.FC = () => {
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -56,7 +56,7 @@ const SeventhQuestion: React.FC = () => {
           name="question-1"
           options={['Yes', 'No']}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Do you expect that everyone reads your message in a group chat?',
@@ -74,7 +74,7 @@ const SeventhQuestion: React.FC = () => {
           name="question-2"
           options={['Yes', 'No']}
           value={secondQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Do you thing everyone is reading all your messages in a group chat?',
@@ -92,7 +92,7 @@ const SeventhQuestion: React.FC = () => {
           name="question-3"
           options={['Yes', 'No']}
           value={thirdQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Are you always reading all messages in a group chat?',
@@ -111,7 +111,7 @@ const SeventhQuestion: React.FC = () => {
           name="question-4"
           options={['Yes', 'No']}
           value={fourthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Would you publish all your conversations in your favorite group chat app?',
@@ -130,7 +130,7 @@ const SeventhQuestion: React.FC = () => {
           name="question-5"
           options={['Yes', 'No']}
           value={fifthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Would you publish a complete list of groups you are part of in your favorite group chat app?',
@@ -156,7 +156,7 @@ const SeventhQuestion: React.FC = () => {
             'I leave the group',
           ]}
           value={sixthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'How do you react if a new member joins a group of good friends/business group/club group?',
@@ -180,7 +180,7 @@ const SeventhQuestion: React.FC = () => {
             'I start a new group with a subset of the previous group',
           ]}
           value={seventhQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               "What is your most common reaction if a new member, which you don't like, is added to a group?",
@@ -205,7 +205,7 @@ const SeventhQuestion: React.FC = () => {
             'I spam in the group until they kick me out',
           ]}
           value={eighthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               "What is your most common reaction if you are added to a group which you don't like to be part of?",
@@ -231,7 +231,7 @@ const SeventhQuestion: React.FC = () => {
             'Nearly never',
           ]}
           value={ninthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('How often does this happen?')(value);
           }}
@@ -253,7 +253,7 @@ const SeventhQuestion: React.FC = () => {
             'I mute the group',
           ]}
           value={tenthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               "What are you doing if you don't want to participate in a digital group?",

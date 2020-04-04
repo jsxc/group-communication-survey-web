@@ -17,7 +17,7 @@ const FifthQuestion: React.FC = () => {
   } = data;
 
   const setUsesGroupChatClient = (usesGroupChatClient: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'Do you use programs that allow you to communicate with groups?': usesGroupChatClient,
     }));
@@ -45,7 +45,7 @@ const FifthQuestion: React.FC = () => {
           name="question-1"
           options={['Yes', 'No']}
           value={usesGroupChatClient}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setUsesGroupChatClient(value);
           }}

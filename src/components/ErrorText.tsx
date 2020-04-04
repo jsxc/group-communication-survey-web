@@ -5,7 +5,7 @@ type Props = TextProps & {
   visible: boolean;
 };
 
-const ErrorText: React.FC<Props> = props => {
+const ErrorText: React.FC<Props> = (props) => {
   const { visible, children, ...rest } = props;
 
   return (

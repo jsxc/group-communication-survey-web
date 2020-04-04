@@ -19,7 +19,7 @@ const FourthChatFeedback: React.FC = () => {
   } = fourthChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       fourthChatFeedback: {
         ...data.fourthChatFeedback,
@@ -73,7 +73,7 @@ const FourthChatFeedback: React.FC = () => {
           lastOptionLabel="Very well"
           options={firstQuestionOptions}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('How well did you understand the conversation?')(
               value,
@@ -91,7 +91,7 @@ const FourthChatFeedback: React.FC = () => {
           name="question-2"
           options={secondQuestionOptions}
           value={secondQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('Will Emil be lent money?')(value);
           }}

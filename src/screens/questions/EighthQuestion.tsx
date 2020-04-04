@@ -22,7 +22,7 @@ const EighthQuestion: React.FC = () => {
   const { hasFirstQuestionBeenBlurred, hasSecondQuestionBeenBlurred } = state;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -60,14 +60,14 @@ const EighthQuestion: React.FC = () => {
         <TextArea
           name="question-1"
           value={firstQuestionChoice || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Which visualization would you like to have integrated in your favorite chat app?',
             )(value);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasFirstQuestionBeenBlurred: true,
             }));
@@ -90,14 +90,14 @@ const EighthQuestion: React.FC = () => {
         <TextArea
           name="question-2"
           value={secondQuestionChoice || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Which feature are you missing in your favorite chat app?',
             )(value);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasSecondQuestionBeenBlurred: true,
             }));

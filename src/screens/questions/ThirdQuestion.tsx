@@ -25,7 +25,7 @@ const ThirdQuestion: React.FC = () => {
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -67,7 +67,7 @@ const ThirdQuestion: React.FC = () => {
             'If I think the person does not belong to the group I will leave the group',
           ]}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'What are you doing if you do not know someone in a group?',
@@ -85,7 +85,7 @@ const ThirdQuestion: React.FC = () => {
           name="question-2"
           options={['No', 'Yes']}
           value={secondQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Are you always knowing who will hear your message?',
@@ -104,7 +104,7 @@ const ThirdQuestion: React.FC = () => {
             name="question-3"
             options={['Yes', 'No']}
             value={thirdQuestionChoice}
-            onChange={event => {
+            onChange={(event) => {
               const { value } = event.target;
               setQuestionChoice('Are you aware of that?')(value);
             }}
@@ -123,7 +123,7 @@ const ThirdQuestion: React.FC = () => {
           other={true}
           options={['Confidential topics', 'In general', 'Never']}
           value={fourthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'In which cases is it especially important for you who will hear your messages?',
@@ -142,7 +142,7 @@ const ThirdQuestion: React.FC = () => {
           name="question-5"
           options={['Yes', 'No']}
           value={fifthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Would it be sometimes important for you that nobody in the group can prove that you said something?',
@@ -161,7 +161,7 @@ const ThirdQuestion: React.FC = () => {
           name="question-6"
           options={['Yes', 'No']}
           value={sixthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?',
@@ -180,7 +180,7 @@ const ThirdQuestion: React.FC = () => {
           name="question-7"
           options={['Yes', 'No', 'Not in my region, but there are places']}
           value={seventhQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Do you thing there are use cases in which plausible deniability of group membership is important?',
@@ -199,7 +199,7 @@ const ThirdQuestion: React.FC = () => {
           name="question-8"
           options={['Yes', 'No']}
           value={eighthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Would it influence your behaviour if everything you say would be immediately published?',
@@ -224,7 +224,7 @@ const ThirdQuestion: React.FC = () => {
             "It's important that every member is trustworthy",
           ]}
           value={ninthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Are there special requirements for groups if confidential topics are discussed?',

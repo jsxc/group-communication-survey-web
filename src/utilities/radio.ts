@@ -8,7 +8,7 @@ export const constructRadioOptions = (label: string) => {
   };
 };
 
-export const obscureScaleLabels = radioOption => {
+export const obscureScaleLabels = (radioOption) => {
   return {
     ...radioOption,
     label: '',

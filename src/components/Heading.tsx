@@ -9,7 +9,7 @@ type Props = GrommetHeadingProps & {
   error?: boolean;
 };
 
-const Heading: React.FC<Props> = props => {
+const Heading: React.FC<Props> = (props) => {
   const { error = false, ...rest } = props;
 
   return (

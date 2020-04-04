@@ -33,7 +33,7 @@ const FourthQuestion: React.FC = () => {
   ];
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -42,7 +42,7 @@ const FourthQuestion: React.FC = () => {
   const setNestedQuestionChoice = (question: string) => (
     subquestion: string,
   ) => (choice: boolean) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: {
         ...data[question],
@@ -67,7 +67,7 @@ const FourthQuestion: React.FC = () => {
               <CheckBox
                 label={subquestion}
                 checked={firstQuestionChoices[subquestion]}
-                onChange={event => {
+                onChange={(event) => {
                   const { checked } = event.target;
                   setNestedQuestionChoice(
                     'Which statements are true for the admission of a new member in a business group?',
@@ -91,7 +91,7 @@ const FourthQuestion: React.FC = () => {
               <CheckBox
                 label={subquestion}
                 checked={secondQuestionChoices[subquestion]}
-                onChange={event => {
+                onChange={(event) => {
                   const { checked } = event.target;
                   setNestedQuestionChoice(
                     'Which statements are true for the admission of a new member in a casual group?',
@@ -115,7 +115,7 @@ const FourthQuestion: React.FC = () => {
               <CheckBox
                 label={subquestion}
                 checked={thirdQuestionChoices[subquestion]}
-                onChange={event => {
+                onChange={(event) => {
                   const { checked } = event.target;
                   setNestedQuestionChoice(
                     'Which statements are true for the admission of a new member in a confidential group?',
@@ -143,7 +143,7 @@ const FourthQuestion: React.FC = () => {
             'I try to start a new group with a subset of the previous group',
           ]}
           value={fourthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               "How do you react if a new person joins a group that you don't like?",

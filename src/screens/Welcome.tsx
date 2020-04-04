@@ -32,7 +32,7 @@ const Welcome: React.FC = () => {
           label="Next"
           margin="medium"
           onClick={() => {
-            setNavigation(navigation => ({
+            setNavigation((navigation) => ({
               ...navigation,
               hasStarted: true,
             }));

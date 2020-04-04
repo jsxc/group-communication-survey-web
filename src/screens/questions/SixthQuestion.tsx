@@ -34,42 +34,42 @@ const SixthQuestion: React.FC = () => {
   } = state;
 
   const setFavoriteChatApp = (favoriteChatApp: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'Which is your favorite digital group chat messenger?': favoriteChatApp,
     }));
   };
 
   const setMostUsedChatApp = (mostUsedChatApp: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'Which digital group chat messenger do you use most?': mostUsedChatApp,
     }));
   };
 
   const setGroupsCount = (groupsCount: number) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'How many groups do you have?': groupsCount,
     }));
   };
 
   const setRegularlyUsedGroupsCount = (regularlyUsedGroupsCount: number) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'How many groups do you use regularly?': regularlyUsedGroupsCount,
     }));
   };
 
   const setSmallestGroupMembersCount = (smallestGroupMembersCount: number) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'How many members does the smallest group have?': smallestGroupMembersCount,
     }));
   };
 
   const setLargestGroupMembersCount = (largestGroupMembersCount: number) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'How many members does the largest group have?': largestGroupMembersCount,
     }));
@@ -169,7 +169,7 @@ const SixthQuestion: React.FC = () => {
           other={true}
           options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={favoriteChatApp}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setFavoriteChatApp(value);
           }}
@@ -186,7 +186,7 @@ const SixthQuestion: React.FC = () => {
           other={true}
           options={['WhatsApp', 'Threema', 'Telegram', 'Signal', 'XMPP']}
           value={mostUsedChatApp}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setMostUsedChatApp(value);
           }}
@@ -202,12 +202,12 @@ const SixthQuestion: React.FC = () => {
           name="question-1"
           type="number"
           value={groupsCount || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setGroupsCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasGroupsCountBeenBlurred: true,
             }));
@@ -228,12 +228,12 @@ const SixthQuestion: React.FC = () => {
           name="question-2"
           type="number"
           value={regularlyUsedGroupsCount || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setRegularlyUsedGroupsCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasRegularlyUsedGroupsCountBeenBlurred: true,
             }));
@@ -254,12 +254,12 @@ const SixthQuestion: React.FC = () => {
           name="question-3"
           type="number"
           value={smallestGroupMembersCount || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setSmallestGroupMembersCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasSmallestGroupMembersCountBeenBlurred: true,
             }));
@@ -280,12 +280,12 @@ const SixthQuestion: React.FC = () => {
           name="question-4"
           type="number"
           value={largestGroupMembersCount || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setLargestGroupMembersCount(value ? parseInt(value) : null);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasLargestGroupMembersCountBeenBlurred: true,
             }));

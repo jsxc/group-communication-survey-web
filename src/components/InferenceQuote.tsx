@@ -5,7 +5,7 @@ type Props = {
   tooltipText: string;
 };
 
-const InferenceQuote: React.FC<Props> = props => {
+const InferenceQuote: React.FC<Props> = (props) => {
   const { children, tooltipText } = props;
 
   return (

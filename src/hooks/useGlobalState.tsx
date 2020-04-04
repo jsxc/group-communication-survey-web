@@ -267,7 +267,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
   },
 ]);
 
-export const GlobalStateProvider: React.FC = props => {
+export const GlobalStateProvider: React.FC = (props) => {
   const { children } = props;
 
   const [data, setData] = useState<Data>({

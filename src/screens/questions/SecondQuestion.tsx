@@ -25,7 +25,7 @@ const SecondQuestion: React.FC = () => {
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -58,7 +58,7 @@ const SecondQuestion: React.FC = () => {
           name="question-1"
           options={['Yes', 'No']}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Are there cases where two or more people are talking at the same time?',
@@ -78,7 +78,7 @@ const SecondQuestion: React.FC = () => {
             <TextArea
               name="question-2"
               value={secondQuestionChoice || ''}
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setQuestionChoice(
                   'What is the result if two or more people are talking at the same time?',
@@ -96,7 +96,7 @@ const SecondQuestion: React.FC = () => {
             <TextArea
               name="question-3"
               value={thirdQuestionChoice || ''}
-              onChange={event => {
+              onChange={(event) => {
                 const { value } = event.target;
                 setQuestionChoice(
                   'What is the most common reaction if two or more people are talking at the same time?',
@@ -123,7 +123,7 @@ const SecondQuestion: React.FC = () => {
             'World of ideas',
           ]}
           value={fourthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?',
@@ -146,7 +146,7 @@ const SecondQuestion: React.FC = () => {
             'I require some kind of feedback, like a nod',
           ]}
           value={fifthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'What are you doing if you are announcing something important?',
@@ -170,7 +170,7 @@ const SecondQuestion: React.FC = () => {
             'I announce that I could not follow the conversation and ask if they can summaries the last minute',
           ]}
           value={sixthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Imagine you were distracted and you are now unable to follow the conversation. How do you react?',
@@ -193,7 +193,7 @@ const SecondQuestion: React.FC = () => {
             'I ask the group',
           ]}
           value={seventhQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'What is your most common reaction if a statement is unclear to you?',
@@ -218,7 +218,7 @@ const SecondQuestion: React.FC = () => {
             'I ask the group',
           ]}
           value={eighthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'What is your reaction if you were not able to understand something acousticly?',
@@ -245,7 +245,7 @@ const SecondQuestion: React.FC = () => {
             'The basic concept of both is the same',
           ]}
           value={ninthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Is there a difference in communication between business and leisure groups?',

@@ -25,7 +25,7 @@ type Props = BoxProps &
     onOtherAnswerChange?: (newAnswer: string) => void;
   };
 
-const RadioButtonGroup: React.FC<Props> = props => {
+const RadioButtonGroup: React.FC<Props> = (props) => {
   const {
     value,
     options,
@@ -93,7 +93,7 @@ const RadioButtonGroup: React.FC<Props> = props => {
         <TextInput
           style={{ marginTop: 16, marginLeft: 16, marginRight: 16 }}
           value={isValueInOptions ? '' : value}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             handleChangedValue(value);
           }}

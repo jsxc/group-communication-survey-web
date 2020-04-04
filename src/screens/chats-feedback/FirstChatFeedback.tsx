@@ -19,7 +19,7 @@ const FirstChatFeedback: React.FC = () => {
   } = firstChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       firstChatFeedback: {
         ...data.firstChatFeedback,
@@ -75,7 +75,7 @@ const FirstChatFeedback: React.FC = () => {
           lastOptionLabel="Very well"
           options={firstQuestionOptions}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('How well did you understand the conversation?')(
               value,
@@ -92,7 +92,7 @@ const FirstChatFeedback: React.FC = () => {
         <TextArea
           name="question-2"
           value={secondQuestionChoice || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('Did you notice something?')(value);
           }}

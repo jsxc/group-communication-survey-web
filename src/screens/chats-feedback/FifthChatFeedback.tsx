@@ -20,7 +20,7 @@ const FifthChatFeedback: React.FC = () => {
   } = fifthChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       fifthChatFeedback: {
         ...data.fifthChatFeedback,
@@ -81,7 +81,7 @@ const FifthChatFeedback: React.FC = () => {
           lastOptionLabel="Very well"
           options={firstQuestionOptions}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('How well did you understand the conversation?')(
               value,
@@ -99,7 +99,7 @@ const FifthChatFeedback: React.FC = () => {
           name="question-2"
           options={secondQuestionOptions}
           value={secondQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('How many people reported sick?')(value);
           }}
@@ -115,7 +115,7 @@ const FifthChatFeedback: React.FC = () => {
           name="question-3"
           options={thirdQuestionOptions}
           value={thirdQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('Is the day going smoothly?')(value);
           }}

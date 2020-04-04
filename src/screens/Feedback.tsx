@@ -26,14 +26,14 @@ const Feedback: React.FC = () => {
   const { hasOpinionOnRepresentationsBeenBlurred, isFetching } = state;
 
   const setEmail = (email: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'What is your email address?': email,
     }));
   };
 
   const setOpinionOnRepresentations = (opinionOnRepresentations: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       'What do you think of the new representations?': opinionOnRepresentations,
     }));
@@ -61,7 +61,7 @@ const Feedback: React.FC = () => {
           name="question-1"
           value={email || ''}
           placeholder="Your email address (optional)"
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setEmail(value);
           }}
@@ -76,12 +76,12 @@ const Feedback: React.FC = () => {
         <TextArea
           name="question-2"
           value={opinionOnRepresentations || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setOpinionOnRepresentations(value);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasOpinionOnRepresentationsBeenBlurred: true,
             }));
@@ -109,9 +109,9 @@ const Feedback: React.FC = () => {
                   { if: 'production', then: uris.server.production },
                 ])(process.env.NODE_ENV);
 
-                setState(state => ({ ...state, isFetching: true }));
+                setState((state) => ({ ...state, isFetching: true }));
                 await axios.post(uri, data);
-                setState(state => ({ ...state, isFetching: false }));
+                setState((state) => ({ ...state, isFetching: false }));
 
                 browserHistory.push('/thank-you');
               } catch (error) {

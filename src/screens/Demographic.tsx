@@ -30,15 +30,18 @@ const Demographic: React.FC = () => {
   const { hasAgeBeenBlurred } = state;
 
   const setSex = (sex: string) => {
-    return setData(data => ({ ...data, 'Specify your sex:': sex }));
+    return setData((data) => ({ ...data, 'Specify your sex:': sex }));
   };
 
   const setAge = (age: number) => {
-    return setData(data => ({ ...data, 'How old are you?': age }));
+    return setData((data) => ({ ...data, 'How old are you?': age }));
   };
 
   const setRegion = (region: string) => {
-    return setData(data => ({ ...data, 'Which region are you from?': region }));
+    return setData((data) => ({
+      ...data,
+      'Which region are you from?': region,
+    }));
   };
 
   const validateSexField = () => {
@@ -92,7 +95,7 @@ const Demographic: React.FC = () => {
           name="question-1"
           options={['Male', 'Female']}
           value={sex}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setSex(value);
           }}
@@ -108,12 +111,12 @@ const Demographic: React.FC = () => {
           name="question-2"
           type="number"
           value={age || ''}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setAge(value ? parseInt(value) : null);
           }}
           onBlur={() => {
-            setState(state => ({
+            setState((state) => ({
               ...state,
               hasAgeBeenBlurred: true,
             }));

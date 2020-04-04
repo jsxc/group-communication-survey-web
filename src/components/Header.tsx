@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const location = useLocation();
 
   const currentScreenIndex = navigationalMap.findIndex(
-    entry => entry.path === location.pathname,
+    (entry) => entry.path === location.pathname,
   );
 
   const screensCount = navigationalMap.length;
@@ -35,7 +35,7 @@ const Header: React.FC = () => {
         }}
         to="/"
         onClick={() => {
-          setNavigation(navigation => ({
+          setNavigation((navigation) => ({
             ...navigation,
             hasStarted: false,
           }));

@@ -30,7 +30,7 @@ const FirstQuestion: React.FC = () => {
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
-    return setData(data => ({
+    return setData((data) => ({
       ...data,
       [question]: choice,
     }));
@@ -77,7 +77,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={firstQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Even if I am not allowed to talk, I always have the possibility to do so',
@@ -99,7 +99,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={secondQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I am always able to hear everyone speaking')(
               value,
@@ -121,7 +121,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={thirdQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I am always attentive during a discussion')(
               value,
@@ -143,7 +143,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={fourthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'I always understand every statement acousticly and contentually',
@@ -165,7 +165,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={fifthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I am never distracted during a discussion')(
               value,
@@ -187,7 +187,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={sixthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I always know who is talking')(value);
           }}
@@ -207,7 +207,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={seventhQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I always know the person who is speaking')(
               value,
@@ -229,7 +229,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={eighthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I always know every participant in a group')(
               value,
@@ -252,7 +252,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={ninthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'If there are no tapping devices a single member can not prove that someone said something',
@@ -275,7 +275,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={tenthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'If there are no tapping devices a single member can not prove that someone was a member of a specific group',
@@ -298,7 +298,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={eleventhQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'It is sometimes important that no member in a group can prove that someone said something',
@@ -320,7 +320,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={twelfthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'Confidential private topics are only discussed in small groups',
@@ -342,7 +342,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={thirteenthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice('I always leave a group with an announcement')(
               value,
@@ -365,7 +365,7 @@ const FirstQuestion: React.FC = () => {
           lastOptionLabel="Agree"
           options={options}
           value={fourteenthQuestionChoice}
-          onChange={event => {
+          onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
               'If I want to leave a group in my favorite chat app, I will always give a reason',

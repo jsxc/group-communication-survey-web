@@ -36,7 +36,7 @@ const transformMessage = (message: Message): IMessage => {
   };
 };
 
-const Chat: React.FC<Props> = props => {
+const Chat: React.FC<Props> = (props) => {
   const { messages, animationInterval, onAnimationEnd } = props;
 
   const transformedMessages = messages.map(transformMessage);
@@ -46,7 +46,7 @@ const Chat: React.FC<Props> = props => {
   const [timeoutIds, setTimeoutIds] = useState([]);
 
   const appendTimedMessage = (message: IMessage): void => {
-    setTimedMessages(timedMessages => {
+    setTimedMessages((timedMessages) => {
       return GiftedChat.append(timedMessages, [message]);
     });
   };
@@ -58,11 +58,11 @@ const Chat: React.FC<Props> = props => {
         index * operationalAnimationInterval,
       );
 
-      setTimeoutIds(timeoutIds => timeoutIds.concat(timeoutId));
+      setTimeoutIds((timeoutIds) => timeoutIds.concat(timeoutId));
     });
 
     return () => {
-      timeoutIds.forEach(timeoutId => clearTimeout(timeoutId));
+      timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
     };
 
     /* eslint-disable-next-line */
@@ -85,7 +85,7 @@ const Chat: React.FC<Props> = props => {
         messageIdGenerator={randomId}
         user={{ id: 1 }}
         messages={timedMessages}
-        renderBubble={props => {
+        renderBubble={(props) => {
           const { currentMessage } = props;
           const { image: inferenceQuote } = currentMessage;
 
