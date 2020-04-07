@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from 'grommet';
-import { GiftedChat, Bubble, IMessage } from 'react-web-gifted-chat';
+import {
+  GiftedChat,
+  Bubble,
+  IMessage as GiftedChatMessage,
+} from 'react-web-gifted-chat';
 import InferenceQuote from './InferenceQuote';
 import { randomId } from '../utilities';
 
@@ -23,7 +27,7 @@ type Props = {
   onAnimationEnd?: () => void;
 };
 
-const transformMessage = (message: Message): IMessage => {
+const transformMessage = (message: Message): GiftedChatMessage => {
   return {
     ...message,
     id: randomId(),
@@ -45,7 +49,7 @@ const Chat: React.FC<Props> = (props) => {
   const [timedMessages, setTimedMessages] = useState([]);
   const [timeoutIds, setTimeoutIds] = useState([]);
 
-  const appendTimedMessage = (message: IMessage): void => {
+  const appendTimedMessage = (message: GiftedChatMessage): void => {
     setTimedMessages((timedMessages) => {
       return GiftedChat.append(timedMessages, [message]);
     });
