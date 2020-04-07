@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
-import { Chat } from '../../components';
+import { TreeChat } from '../../components';
 import { users } from './data';
 
 const ThirdChat: React.FC = () => {
@@ -17,21 +17,10 @@ const ThirdChat: React.FC = () => {
       user: ines,
     },
     {
-      text: 'One or more messages are missing',
-      createdAt: new Date('2020-01-30T20:01:00'),
-      user: null,
-      isSystemMessage: true,
-    },
-    {
       text: 'I did it',
       createdAt: new Date('2020-01-30T20:02:00'),
       user: karl,
-    },
-    {
-      text: 'One or more messages are missing',
-      createdAt: new Date('2020-01-30T20:03:00'),
-      user: null,
-      isSystemMessage: true,
+      replyTo: 'Karl, did you prepare the presentation?',
     },
     {
       text: 'Oh and what about the invitation?',
@@ -42,24 +31,25 @@ const ThirdChat: React.FC = () => {
       text: 'Unfortunately I have not yet been able to do so',
       createdAt: new Date('2020-01-30T20:05:00'),
       user: karl,
-      inferenceQuote: 'Karl, did you prepare the presentation?',
+      replyTo: 'Oh and what about the invitation?',
     },
     {
       text: 'Should I still do that?',
       createdAt: new Date('2020-01-30T20:06:00'),
       user: richard,
-      inferenceQuote: 'I did it',
+      replyTo: 'Oh and what about the invitation?',
     },
     {
       text: 'No, I can still manage it',
       createdAt: new Date('2020-01-30T20:07:00'),
       user: karl,
+      replyTo: 'Oh and what about the invitation?',
     },
   ];
 
   return (
     <>
-      <Chat
+      <TreeChat
         messages={messages}
         animationInterval={process.env.NODE_ENV === 'development' ? 100 : 1000}
         onAnimationEnd={() => {
