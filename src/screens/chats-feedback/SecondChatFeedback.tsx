@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, TextArea, Button, Image } from 'grommet';
+import { Box, Form, Text, TextArea, Button, Image } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -15,7 +15,8 @@ const SecondChatFeedback: React.FC = () => {
   const { secondChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Could you explain the purpose of the added chat elements?': secondQuestionChoice,
+    'Could you explain the purpose of the added chat elements shown in screenshot #1?': secondQuestionChoice,
+    'Could you explain the purpose of the added chat elements shown in screenshot #2?': thirdQuestionChoice,
   } = secondChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -54,11 +55,16 @@ const SecondChatFeedback: React.FC = () => {
     'How well did you understand the conversation?',
   );
   const secondQuestionChoiceError = validateTextField(
-    'Could you explain the purpose of the added chat elements?',
+    'Could you explain the purpose of the added chat elements shown in screenshot #1?',
+  );
+  const thirdQuestionChoiceError = validateTextField(
+    'Could you explain the purpose of the added chat elements shown in screenshot #2?',
   );
 
   const isInvalidForm =
-    Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
+    Boolean(firstQuestionChoiceError) ||
+    Boolean(secondQuestionChoiceError) ||
+    Boolean(thirdQuestionChoiceError);
 
   return (
     <Form>
@@ -86,14 +92,29 @@ const SecondChatFeedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Could you explain the purpose of the added chat elements?
+          Could you explain the purpose of the added chat elements shown in
+          screenshot #1?
         </Heading>
 
         <Image
-          style={{ width: 400, marginBottom: 24, alignSelf: 'center' }}
-          src={require('../../assets/images/chat-2.png')}
-          alt="Chat screenshot"
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-2-i.png')}
+          alt="Chat screenshot 1"
         />
+
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot #1
+        </Text>
 
         <TextArea
           name="question-2"
@@ -101,7 +122,45 @@ const SecondChatFeedback: React.FC = () => {
           onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
-              'Could you explain the purpose of the added chat elements?',
+              'Could you explain the purpose of the added chat elements shown in screenshot #1?',
+            )(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={Boolean(thirdQuestionChoiceError)}>
+          Could you explain the purpose of the added chat elements shown in
+          screenshot #2?
+        </Heading>
+
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-2-ii.png')}
+          alt="Chat screenshot 2"
+        />
+
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot #2
+        </Text>
+
+        <TextArea
+          name="question-3"
+          value={thirdQuestionChoice || ''}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(
+              'Could you explain the purpose of the added chat elements shown in screenshot #2?',
             )(value);
           }}
         />
