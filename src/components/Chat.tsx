@@ -44,7 +44,7 @@ const Chat: React.FC<Props> = (props) => {
   const { messages, animationInterval, onAnimationEnd } = props;
 
   const transformedMessages = messages.map(transformMessage);
-  const operationalAnimationInterval = animationInterval || 1000;
+  const operationalAnimationInterval = animationInterval ?? 1000;
 
   const [timedMessages, setTimedMessages] = useState([]);
   const [timeoutIds, setTimeoutIds] = useState([]);
