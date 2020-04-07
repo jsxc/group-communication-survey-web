@@ -12,13 +12,16 @@ const App: React.FC = () => {
   const { navigation } = globalState;
   const { hasStarted } = navigation;
 
+  const isProductionEnvironment = process.env.NODE_ENV === 'production';
+  const shouldRedirectToLandingPage = isProductionEnvironment && !hasStarted;
+
   return (
     <Grommet theme={theme}>
       <BrowserRouter>
         <Header />
 
         <Box align="center" pad="medium">
-          {hasStarted ? null : <Redirect to="/" />}
+          {shouldRedirectToLandingPage ? <Redirect to="/" /> : null}
 
           <ScrollToTop />
 
