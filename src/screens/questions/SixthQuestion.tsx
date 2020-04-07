@@ -150,12 +150,13 @@ const SixthQuestion: React.FC = () => {
   const largestGroupMembersCountFieldError = validateLargestGroupMembersCountField();
 
   const isInvalidForm =
-    isNull(favoriteChatApp) ||
-    isNull(mostUsedChatApp) ||
-    Boolean(groupsCountFieldError) ||
-    Boolean(regularlyUsedGroupsCountFieldError) ||
-    Boolean(smallestGroupMembersCountFieldError) ||
-    Boolean(largestGroupMembersCountFieldError);
+    [favoriteChatApp, mostUsedChatApp].some(isNull) ||
+    [
+      groupsCountFieldError,
+      regularlyUsedGroupsCountFieldError,
+      smallestGroupMembersCountFieldError,
+      largestGroupMembersCountFieldError,
+    ].some(Boolean);
 
   return (
     <Form>

@@ -67,10 +67,11 @@ const ThirdChatFeedback: React.FC = () => {
     'Did Karl prepare the invitation?',
   );
 
-  const isInvalidForm =
-    Boolean(firstQuestionChoiceError) ||
-    Boolean(secondQuestionChoiceError) ||
-    Boolean(thirdQuestionChoiceError);
+  const isInvalidForm = [
+    firstQuestionChoiceError,
+    secondQuestionChoiceError,
+    thirdQuestionChoiceError,
+  ].some(Boolean);
 
   return (
     <Form>

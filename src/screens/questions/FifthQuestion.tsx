@@ -32,7 +32,8 @@ const FifthQuestion: React.FC = () => {
   };
 
   const usesGroupChatClientFieldError = validateUsesGroupChatClientField();
-  const isInvalidForm = Boolean(usesGroupChatClientFieldError);
+
+  const isInvalidForm = [usesGroupChatClientFieldError].some(Boolean);
 
   return (
     <Form>

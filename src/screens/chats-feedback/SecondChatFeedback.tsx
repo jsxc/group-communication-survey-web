@@ -61,10 +61,11 @@ const SecondChatFeedback: React.FC = () => {
     'Could you explain the purpose of the added chat elements shown in screenshot #2?',
   );
 
-  const isInvalidForm =
-    Boolean(firstQuestionChoiceError) ||
-    Boolean(secondQuestionChoiceError) ||
-    Boolean(thirdQuestionChoiceError);
+  const isInvalidForm = [
+    firstQuestionChoiceError,
+    secondQuestionChoiceError,
+    thirdQuestionChoiceError,
+  ].some(Boolean);
 
   return (
     <Form>

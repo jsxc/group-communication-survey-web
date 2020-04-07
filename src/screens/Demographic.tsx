@@ -79,10 +79,9 @@ const Demographic: React.FC = () => {
   const ageFieldError = validateAgeField();
   const regionFieldError = validateRegionField();
 
-  const isInvalidForm =
-    Boolean(sexFieldError) ||
-    Boolean(ageFieldError) ||
-    Boolean(regionFieldError);
+  const isInvalidForm = [sexFieldError, ageFieldError, regionFieldError].some(
+    Boolean,
+  );
 
   return (
     <Form>

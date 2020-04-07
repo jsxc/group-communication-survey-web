@@ -51,7 +51,7 @@ const FourthQuestion: React.FC = () => {
     }));
   };
 
-  const isInvalidForm = isNull(fourthQuestionChoice);
+  const isInvalidForm = [fourthQuestionChoice].some(isNull);
 
   return (
     <Form>

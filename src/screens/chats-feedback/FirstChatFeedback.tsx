@@ -57,8 +57,10 @@ const FirstChatFeedback: React.FC = () => {
     'Did you notice something?',
   );
 
-  const isInvalidForm =
-    Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
+  const isInvalidForm = [
+    firstQuestionChoiceError,
+    secondQuestionChoiceError,
+  ].some(Boolean);
 
   return (
     <Form>

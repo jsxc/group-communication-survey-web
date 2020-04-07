@@ -61,10 +61,11 @@ const FifthChatFeedback: React.FC = () => {
     'Is the day going smoothly?',
   );
 
-  const isInvalidForm =
-    Boolean(firstQuestionChoiceError) ||
-    Boolean(secondQuestionChoiceError) ||
-    Boolean(thirdQuestionChoiceError);
+  const isInvalidForm = [
+    firstQuestionChoiceError,
+    secondQuestionChoiceError,
+    thirdQuestionChoiceError,
+  ].some(Boolean);
 
   return (
     <Form>

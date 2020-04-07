@@ -3,7 +3,7 @@ import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
-import { isNull, any } from '../../utilities';
+import { isNull } from '../../utilities';
 
 const ThirdQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -35,7 +35,7 @@ const ThirdQuestion: React.FC = () => {
   const areConditionalFieldsEmpty = isNull(thirdQuestionChoice);
 
   const isInvalidForm =
-    any(isNull)([
+    [
       firstQuestionChoice,
       secondQuestionChoice,
       fourthQuestionChoice,
@@ -44,7 +44,7 @@ const ThirdQuestion: React.FC = () => {
       seventhQuestionChoice,
       eighthQuestionChoice,
       ninthQuestionChoice,
-    ]) ||
+    ].some(isNull) ||
     (areConditionalFieldsRequired && areConditionalFieldsEmpty);
 
   return (

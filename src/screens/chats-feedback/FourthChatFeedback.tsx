@@ -55,8 +55,10 @@ const FourthChatFeedback: React.FC = () => {
     'Will Emil be lent money?',
   );
 
-  const isInvalidForm =
-    Boolean(firstQuestionChoiceError) || Boolean(secondQuestionChoiceError);
+  const isInvalidForm = [
+    firstQuestionChoiceError,
+    secondQuestionChoiceError,
+  ].some(Boolean);
 
   return (
     <Form>

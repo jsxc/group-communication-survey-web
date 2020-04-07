@@ -48,7 +48,8 @@ const Feedback: React.FC = () => {
   };
 
   const opinionOnRepresentationsFieldError = validateOpinionOnRepresentationsField();
-  const isInvalidForm = Boolean(opinionOnRepresentationsFieldError);
+
+  const isInvalidForm = [opinionOnRepresentationsFieldError].some(Boolean);
 
   return (
     <Form>

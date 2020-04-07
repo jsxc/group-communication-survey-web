@@ -20,11 +20,3 @@ export const match = <IfType, ThenType>(cases: Case<IfType, ThenType>[]) => (
     undefined,
   );
 };
-
-export const any = <T>(predicate: (element: T) => boolean) => (
-  list: T[],
-): boolean => {
-  return list.reduce((anyPass, element) => {
-    return anyPass || predicate(element);
-  }, false);
-};

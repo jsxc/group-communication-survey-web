@@ -46,8 +46,11 @@ const EighthQuestion: React.FC = () => {
 
   const firstQuestionFieldError = validateFirstQuestionField();
   const secondQuestionFieldError = validateSecondQuestionField();
-  const isInvalidForm =
-    Boolean(firstQuestionFieldError) || Boolean(secondQuestionFieldError);
+
+  const isInvalidForm = [
+    firstQuestionFieldError,
+    secondQuestionFieldError,
+  ].some(Boolean);
 
   return (
     <Form>
