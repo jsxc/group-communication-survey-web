@@ -13,48 +13,48 @@ const FirstChat: React.FC = () => {
   const messages = [
     {
       text: 'Did you watch the game yesterday?',
+      author: karl,
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: karl,
     },
     {
       text: '👍',
+      author: lara,
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: lara,
     },
     {
       text: 'Was out yesterday',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: arthur,
     },
     {
       text: 'That in Stuttgart',
+      author: karl,
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: karl,
     },
     {
       text: 'That was Hammer',
+      author: karl,
       createdAt: new Date('2020-01-30T20:07:00'),
-      user: karl,
     },
     {
       text: 'Visited Ingo',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:08:00'),
-      user: arthur,
     },
     {
       text: 'How is he?',
+      author: lara,
       createdAt: new Date('2020-01-30T20:09:00'),
-      user: lara,
     },
     {
       text: 'Yes yes',
+      author: karl,
       createdAt: new Date('2020-01-30T20:10:00'),
-      user: karl,
     },
     {
       text: 'Just ignore me',
+      author: karl,
       createdAt: new Date('2020-01-30T20:11:00'),
-      user: karl,
     },
   ];
 

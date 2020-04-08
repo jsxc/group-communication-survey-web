@@ -13,44 +13,43 @@ const FifthChat: React.FC = () => {
   const messages = [
     {
       text: 'I have to call in sick today',
+      author: bernhardt,
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: bernhardt,
     },
     {
       text: 'You too?',
+      author: carla,
       createdAt: new Date('2020-01-30T20:01:00'),
-      user: carla,
     },
     {
       text: 'Who else?',
+      author: doris,
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: doris,
     },
     {
       text: 'I thought you. No?',
+      author: carla,
       createdAt: new Date('2020-01-30T20:03:00'),
-      user: carla,
     },
     {
       text: 'That would be new to me',
+      author: doris,
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: doris,
     },
     {
       text: 'One or more messages are missing',
+      author: 'SYSTEM' as const,
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: null,
-      isSystemMessage: true,
     },
     {
       text: 'Great, everything is going well today, right?',
+      author: bernhardt,
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: bernhardt,
     },
     {
       text: 'Somehow it will work 😂',
+      author: carla,
       createdAt: new Date('2020-01-30T20:07:00'),
-      user: carla,
     },
   ];
 

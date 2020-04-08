@@ -13,67 +13,64 @@ const SecondChat: React.FC = () => {
   const messages = [
     {
       text: 'Did you watch the game yesterday?',
+      author: karl,
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: karl,
     },
     {
       text: 'One or more messages are missing',
+      author: 'SYSTEM' as const,
       createdAt: new Date('2020-01-30T20:01:00'),
-      user: null,
-      isSystemMessage: true,
     },
     {
       text: '👍',
+      author: lara,
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: lara,
     },
     {
       text: 'One or more messages are missing',
+      author: 'SYSTEM' as const,
       createdAt: new Date('2020-01-30T20:03:00'),
-      user: null,
-      isSystemMessage: true,
     },
     {
       text: 'Was out yesterday',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: arthur,
     },
     {
       text: 'That in Stuttgart',
+      author: karl,
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: karl,
     },
     {
       text: 'One or more messages are missing',
+      author: 'SYSTEM' as const,
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: null,
-      isSystemMessage: true,
     },
     {
       text: 'That was Hammer',
+      author: karl,
       createdAt: new Date('2020-01-30T20:07:00'),
-      user: karl,
     },
     {
       text: 'Visited Ingo',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:08:00'),
-      user: arthur,
       inferenceQuote: '👍',
     },
     {
       text: 'How is he?',
+      author: lara,
       createdAt: new Date('2020-01-30T20:09:00'),
-      user: lara,
     },
     {
       text: 'Yes yes',
+      author: karl,
       createdAt: new Date('2020-01-30T20:10:00'),
-      user: karl,
     },
     {
       text: 'Just ignore me',
+      author: karl,
       createdAt: new Date('2020-01-30T20:11:00'),
-      user: karl,
     },
   ];
 

@@ -13,38 +13,38 @@ const FourthChat: React.FC = () => {
   const messages = [
     {
       text: 'Can someone lend me money for the lunch break?',
+      author: emil,
       createdAt: new Date('2020-01-30T20:00:00'),
-      user: emil,
     },
     {
       text: 'Yes of course',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:01:00'),
-      user: arthur,
     },
     {
       text: 'When are we meeting?',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:02:00'),
-      user: arthur,
     },
     {
       text: 'I would be there too',
+      author: tim,
       createdAt: new Date('2020-01-30T20:03:00'),
-      user: tim,
     },
     {
       text: 'After our meeting?',
+      author: emil,
       createdAt: new Date('2020-01-30T20:04:00'),
-      user: emil,
     },
     {
       text: 'Ok see you later',
+      author: arthur,
       createdAt: new Date('2020-01-30T20:05:00'),
-      user: arthur,
     },
     {
       text: 'cu',
+      author: tim,
       createdAt: new Date('2020-01-30T20:06:00'),
-      user: tim,
     },
   ];
 
