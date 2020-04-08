@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import Message from './Message';
 import { MessageContent } from './types';
 
@@ -11,6 +11,30 @@ type Props = {
 
 const Chat: React.FC<Props> = (props) => {
   const { messages, animationInterval = 1000, onAnimationEnd, style } = props;
+
+  const [timedMessages, setTimedMessages] = useState([]);
+
+  useEffect(() => {
+    let timeoutIds = [];
+
+    messages.forEach((message, index) => {
+      const timeoutId = setTimeout(() => {
+        setTimedMessages((timedMessages) => timedMessages.concat(message));
+      }, index * animationInterval);
+
+      timeoutIds = timeoutIds.concat(timeoutId);
+    });
+
+    return () => {
+      timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
+    };
+  }, [messages, animationInterval]);
+
+  useEffect(() => {
+    if (messages.length === timedMessages.length) {
+      onAnimationEnd?.();
+    }
+  }, [messages, timedMessages, onAnimationEnd]);
 
   return (
     <div
@@ -26,8 +50,8 @@ const Chat: React.FC<Props> = (props) => {
         ...style,
       }}
     >
-      {messages.map((message) => (
-        <Message {...message} />
+      {timedMessages.map((timedMessage) => (
+        <Message {...timedMessage} />
       ))}
     </div>
   );
