@@ -1,18 +1,7 @@
 import users from './users';
 import { randomId } from '../../../utilities';
 
-const {
-  karl,
-  lara,
-  arthur,
-  emil,
-  tim,
-  ines,
-  richard,
-  bernhardt,
-  carla,
-  doris,
-} = users;
+const { karl, lara, arthur, ines, richard, bernhardt, carla, doris } = users;
 
 export const firstChatMessages = [
   {

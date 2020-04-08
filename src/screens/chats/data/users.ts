@@ -23,15 +23,6 @@ const users = {
     avatar:
       'https://www.xing.com/image/9_8_1_9d914e409_29743916_1/richard-wermes-foto.256x256.jpg',
   },
-  emil: {
-    name: 'Emil',
-    avatar: 'https://miro.medium.com/fit/c/256/256/0*wKfK_CZjPVf-0SH9.jpeg',
-  },
-  tim: {
-    name: 'Tim',
-    avatar:
-      'https://images.pexels.com/users/avatars/125115/tim-mossholder-928.jpeg?w=256&h=256&fit=crop&crop=faces&auto=compress',
-  },
   bernhardt: {
     name: 'Bernhardt',
     avatar: 'https://www.ab-insights.de/wp-content/uploads/2016/05/seb_2.jpg',
