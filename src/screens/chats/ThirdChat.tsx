@@ -11,6 +11,7 @@ const ThirdChat: React.FC = () => {
   return (
     <>
       <Chat
+        mode="TREE"
         messages={thirdChatMessages}
         animationInterval={process.env.NODE_ENV === 'development' ? 100 : 1000}
         onAnimationEnd={() => {

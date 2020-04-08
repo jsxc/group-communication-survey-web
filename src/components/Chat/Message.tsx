@@ -1,37 +1,72 @@
 import React, { CSSProperties } from 'react';
-import { Box, Text, Image } from 'grommet';
+import { Box, Text, Image, Button } from 'grommet';
 import SystemMessage from './SystemMessage';
 import InferenceQuote from './InferenceQuote';
-import { MessageContent } from './types';
+import { ChatMode, MessageContent, User } from './types';
 
 type Props = MessageContent & {
+  mode?: ChatMode;
+  replies?: MessageContent[];
+  onRepliesCountClick?: (message: MessageContent) => void;
   style?: CSSProperties;
 };
 
 const Message: React.FC<Props> = (props) => {
-  const { text, author, createdAt, inferenceQuote, replyTo, style } = props;
+  const {
+    id,
+    text,
+    author,
+    createdAt,
+    inferenceQuote,
+    replyTo,
+    mode = 'REGULAR',
+    replies = [],
+    onRepliesCountClick,
+    style,
+  } = props;
 
-  if (author === 'SYSTEM') {
+  const message = {
+    id,
+    text,
+    author,
+    createdAt,
+    inferenceQuote,
+    replyTo,
+  };
+
+  const isRegularMode = mode === 'REGULAR';
+  const isTreeMode = mode === 'TREE';
+  const isDrawerMode = mode === 'DRAWER';
+  const repliesCount = replies.length;
+
+  if (isRegularMode && author === 'SYSTEM') {
     return <SystemMessage text={text} />;
+  }
+
+  if (isDrawerMode && Boolean(replyTo)) {
+    return null;
   }
 
   return (
     <Box
       direction="row"
       align="end"
-      margin={{ vertical: 'xsmall', left: replyTo ? 'large' : '0px' }}
+      margin={{
+        vertical: 'xsmall',
+        left: isTreeMode && replyTo ? 'large' : '0px',
+      }}
       style={style}
     >
       <Image
         style={{ width: 40, height: 40, borderRadius: 40 / 2 }}
         margin={{ right: 'small' }}
         draggable={false}
-        src={author.avatar}
+        src={(author as User).avatar}
       />
 
       <Box>
         <InferenceQuote
-          visible={Boolean(inferenceQuote)}
+          visible={isRegularMode && Boolean(inferenceQuote)}
           text={inferenceQuote}
         />
 
@@ -47,7 +82,7 @@ const Message: React.FC<Props> = (props) => {
               size="12px"
               color="#999"
             >
-              {author.name}
+              {(author as User).name}
             </Text>
 
             <Text
@@ -59,17 +94,41 @@ const Message: React.FC<Props> = (props) => {
               {formatTimestamp(createdAt)}
             </Text>
           </Box>
+
+          {mode === 'DRAWER' && repliesCount > 0 ? (
+            <Box margin={{ top: 'xsmall' }}>
+              <Button
+                as="a"
+                color="#01579B"
+                plain={true}
+                label={
+                  <Text size="12px">{constructRepliesText(repliesCount)}</Text>
+                }
+                onClick={() => {
+                  onRepliesCountClick?.(message);
+                }}
+              />
+            </Box>
+          ) : null}
         </Box>
       </Box>
     </Box>
   );
 };
 
-const formatTimestamp = (timestamp: Date) => {
+const formatTimestamp = (timestamp: Date): string => {
   return timestamp.toLocaleTimeString('de', {
     hour: '2-digit',
     minute: '2-digit',
   });
+};
+
+const constructRepliesText = (repliesCount: number): string => {
+  if (repliesCount === 1) {
+    return `${repliesCount} reply`;
+  }
+
+  return `${repliesCount} replies`;
 };
 
 export default Message;

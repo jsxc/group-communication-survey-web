@@ -165,39 +165,44 @@ export const thirdChatMessages = [
 
 export const fourthChatMessages = [
   {
-    text: 'Can someone lend me money for the lunch break?',
-    author: emil,
+    text: 'I have to call in sick today',
+    author: bernhardt,
     createdAt: new Date('2020-01-30T20:00:00'),
   },
   {
-    text: 'Yes of course',
-    author: arthur,
+    text: 'You too?',
+    author: carla,
     createdAt: new Date('2020-01-30T20:01:00'),
+    replyTo: 'I have to call in sick today',
   },
   {
-    text: 'When are we meeting?',
-    author: arthur,
+    text: 'Who else?',
+    author: doris,
     createdAt: new Date('2020-01-30T20:02:00'),
+    replyTo: 'I have to call in sick today',
   },
   {
-    text: 'I would be there too',
-    author: tim,
+    text: 'I thought you. No?',
+    author: carla,
     createdAt: new Date('2020-01-30T20:03:00'),
+    replyTo: 'I have to call in sick today',
   },
   {
-    text: 'After our meeting?',
-    author: emil,
+    text: 'That would be new to me',
+    author: doris,
     createdAt: new Date('2020-01-30T20:04:00'),
+    replyTo: 'I have to call in sick today',
   },
   {
-    text: 'Ok see you later',
-    author: arthur,
-    createdAt: new Date('2020-01-30T20:05:00'),
-  },
-  {
-    text: 'cu',
-    author: tim,
+    text: 'Great, everything is going well today, right?',
+    author: bernhardt,
     createdAt: new Date('2020-01-30T20:06:00'),
+  },
+  {
+    text: 'Somehow it will work 😂',
+    author: carla,
+    createdAt: new Date('2020-01-30T20:07:00'),
+    replyTo: 'Great, everything is going well today, right?',
   },
 ].map((message) => ({ ...message, id: randomId() }));
 

@@ -1,19 +1,34 @@
 import React, { useState, useRef, useEffect, CSSProperties } from 'react';
 import { animated, useTransition } from 'react-spring';
+import Drawer from './Drawer';
 import Message from './Message';
-import { MessageContent } from './types';
+import { MessageContent, ChatMode } from './types';
 
 type Props = {
   messages: MessageContent[];
+  mode?: ChatMode;
   animationInterval?: number;
   onAnimationEnd?: () => void;
   style?: CSSProperties;
 };
 
 const Chat: React.FC<Props> = (props) => {
-  const { messages, animationInterval = 1000, onAnimationEnd, style } = props;
+  const {
+    messages,
+    mode = 'REGULAR',
+    animationInterval = 1000,
+    onAnimationEnd,
+    style,
+  } = props;
 
   const [timedMessages, setTimedMessages] = useState([]);
+  const [selectedMessage, setSelectedMessage] = useState(null);
+
+  const isDrawerMode = mode === 'DRAWER';
+  const isDrawerVisible = isDrawerMode && Boolean(selectedMessage);
+  const selectedMessageReplies = timedMessages.filter(
+    isReplyTo(selectedMessage),
+  );
 
   const transitions = useTransition(
     timedMessages,
@@ -53,29 +68,62 @@ const Chat: React.FC<Props> = (props) => {
     }
   }, [messages, timedMessages, onAnimationEnd]);
 
+  const handleRepliesClick = (message: MessageContent) => {
+    setSelectedMessage(message);
+  };
+
   return (
     <div
       style={{
+        display: 'flex',
+        flexDirection: 'row',
         flex: '1 1 auto',
         width: 450,
         height: 500,
-        overflowY: 'auto',
-        padding: 16,
         borderWidth: 2,
         borderColor: '#eee',
         borderStyle: 'solid',
         ...style,
       }}
     >
-      {transitions.map(({ props, key, item }) => (
-        <animated.div style={props} key={key}>
-          <Message {...item} />
-        </animated.div>
-      ))}
+      <div
+        style={{
+          flex: isDrawerVisible ? 0.6 : 1,
+          padding: 16,
+          overflowY: 'auto',
+        }}
+      >
+        {transitions.map(({ key, props: animatedProps, item: message }) => (
+          <animated.div style={animatedProps} key={key}>
+            <Message
+              {...message}
+              mode={mode}
+              replies={timedMessages.filter(isReplyTo(message))}
+              onRepliesCountClick={handleRepliesClick}
+            />
+          </animated.div>
+        ))}
 
-      <div ref={anchorRef} />
+        <div ref={anchorRef} />
+      </div>
+
+      {isDrawerVisible ? (
+        <Drawer
+          style={{ flex: 0.4 }}
+          messages={selectedMessageReplies}
+          onDismiss={() => {
+            setSelectedMessage(null);
+          }}
+        />
+      ) : null}
     </div>
   );
+};
+
+const isReplyTo = (message: MessageContent) => (
+  element: MessageContent,
+): boolean => {
+  return message?.text === element.replyTo;
 };
 
 export default Chat;

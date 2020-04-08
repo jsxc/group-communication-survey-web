@@ -11,6 +11,8 @@ const FourthChat: React.FC = () => {
   return (
     <>
       <Chat
+        style={{ width: 800 }}
+        mode="DRAWER"
         messages={fourthChatMessages}
         animationInterval={process.env.NODE_ENV === 'development' ? 100 : 1000}
         onAnimationEnd={() => {

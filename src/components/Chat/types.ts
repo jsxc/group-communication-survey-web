@@ -1,3 +1,5 @@
+export type ChatMode = 'REGULAR' | 'TREE' | 'DRAWER';
+
 export type MessageContent = {
   id: string;
   text: string;
