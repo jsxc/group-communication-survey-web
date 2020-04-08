@@ -18,17 +18,10 @@ export {
   SeventhQuestion,
   EighthQuestion,
 } from './questions';
-export {
-  FirstChat,
-  SecondChat,
-  ThirdChat,
-  FourthChat,
-  FifthChat,
-} from './chats';
+export { FirstChat, SecondChat, ThirdChat, FourthChat } from './chats';
 export {
   FirstChatFeedback,
   SecondChatFeedback,
   ThirdChatFeedback,
   FourthChatFeedback,
-  FifthChatFeedback,
 } from './chats-feedback';

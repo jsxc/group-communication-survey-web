@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -15,7 +15,7 @@ const FourthChatFeedback: React.FC = () => {
   const { fourthChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Will Emil be lent money?': secondQuestionChoice,
+    'Did you notice something?': secondQuestionChoice,
   } = fourthChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -38,21 +38,23 @@ const FourthChatFeedback: React.FC = () => {
     return null;
   };
 
-  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
+  const validateTextField = (question: string) => {
+    const choice = fourthChatFeedback[question];
 
-  const secondQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
+    if (!choice) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
+  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
 
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
-  const secondQuestionChoiceError = validateRadioFieldChoice(
-    'Will Emil be lent money?',
+  const secondQuestionChoiceError = validateTextField(
+    'Did you notice something?',
   );
 
   const isInvalidForm = [
@@ -86,16 +88,15 @@ const FourthChatFeedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Will Emil be lent money?
+          Did you notice something?
         </Heading>
 
-        <RadioButtonGroup
+        <TextArea
           name="question-2"
-          options={secondQuestionOptions}
-          value={secondQuestionChoice}
+          value={secondQuestionChoice || ''}
           onChange={(event) => {
             const { value } = event.target;
-            setQuestionChoice('Will Emil be lent money?')(value);
+            setQuestionChoice('Did you notice something?')(value);
           }}
         />
       </Box>
@@ -106,7 +107,7 @@ const FourthChatFeedback: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/chats/5');
+            browserHistory.push('/feedback');
           }}
         />
       </Box>

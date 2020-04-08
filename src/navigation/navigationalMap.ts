@@ -21,8 +21,6 @@ import {
   ThirdChatFeedback,
   FourthChat,
   FourthChatFeedback,
-  FifthChat,
-  FifthChatFeedback,
   Feedback,
   ThankYou,
 } from '../screens';
@@ -47,11 +45,9 @@ const navigationalMap = [
   { path: '/feedback/2', screen: SecondChatFeedback },
   { path: '/explanations/4', screen: FourthExplanation },
   { path: '/chats/3', screen: ThirdChat },
-  // { path: '/feedback/3', screen: ThirdChatFeedback },
+  { path: '/feedback/3', screen: ThirdChatFeedback },
   { path: '/chats/4', screen: FourthChat },
-  // { path: '/feedback/4', screen: FourthChatFeedback },
-  { path: '/chats/5', screen: FifthChat },
-  // { path: '/feedback/5', screen: FifthChatFeedback },
+  { path: '/feedback/4', screen: FourthChatFeedback },
   { path: '/feedback', screen: Feedback },
   { path: '/thank-you', screen: ThankYou },
 ];

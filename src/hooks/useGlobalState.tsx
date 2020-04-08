@@ -110,17 +110,11 @@ type Data = {
   };
   thirdChatFeedback: {
     'How well did you understand the conversation?': string;
-    'Did Karl prepare the presentation?': string;
-    'Did Karl prepare the invitation?': string;
+    'Did you notice something?': string;
   };
   fourthChatFeedback: {
     'How well did you understand the conversation?': string;
-    'Will Emil be lent money?': string;
-  };
-  fifthChatFeedback: {
-    'How well did you understand the conversation?': string;
-    'How many people reported sick?': string;
-    'Is the day going smoothly?': string;
+    'Did you notice something?': string;
   };
   'What do you think of the new representations?': string;
 };
@@ -245,17 +239,11 @@ const GlobalStateContext = createContext<[State, Actions]>([
       },
       thirdChatFeedback: {
         'How well did you understand the conversation?': null,
-        'Did Karl prepare the presentation?': null,
-        'Did Karl prepare the invitation?': null,
+        'Did you notice something?': null,
       },
       fourthChatFeedback: {
         'How well did you understand the conversation?': null,
-        'Will Emil be lent money?': null,
-      },
-      fifthChatFeedback: {
-        'How well did you understand the conversation?': null,
-        'How many people reported sick?': null,
-        'Is the day going smoothly?': null,
+        'Did you notice something?': null,
       },
       'What do you think of the new representations?': null,
     },
@@ -376,17 +364,11 @@ export const GlobalStateProvider: React.FC = (props) => {
     },
     thirdChatFeedback: {
       'How well did you understand the conversation?': null,
-      'Did Karl prepare the presentation?': null,
-      'Did Karl prepare the invitation?': null,
+      'Did you notice something?': null,
     },
     fourthChatFeedback: {
       'How well did you understand the conversation?': null,
-      'Will Emil be lent money?': null,
-    },
-    fifthChatFeedback: {
-      'How well did you understand the conversation?': null,
-      'How many people reported sick?': null,
-      'Is the day going smoothly?': null,
+      'Did you notice something?': null,
     },
     'What do you think of the new representations?': null,
   });

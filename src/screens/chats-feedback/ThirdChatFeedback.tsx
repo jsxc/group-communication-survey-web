@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, TextArea, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -15,8 +15,7 @@ const ThirdChatFeedback: React.FC = () => {
   const { thirdChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Did Karl prepare the presentation?': secondQuestionChoice,
-    'Did Karl prepare the invitation?': thirdQuestionChoice,
+    'Did you notice something?': secondQuestionChoice,
   } = thirdChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -39,38 +38,28 @@ const ThirdChatFeedback: React.FC = () => {
     return null;
   };
 
+  const validateTextField = (question: string) => {
+    const choice = thirdChatFeedback[question];
+
+    if (!choice) {
+      return 'Required';
+    }
+
+    return null;
+  };
+
   const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
-
-  const secondQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
-
-  const thirdQuestionOptions = [
-    'Yes',
-    'No',
-    'This was not mentioned in the conversation',
-    'There were contradicting statements',
-    'There was too little information about this',
-  ];
 
   const firstQuestionChoiceError = validateRadioFieldChoice(
     'How well did you understand the conversation?',
   );
-  const secondQuestionChoiceError = validateRadioFieldChoice(
-    'Did Karl prepare the presentation?',
-  );
-  const thirdQuestionChoiceError = validateRadioFieldChoice(
-    'Did Karl prepare the invitation?',
+  const secondQuestionChoiceError = validateTextField(
+    'Did you notice something?',
   );
 
   const isInvalidForm = [
     firstQuestionChoiceError,
     secondQuestionChoiceError,
-    thirdQuestionChoiceError,
   ].some(Boolean);
 
   return (
@@ -99,32 +88,15 @@ const ThirdChatFeedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Did Karl prepare the presentation?
+          Did you notice something?
         </Heading>
 
-        <RadioButtonGroup
+        <TextArea
           name="question-2"
-          options={secondQuestionOptions}
-          value={secondQuestionChoice}
+          value={secondQuestionChoice || ''}
           onChange={(event) => {
             const { value } = event.target;
-            setQuestionChoice('Did Karl prepare the presentation?')(value);
-          }}
-        />
-      </Box>
-
-      <Box margin="medium">
-        <Heading level="4" error={Boolean(thirdQuestionChoiceError)}>
-          Did Karl prepare the invitation?
-        </Heading>
-
-        <RadioButtonGroup
-          name="question-3"
-          options={thirdQuestionOptions}
-          value={thirdQuestionChoice}
-          onChange={(event) => {
-            const { value } = event.target;
-            setQuestionChoice('Did Karl prepare the invitation?')(value);
+            setQuestionChoice('Did you notice something?')(value);
           }}
         />
       </Box>

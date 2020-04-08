@@ -34,7 +34,7 @@ const FourthExplanation: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push('/feedback');
+            browserHistory.push('/chats/3');
           }}
         />
       </Box>
