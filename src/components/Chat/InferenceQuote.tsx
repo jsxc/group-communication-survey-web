@@ -31,7 +31,9 @@ const InferenceQuote: React.FC<Props> = (props) => {
         round="16px"
         style={style}
       >
-        <Text size="xsmall">{text}</Text>
+        <Text style={{ fontFamily: 'Lato' }} size="xsmall">
+          {text}
+        </Text>
       </Box>
     </Tooltip>
   );

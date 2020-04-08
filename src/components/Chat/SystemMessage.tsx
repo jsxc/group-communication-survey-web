@@ -11,7 +11,12 @@ const SystemMessage: React.FC<Props> = (props) => {
 
   return (
     <Box margin="small" style={style}>
-      <Text size="xsmall" color="#bbb" textAlign="center">
+      <Text
+        style={{ fontFamily: 'Lato' }}
+        size="xsmall"
+        color="#bbb"
+        textAlign="center"
+      >
         {text}
       </Text>
     </Box>

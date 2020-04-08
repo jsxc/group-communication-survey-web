@@ -36,14 +36,22 @@ const Message: React.FC<Props> = (props) => {
         />
 
         <Box pad="small" background="#eee" round="16px">
-          <Text size="15px">{text}</Text>
+          <Text style={{ fontFamily: 'Lato' }} size="15px">
+            {text}
+          </Text>
 
           <Box direction="row" justify="between">
-            <Text margin={{ top: 'xsmall' }} size="12px" color="#999">
+            <Text
+              style={{ fontFamily: 'Lato' }}
+              margin={{ top: 'xsmall' }}
+              size="12px"
+              color="#999"
+            >
               {author.name}
             </Text>
 
             <Text
+              style={{ fontFamily: 'Lato' }}
               margin={{ top: 'xsmall', left: 'medium' }}
               size="12px"
               color="#999"
