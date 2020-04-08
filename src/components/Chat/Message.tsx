@@ -9,7 +9,7 @@ type Props = MessageContent & {
 };
 
 const Message: React.FC<Props> = (props) => {
-  const { text, author, createdAt, inferenceQuote, style } = props;
+  const { text, author, createdAt, inferenceQuote, replyTo, style } = props;
 
   if (author === 'SYSTEM') {
     return <SystemMessage text={text} />;
@@ -17,9 +17,9 @@ const Message: React.FC<Props> = (props) => {
 
   return (
     <Box
-      margin={{ vertical: 'xsmall' }}
       direction="row"
       align="end"
+      margin={{ vertical: 'xsmall', left: replyTo ? 'large' : '0px' }}
       style={style}
     >
       <Image
