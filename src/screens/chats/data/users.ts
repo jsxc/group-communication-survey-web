@@ -2,52 +2,49 @@ const users = {
   karl: {
     name: 'Karl',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fhumenonline.hu%2Fwp-content%2Fuploads%2F2015%2F10%2FMG_3634-Edit.jpg&f=1&nofb=1',
+      'https://secure.gravatar.com/avatar/8508e8213b0bbbfcf7e8a032424998f6?s=256&d=mm&r=g',
   },
   lara: {
     name: 'Lara',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi0.wp.com%2Fwww.easterneuropeantravel.com%2Fwp-content%2Fuploads%2F2016%2F12%2Fee-girls.jpg%3Fresize%3D499%252C281&f=1&nofb=1',
+      'https://www.xing.com/image/d_5_3_fffdf6a02_24584371_3/lara-mechthold-foto.256x256.jpg',
   },
   arthur: {
     name: 'Arthur',
-    avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdpegb9ebondhq.cloudfront.net%2Fproduct_photos%2F56847089%2F_E4_BA_A7_E5_93_81SKU__E8_97_8F_E9_9D_92_E5_8A_A0_E7_81_B0(1)_large.jpg&f=1&nofb=1',
+    avatar: 'https://miro.medium.com/fit/c/256/256/0*Ho1TD1PStdsacBRP.',
   },
   ines: {
     name: 'Ines',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fdata.whicdn.com%2Fimages%2F59600706%2Foriginal.jpg&f=1&nofb=1',
+      'https://www.xing.com/image/a_7_7_75539f39e_25764081_6/ines-weidenhaupt-foto.256x256.jpg',
   },
   richard: {
     name: 'Richard',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.menshairstylestoday.com%2Fwp-content%2Fuploads%2F2017%2F01%2FMessy-Quiff-with-Beard.jpg&f=1&nofb=1',
+      'https://www.xing.com/image/9_8_1_9d914e409_29743916_1/richard-wermes-foto.256x256.jpg',
   },
   emil: {
     name: 'Emil',
-    avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fidealistico.files.wordpress.com%2F2011%2F06%2Fandersonweis.jpg&f=1&nofb=1',
+    avatar: 'https://miro.medium.com/fit/c/256/256/0*wKfK_CZjPVf-0SH9.jpeg',
   },
   tim: {
     name: 'Tim',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F9f%2F7a%2F74%2F9f7a74827c3d652094a14d48f3b7266d.gif&f=1&nofb=1',
+      'https://images.pexels.com/users/avatars/125115/tim-mossholder-928.jpeg?w=256&h=256&fit=crop&crop=faces&auto=compress',
   },
   bernhardt: {
     name: 'Bernhardt',
-    avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fww1.prweb.com%2Fprfiles%2F2016%2F09%2F08%2F13672217%2FFarron%2520Brown%2520the%2520manse%2520on%2520marsh.jpg&f=1&nofb=1',
+    avatar: 'https://www.ab-insights.de/wp-content/uploads/2016/05/seb_2.jpg',
   },
   carla: {
     name: 'Carla',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F4.bp.blogspot.com%2F-NBlKxm2CBqo%2FURn7BcdAPQI%2FAAAAAAAAHJM%2FzyJ2dHJO3vc%2Fs1600%2Fcarla%2Bossa4.jpeg&f=1&nofb=1',
+      'https://www.etventure.de/wp-content/uploads/avatar-privacy/cache/gravatar/2/c/2c4fb57e2a9dc90ba819d054e1298e8838e2b1a7c4bc58aaef912b259d6566b1-256.jpg',
   },
   doris: {
     name: 'Doris',
     avatar:
-      'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F4%2F48%2FDoris_Schretzmayer_Romy_2015.jpg%2F1200px-Doris_Schretzmayer_Romy_2015.jpg&f=1&nofb=1',
+      'https://www.etventure.de/wp-content/uploads/avatar-privacy/cache/gravatar/4/f/4fcc809865cef3dabb2190609298bf31781162290892a55e4403e0cc8f19831f-256.jpg',
   },
 };
 
