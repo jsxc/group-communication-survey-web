@@ -3,5 +3,5 @@ export const random = (minimum: number, maximum: number) => {
 };
 
 export const randomId = (): string => {
-  return String(random(1000, 9999));
+  return String(random(10000, 99999));
 };
