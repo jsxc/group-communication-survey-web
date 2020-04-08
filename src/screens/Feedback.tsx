@@ -116,6 +116,8 @@ const Feedback: React.FC = () => {
 
                 browserHistory.push('/thank-you');
               } catch (error) {
+                setState((state) => ({ ...state, isFetching: false }));
+
                 alert(
                   'An error has occurred. Please inform the survey conductor.',
                 );
