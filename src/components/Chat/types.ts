@@ -1,4 +1,5 @@
 export type MessageContent = {
+  id: string;
   text: string;
   author: User | 'SYSTEM';
   createdAt: Date;

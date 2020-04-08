@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
+import { randomId } from '../../utilities';
 import { users } from './data';
 
 const FifthChat: React.FC = () => {
@@ -51,7 +52,7 @@ const FifthChat: React.FC = () => {
       author: carla,
       createdAt: new Date('2020-01-30T20:07:00'),
     },
-  ];
+  ].map((message) => ({ ...message, id: randomId() }));
 
   return (
     <>

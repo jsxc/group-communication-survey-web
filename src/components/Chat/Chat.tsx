@@ -51,7 +51,7 @@ const Chat: React.FC<Props> = (props) => {
       }}
     >
       {timedMessages.map((timedMessage) => (
-        <Message {...timedMessage} />
+        <Message key={timedMessage.id} {...timedMessage} />
       ))}
     </div>
   );

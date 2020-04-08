@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
+import { randomId } from '../../utilities';
 import { users } from './data';
 
 const ThirdChat: React.FC = () => {
@@ -45,7 +46,7 @@ const ThirdChat: React.FC = () => {
       createdAt: new Date('2020-01-30T20:07:00'),
       replyTo: 'Oh and what about the invitation?',
     },
-  ];
+  ].map((message) => ({ ...message, id: randomId() }));
 
   return (
     <>
