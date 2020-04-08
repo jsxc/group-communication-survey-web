@@ -1,4 +1,4 @@
-import React, { useState, useEffect, CSSProperties } from 'react';
+import React, { useState, useRef, useEffect, CSSProperties } from 'react';
 import { animated, useTransition } from 'react-spring';
 import Message from './Message';
 import { MessageContent } from './types';
@@ -25,6 +25,8 @@ const Chat: React.FC<Props> = (props) => {
     },
   );
 
+  const anchorRef = useRef(null);
+
   useEffect(() => {
     let timeoutIds = [];
 
@@ -40,6 +42,10 @@ const Chat: React.FC<Props> = (props) => {
       timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
     };
   }, [messages, animationInterval]);
+
+  useEffect(() => {
+    anchorRef.current.scrollIntoView({ behavior: 'smooth' });
+  }, [timedMessages]);
 
   useEffect(() => {
     if (messages.length === timedMessages.length) {
@@ -66,6 +72,8 @@ const Chat: React.FC<Props> = (props) => {
           <Message {...item} />
         </animated.div>
       ))}
+
+      <div ref={anchorRef} />
     </div>
   );
 };
