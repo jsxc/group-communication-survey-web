@@ -1,4 +1,5 @@
 import React, { useState, useEffect, CSSProperties } from 'react';
+import { animated, useTransition } from 'react-spring';
 import Message from './Message';
 import { MessageContent } from './types';
 
@@ -13,6 +14,16 @@ const Chat: React.FC<Props> = (props) => {
   const { messages, animationInterval = 1000, onAnimationEnd, style } = props;
 
   const [timedMessages, setTimedMessages] = useState([]);
+
+  const transitions = useTransition(
+    timedMessages,
+    (timedMessage) => timedMessage.id,
+    {
+      from: { opacity: 0 },
+      enter: { opacity: 1 },
+      leave: { opacity: 0 },
+    },
+  );
 
   useEffect(() => {
     let timeoutIds = [];
@@ -50,8 +61,10 @@ const Chat: React.FC<Props> = (props) => {
         ...style,
       }}
     >
-      {timedMessages.map((timedMessage) => (
-        <Message key={timedMessage.id} {...timedMessage} />
+      {transitions.map(({ props, key, item }) => (
+        <animated.div style={props} key={key}>
+          <Message {...item} />
+        </animated.div>
       ))}
     </div>
   );
