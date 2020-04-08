@@ -105,6 +105,7 @@ const SecondChatFeedback: React.FC = () => {
             border: '1px solid #ddd',
           }}
           src={require('../../assets/images/chat-2-i.png')}
+          draggable={false}
           alt="Chat screenshot 1"
         />
 
@@ -143,6 +144,7 @@ const SecondChatFeedback: React.FC = () => {
             border: '1px solid #ddd',
           }}
           src={require('../../assets/images/chat-2-ii.png')}
+          draggable={false}
           alt="Chat screenshot 2"
         />
 

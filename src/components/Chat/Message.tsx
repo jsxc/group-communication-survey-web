@@ -25,6 +25,7 @@ const Message: React.FC<Props> = (props) => {
       <Image
         style={{ width: 40, height: 40, borderRadius: 40 / 2 }}
         margin={{ right: 'small' }}
+        draggable={false}
         src={author.avatar}
       />
 
