@@ -2,62 +2,16 @@ import React, { useState } from 'react';
 import { Box, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
-import { randomId } from '../../utilities';
-import { users } from './data';
+import { fifthChatMessages } from './data/chats';
 
 const FifthChat: React.FC = () => {
   const browserHistory = useHistory();
   const [hasAnimatedEnded, setAnimatedEnded] = useState(false);
 
-  const { bernhardt, carla, doris } = users;
-
-  const messages = [
-    {
-      text: 'I have to call in sick today',
-      author: bernhardt,
-      createdAt: new Date('2020-01-30T20:00:00'),
-    },
-    {
-      text: 'You too?',
-      author: carla,
-      createdAt: new Date('2020-01-30T20:01:00'),
-    },
-    {
-      text: 'Who else?',
-      author: doris,
-      createdAt: new Date('2020-01-30T20:02:00'),
-    },
-    {
-      text: 'I thought you. No?',
-      author: carla,
-      createdAt: new Date('2020-01-30T20:03:00'),
-    },
-    {
-      text: 'That would be new to me',
-      author: doris,
-      createdAt: new Date('2020-01-30T20:04:00'),
-    },
-    {
-      text: 'One or more messages are missing',
-      author: 'SYSTEM' as const,
-      createdAt: new Date('2020-01-30T20:05:00'),
-    },
-    {
-      text: 'Great, everything is going well today, right?',
-      author: bernhardt,
-      createdAt: new Date('2020-01-30T20:06:00'),
-    },
-    {
-      text: 'Somehow it will work 😂',
-      author: carla,
-      createdAt: new Date('2020-01-30T20:07:00'),
-    },
-  ].map((message) => ({ ...message, id: randomId() }));
-
   return (
     <>
       <Chat
-        messages={messages}
+        messages={fifthChatMessages}
         animationInterval={process.env.NODE_ENV === 'development' ? 100 : 1000}
         onAnimationEnd={() => {
           setAnimatedEnded(true);
