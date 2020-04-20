@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Heading, Paragraph, Button } from 'grommet';
-import { Chat } from 'grommet-icons';
 import { useHistory } from 'react-router-dom';
 import { useGlobalState } from '../hooks';
+import Logo from '../components/Logo';
 import { colors } from '../constants';
 
 const Welcome: React.FC = () => {
@@ -13,7 +13,19 @@ const Welcome: React.FC = () => {
 
   return (
     <Box align="center" margin="large">
-      <Chat color={colors.PRIMARY} size="xlarge" />
+      <div
+        style={{
+          width: '160px',
+          height: '160px',
+          borderRadius: '50%',
+          backgroundColor: colors.PRIMARY,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Logo variant="light" />
+      </div>
 
       <Box align="center" margin="large">
         <Heading level="3" margin="xsmall">

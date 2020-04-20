@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom';
 import { useGlobalState } from '../hooks';
 import { navigationalMap } from '../navigation';
 import { colors } from '../constants';
+import Logo from './Logo';
 
 const Header: React.FC = () => {
   const [, globalActions] = useGlobalState();
@@ -42,10 +43,15 @@ const Header: React.FC = () => {
         }}
       >
         <Heading level="3" margin="small">
+          <Logo
+            variant="light"
+            style={{
+              height: '1em',
+              marginRight: '0.5em',
+              verticalAlign: 'middle',
+            }}
+          />
           Group Communication Survey
-          <span role="img" aria-label="Chat bubble emoji">
-            {' 💬'}
-          </span>
         </Heading>
       </Link>
 
