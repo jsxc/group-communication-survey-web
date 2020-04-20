@@ -20,7 +20,7 @@ const App: React.FC = () => {
       <BrowserRouter>
         <Header />
 
-        <Box align="center" pad="medium">
+        <Box align="center" pad="medium" style={{ paddingBottom: '5em' }}>
           {shouldRedirectToLandingPage ? <Redirect to="/" /> : null}
 
           <ScrollToTop />
@@ -38,6 +38,34 @@ const App: React.FC = () => {
             <Route path="*" component={() => <Redirect to="/" />} />
           </Switch>
         </Box>
+
+        <footer
+          style={{
+            backgroundColor: '#dcdcdc',
+            textAlign: 'center',
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: '5em',
+            fontSize: '0.8em',
+            opacity: 0.6,
+          }}
+        >
+          <p>
+            This study is conducted by{' '}
+            <a href="https://www.disy.uni-konstanz.de/members/research-assistants/klaus-herberth/">
+              Klaus Herberth
+            </a>{' '}
+            from the{' '}
+            <a href="https://www.disy.uni-konstanz.de">
+              Distributed Systems Laboratory
+            </a>{' '}
+            at the
+            <a href="https://www.uni-konstanz.de/en/">University of Konstanz</a>
+            .
+          </p>
+        </footer>
       </BrowserRouter>
     </Grommet>
   );
