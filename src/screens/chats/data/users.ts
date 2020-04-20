@@ -1,41 +1,35 @@
 const users = {
   karl: {
     name: 'Karl',
-    avatar:
-      'https://secure.gravatar.com/avatar/8508e8213b0bbbfcf7e8a032424998f6?s=256&d=mm&r=g',
+    avatar: require('../../../assets/images/karl.jpeg'),
   },
   lara: {
     name: 'Lara',
-    avatar:
-      'https://www.xing.com/image/d_5_3_fffdf6a02_24584371_3/lara-mechthold-foto.256x256.jpg',
+    avatar: require('../../../assets/images/lara.jpeg'),
   },
   arthur: {
     name: 'Arthur',
-    avatar: 'https://miro.medium.com/fit/c/256/256/0*Ho1TD1PStdsacBRP.',
+    avatar: require('../../../assets/images/arthur.jpeg'),
   },
   ines: {
     name: 'Ines',
-    avatar:
-      'https://www.xing.com/image/a_7_7_75539f39e_25764081_6/ines-weidenhaupt-foto.256x256.jpg',
+    avatar: require('../../../assets/images/ines.jpeg'),
   },
   richard: {
     name: 'Richard',
-    avatar:
-      'https://www.xing.com/image/9_8_1_9d914e409_29743916_1/richard-wermes-foto.256x256.jpg',
+    avatar: require('../../../assets/images/richard.jpeg'),
   },
   bernhardt: {
     name: 'Bernhardt',
-    avatar: 'https://www.ab-insights.de/wp-content/uploads/2016/05/seb_2.jpg',
+    avatar: require('../../../assets/images/bernhardt.jpeg'),
   },
   carla: {
     name: 'Carla',
-    avatar:
-      'https://www.etventure.de/wp-content/uploads/avatar-privacy/cache/gravatar/2/c/2c4fb57e2a9dc90ba819d054e1298e8838e2b1a7c4bc58aaef912b259d6566b1-256.jpg',
+    avatar: require('../../../assets/images/carla.jpeg'),
   },
   doris: {
     name: 'Doris',
-    avatar:
-      'https://www.etventure.de/wp-content/uploads/avatar-privacy/cache/gravatar/4/f/4fcc809865cef3dabb2190609298bf31781162290892a55e4403e0cc8f19831f-256.jpg',
+    avatar: require('../../../assets/images/doris.jpeg'),
   },
 };
 
