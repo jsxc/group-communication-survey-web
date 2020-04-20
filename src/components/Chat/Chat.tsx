@@ -47,7 +47,22 @@ const Chat: React.FC<Props> = (props) => {
 
     messages.forEach((message, index) => {
       const timeoutId = setTimeout(() => {
-        setTimedMessages((timedMessages) => timedMessages.concat(message));
+        setTimedMessages((timedMessages) => {
+          if (!message.replyTo) {
+            return timedMessages.concat(message);
+          }
+
+          let refIndex = 0;
+          timedMessages.forEach((msg, i) => {
+            if (msg.text === message.replyTo) {
+              refIndex = i;
+            }
+          });
+
+          timedMessages.splice(refIndex + 1, 0, message);
+
+          return timedMessages;
+        });
       }, index * animationInterval);
 
       timeoutIds = timeoutIds.concat(timeoutId);

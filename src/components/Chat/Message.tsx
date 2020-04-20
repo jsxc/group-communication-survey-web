@@ -40,7 +40,7 @@ const Message: React.FC<Props> = (props) => {
   const isDrawerMode = mode === 'DRAWER';
   const repliesCount = replies.length;
 
-  if (isRegularMode && author === 'SYSTEM') {
+  if (author === 'SYSTEM') {
     return <SystemMessage text={text} />;
   }
 
