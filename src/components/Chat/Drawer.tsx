@@ -54,8 +54,8 @@ const Drawer: React.FC<Props> = (props) => {
         </Text>
       </Box>
 
-      {messages.map((message) => {
-        return <Message {...message} />;
+      {messages.map((message, index) => {
+        return <Message key={index} {...message} />;
       })}
     </Box>
   );
