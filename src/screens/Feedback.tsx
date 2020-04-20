@@ -12,7 +12,7 @@ const Feedback: React.FC = () => {
   const browserHistory = useHistory();
   const [globalState, globalActions] = useGlobalState();
   const [state, setState] = useState({
-    hasOpinionOnRepresentationsBeenBlurred: false,
+    hasOpinionMissingBeenBlurred: false,
     isFetching: false,
   });
 
@@ -21,9 +21,9 @@ const Feedback: React.FC = () => {
 
   const {
     'What is your email address?': email,
-    'What do you think of the new representations?': opinionOnRepresentations,
+    'Is there a feature or visualisation which you miss in your favorite chat app?': opinionMissing,
   } = data;
-  const { hasOpinionOnRepresentationsBeenBlurred, isFetching } = state;
+  const { hasOpinionMissingBeenBlurred, isFetching } = state;
 
   const setEmail = (email: string) => {
     return setData((data) => ({
@@ -32,24 +32,24 @@ const Feedback: React.FC = () => {
     }));
   };
 
-  const setOpinionOnRepresentations = (opinionOnRepresentations: string) => {
+  const setOpinionMissing = (opinionMissing: string) => {
     return setData((data) => ({
       ...data,
-      'What do you think of the new representations?': opinionOnRepresentations,
+      'Is there a feature or visualisation which you miss in your favorite chat app?': opinionMissing,
     }));
   };
 
-  const validateOpinionOnRepresentationsField = () => {
-    if (!opinionOnRepresentations) {
+  const validateOpinionMissingField = () => {
+    if (!opinionMissing) {
       return 'Required';
     }
 
     return null;
   };
 
-  const opinionOnRepresentationsFieldError = validateOpinionOnRepresentationsField();
+  const opinionMissingFieldError = validateOpinionMissingField();
 
-  const isInvalidForm = [opinionOnRepresentationsFieldError].some(Boolean);
+  const isInvalidForm = [opinionMissingFieldError].some(Boolean);
 
   return (
     <Form>
@@ -70,30 +70,31 @@ const Feedback: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4" error={Boolean(opinionOnRepresentationsFieldError)}>
-          What do you think of the new representations?
+        <Heading level="4" error={Boolean(opinionMissingFieldError)}>
+          Is there a feature or visualisation which you miss in your favorite
+          chat app?
         </Heading>
 
         <TextArea
           name="question-2"
-          value={opinionOnRepresentations || ''}
+          value={opinionMissing || ''}
           onChange={(event) => {
             const { value } = event.target;
-            setOpinionOnRepresentations(value);
+            setOpinionMissing(value);
           }}
           onBlur={() => {
             setState((state) => ({
               ...state,
-              hasOpinionOnRepresentationsBeenBlurred: true,
+              hasOpinionMissingBeenBlurred: true,
             }));
           }}
         />
 
         <ErrorText
           margin={{ vertical: 'xsmall' }}
-          visible={hasOpinionOnRepresentationsBeenBlurred}
+          visible={hasOpinionMissingBeenBlurred}
         >
-          {opinionOnRepresentationsFieldError}
+          {opinionMissingFieldError}
         </ErrorText>
       </Box>
 

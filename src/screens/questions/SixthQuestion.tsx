@@ -172,6 +172,7 @@ const SixthQuestion: React.FC = () => {
           value={favoriteChatApp}
           onChange={(event) => {
             const { value } = event.target;
+            console.log('onchange value', value);
             setFavoriteChatApp(value);
           }}
         />
@@ -196,7 +197,8 @@ const SixthQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(groupsCountFieldError)}>
-          How many groups do you have?
+          How many groups do you have approximately in your most used group chat
+          messenger?
         </Heading>
 
         <FormField
@@ -222,7 +224,8 @@ const SixthQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(regularlyUsedGroupsCountFieldError)}>
-          How many groups do you use regularly?
+          How many groups do you use regularly in your most used group chat
+          messenger?
         </Heading>
 
         <FormField
@@ -248,7 +251,8 @@ const SixthQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(smallestGroupMembersCountFieldError)}>
-          How many members does the smallest group have?
+          How many members does the smallest group have in your most used group
+          chat messenger?
         </Heading>
 
         <FormField
@@ -274,7 +278,8 @@ const SixthQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(largestGroupMembersCountFieldError)}>
-          How many members does the largest group have?
+          How many members does the largest group have in your most used group
+          chat messenger?
         </Heading>
 
         <FormField

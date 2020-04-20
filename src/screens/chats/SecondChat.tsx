@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button } from 'grommet';
+import { Box, Button, Paragraph } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Chat } from '../../components';
 import { secondChatMessages } from './data/chats';
@@ -19,6 +19,10 @@ const SecondChat: React.FC = () => {
       />
 
       <Box align="center" margin="medium">
+        <Paragraph size="small">
+          Please interact with the visualization before you click "Next".
+        </Paragraph>
+
         <Button
           type="submit"
           label="Next"

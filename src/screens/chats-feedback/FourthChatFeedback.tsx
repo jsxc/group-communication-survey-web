@@ -1,8 +1,9 @@
 import React from 'react';
-import { Box, Form, TextArea, Button } from 'grommet';
+import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
+import * as KEYS from '../../hooks/keys';
 import { isNull } from '../../utilities';
 
 const FourthChatFeedback: React.FC = () => {
@@ -15,7 +16,9 @@ const FourthChatFeedback: React.FC = () => {
   const { fourthChatFeedback } = data;
   const {
     'How well did you understand the conversation?': firstQuestionChoice,
-    'Did you notice something?': secondQuestionChoice,
+    [KEYS.FEEDBACK_TAB_CONTEXT_INFERRED]: contextInferredChoice,
+    [KEYS.FEEDBACK_TAB_CONTEXT_TREE]: contextTreeChoice,
+    [KEYS.FEEDBACK_TAB_COMPARISON]: comparisonChoice,
   } = fourthChatFeedback;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -28,44 +31,19 @@ const FourthChatFeedback: React.FC = () => {
     }));
   };
 
-  const validateRadioFieldChoice = (question: string) => {
-    const choice = fourthChatFeedback[question];
-
-    if (isNull(choice)) {
-      return 'Required';
-    }
-
-    return null;
-  };
-
-  const validateTextField = (question: string) => {
-    const choice = fourthChatFeedback[question];
-
-    if (!choice) {
-      return 'Required';
-    }
-
-    return null;
-  };
-
-  const firstQuestionOptions = ['0', '1', '2', '3', '4', '5'];
-
-  const firstQuestionChoiceError = validateRadioFieldChoice(
-    'How well did you understand the conversation?',
-  );
-  const secondQuestionChoiceError = validateTextField(
-    'Did you notice something?',
-  );
-
   const isInvalidForm = [
-    firstQuestionChoiceError,
-    secondQuestionChoiceError,
-  ].some(Boolean);
+    firstQuestionChoice,
+    contextInferredChoice,
+    contextTreeChoice,
+    comparisonChoice,
+  ].some(isNull);
 
   return (
     <Form>
+      <Heading level="3">Message tabs</Heading>
+
       <Box margin="medium">
-        <Heading level="4" error={Boolean(firstQuestionChoiceError)}>
+        <Heading level="4" error={isNull(firstQuestionChoice)}>
           How well did you understand the conversation?
         </Heading>
 
@@ -75,7 +53,7 @@ const FourthChatFeedback: React.FC = () => {
           scale={true}
           firstOptionLabel="Very badly"
           lastOptionLabel="Very well"
-          options={firstQuestionOptions}
+          options={[0, 1, 2, 3, 4, 5].map((i) => i.toString())}
           value={firstQuestionChoice}
           onChange={(event) => {
             const { value } = event.target;
@@ -87,16 +65,68 @@ const FourthChatFeedback: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4" error={Boolean(secondQuestionChoiceError)}>
-          Did you notice something?
+        <Heading level="4" error={isNull(contextInferredChoice)}>
+          {KEYS.FEEDBACK_TAB_CONTEXT_INFERRED}
         </Heading>
 
-        <TextArea
+        <RadioButtonGroup
           name="question-2"
-          value={secondQuestionChoice || ''}
+          options={
+            {
+              yes: 'Yes, it is more clear',
+              no: 'No, inferred quotes performed better',
+              same: 'There was no difference',
+            } as any
+          }
+          value={contextInferredChoice}
           onChange={(event) => {
             const { value } = event.target;
-            setQuestionChoice('Did you notice something?')(value);
+            setQuestionChoice(KEYS.FEEDBACK_TAB_CONTEXT_INFERRED)(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(contextTreeChoice)}>
+          {KEYS.FEEDBACK_TAB_CONTEXT_TREE}
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-2"
+          options={
+            {
+              yes: 'Yes, it is more clear',
+              no: 'No, the message tree performed better',
+              same: 'There was no difference',
+            } as any
+          }
+          value={contextTreeChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.FEEDBACK_TAB_CONTEXT_TREE)(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(comparisonChoice)}>
+          {KEYS.FEEDBACK_TAB_COMPARISON}
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-2"
+          options={
+            {
+              inferred: 'Inferred quotes',
+              tree: 'Message tree',
+              tab: 'Message tab (this one)',
+              none: 'None of those',
+            } as any
+          }
+          value={comparisonChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.FEEDBACK_TAB_COMPARISON)(value);
           }}
         />
       </Box>

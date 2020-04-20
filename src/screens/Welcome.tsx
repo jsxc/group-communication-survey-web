@@ -33,11 +33,13 @@ const Welcome: React.FC = () => {
         </Heading>
 
         <Paragraph>
-          Thank you for agreeing to participate in this study. First, you will
-          be asked a few general questions. Afterwards, you will be shown 5
-          different group chat transcripts, alongside some questions. Thank you
-          very much for your participation.
+          Thank you for agreeing to participate in this study. The first part of
+          the study consist of general questions about group communication and
+          your behavior with different group aspects. Afterwards, you will be
+          shown different group chat visualization alongside some questions.
         </Paragraph>
+
+        <Paragraph>Thank you very much for your participation.</Paragraph>
 
         <Button
           type="submit"

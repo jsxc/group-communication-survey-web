@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Paragraph, Button } from 'grommet';
+import { Box, Paragraph, Button, Heading } from 'grommet';
 import { useHistory } from 'react-router-dom';
 
 const SecondExplanation: React.FC = () => {
@@ -8,16 +8,20 @@ const SecondExplanation: React.FC = () => {
   return (
     <>
       <Box margin="medium">
+        <Heading level="3" margin="xsmall">
+          Part 2
+        </Heading>
+
         <Paragraph>
-          As already mentioned, you will now see 5 group chat conversations,
+          As already mentioned, you will now see some group chat conversations,
           alongside some questions about the respective conversation. Please
-          only click on "Next" if you think that you understood the content of
-          the conversation.
+          only click on "Next" if you think that you{' '}
+          <strong>understood the content</strong> of the conversation.
         </Paragraph>
 
         <Paragraph>
-          You can interact with the display as normal, i.e. scroll, click, or
-          whatever else you can think of.
+          <strong>You can interact</strong> with the display as normal, i.e.
+          scroll, click, or whatever else you can think of.
         </Paragraph>
 
         <Paragraph>
@@ -36,7 +40,7 @@ const SecondExplanation: React.FC = () => {
           type="submit"
           label="Next"
           onClick={() => {
-            browserHistory.push('/explanations/3');
+            browserHistory.push('/chats/1');
           }}
         />
       </Box>

@@ -175,7 +175,7 @@ const SecondChatFeedback: React.FC = () => {
           label="Next"
           disabled={isInvalidForm}
           onClick={() => {
-            browserHistory.push('/explanations/4');
+            browserHistory.push('/questions/missing-message');
           }}
         />
       </Box>

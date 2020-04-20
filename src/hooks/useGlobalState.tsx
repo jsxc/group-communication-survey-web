@@ -5,8 +5,15 @@ import React, {
   Dispatch,
   SetStateAction,
 } from 'react';
+import * as KEYS from './keys';
 
 type Data = {
+  [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: string;
+  [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: string;
+  [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: string;
+  [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: string;
+  [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: string;
+  [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: string;
   'What is your email address?': string;
   'Specify your sex:': string;
   'How old are you?': number;
@@ -110,13 +117,16 @@ type Data = {
   };
   thirdChatFeedback: {
     'How well did you understand the conversation?': string;
-    'Did you notice something?': string;
+    [KEYS.FEEDBACK_TREE_CONTEXT]: string;
+    [KEYS.FEEDBACK_TREE_COMPARISON]: string;
   };
   fourthChatFeedback: {
     'How well did you understand the conversation?': string;
-    'Did you notice something?': string;
+    [KEYS.FEEDBACK_TAB_CONTEXT_INFERRED]: string;
+    [KEYS.FEEDBACK_TAB_CONTEXT_TREE]: string;
+    [KEYS.FEEDBACK_TAB_COMPARISON]: string;
   };
-  'What do you think of the new representations?': string;
+  'Is there a feature or visualisation which you miss in your favorite chat app?': string;
 };
 
 type Navigation = {
@@ -136,6 +146,12 @@ type Actions = {
 const GlobalStateContext = createContext<[State, Actions]>([
   {
     data: {
+      [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: null,
+      [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: null,
+      [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: null,
+      [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: null,
+      [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: null,
+      [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: null,
       'What is your email address?': null,
       'Specify your sex:': null,
       'How old are you?': null,
@@ -239,13 +255,16 @@ const GlobalStateContext = createContext<[State, Actions]>([
       },
       thirdChatFeedback: {
         'How well did you understand the conversation?': null,
-        'Did you notice something?': null,
+        [KEYS.FEEDBACK_TREE_CONTEXT]: null,
+        [KEYS.FEEDBACK_TREE_COMPARISON]: null,
       },
       fourthChatFeedback: {
         'How well did you understand the conversation?': null,
-        'Did you notice something?': null,
+        [KEYS.FEEDBACK_TAB_CONTEXT_INFERRED]: null,
+        [KEYS.FEEDBACK_TAB_CONTEXT_TREE]: null,
+        [KEYS.FEEDBACK_TAB_COMPARISON]: null,
       },
-      'What do you think of the new representations?': null,
+      'Is there a feature or visualisation which you miss in your favorite chat app?': null,
     },
     navigation: {
       hasStarted: false,
@@ -261,6 +280,12 @@ export const GlobalStateProvider: React.FC = (props) => {
   const { children } = props;
 
   const [data, setData] = useState<Data>({
+    [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: null,
+    [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: null,
+    [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: null,
+    [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: null,
+    [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: null,
+    [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: null,
     'What is your email address?': null,
     'Specify your sex:': null,
     'How old are you?': null,
@@ -364,13 +389,16 @@ export const GlobalStateProvider: React.FC = (props) => {
     },
     thirdChatFeedback: {
       'How well did you understand the conversation?': null,
-      'Did you notice something?': null,
+      [KEYS.FEEDBACK_TREE_CONTEXT]: null,
+      [KEYS.FEEDBACK_TREE_COMPARISON]: null,
     },
     fourthChatFeedback: {
       'How well did you understand the conversation?': null,
-      'Did you notice something?': null,
+      [KEYS.FEEDBACK_TAB_CONTEXT_INFERRED]: null,
+      [KEYS.FEEDBACK_TAB_CONTEXT_TREE]: null,
+      [KEYS.FEEDBACK_TAB_COMPARISON]: null,
     },
-    'What do you think of the new representations?': null,
+    'Is there a feature or visualisation which you miss in your favorite chat app?': null,
   });
 
   const [navigation, setNavigation] = useState<Navigation>({

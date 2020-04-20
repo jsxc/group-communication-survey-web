@@ -17,7 +17,7 @@ import {
 type Props = BoxProps &
   GrommetRadioButtonGroupProps & {
     value: string;
-    options: string[];
+    options: string[] | { [value: string]: string };
     scale?: boolean;
     other?: boolean;
     firstOptionLabel?: string;
@@ -27,7 +27,7 @@ type Props = BoxProps &
 
 const RadioButtonGroup: React.FC<Props> = (props) => {
   const {
-    value,
+    value = '',
     options,
     scale = false,
     other = false,
@@ -40,9 +40,22 @@ const RadioButtonGroup: React.FC<Props> = (props) => {
 
   const [isOtherOptionChecked, setOtherOptionChecked] = useState(false);
 
-  const isValueInOptions = options.includes(value);
+  const values = Array.isArray(options)
+    ? (options as string[])
+    : Object.keys(options);
+  const isValueInOptions = values
+    .map((option) => (option as string).toLowerCase())
+    .includes(value && value.toLowerCase());
 
-  let adaptedOptions = options.map(constructRadioOptions);
+  let adaptedOptions = Array.isArray(options)
+    ? options.map(constructRadioOptions)
+    : Object.keys(options).map((value) => {
+        return {
+          id: randomId(),
+          value,
+          label: options[value],
+        };
+      });
 
   if (scale) {
     adaptedOptions = adaptedOptions.map(obscureScaleLabels);
@@ -62,7 +75,7 @@ const RadioButtonGroup: React.FC<Props> = (props) => {
         <GrommetRadioButtonGroup
           {...rest}
           focusIndicator={false}
-          value={isOtherOptionChecked ? null : value}
+          value={isOtherOptionChecked ? '' : value}
           options={adaptedOptions}
           onChange={onChange}
           onClick={() => {
@@ -78,8 +91,9 @@ const RadioButtonGroup: React.FC<Props> = (props) => {
               checked={isOtherOptionChecked}
               onClick={() => {
                 setOtherOptionChecked(true);
-                handleChangedValue(null);
+                handleChangedValue('');
               }}
+              onChange={() => undefined}
             />
           </Box>
         ) : null}
@@ -92,7 +106,7 @@ const RadioButtonGroup: React.FC<Props> = (props) => {
       {isOtherOptionChecked ? (
         <TextInput
           style={{ marginTop: 16, marginLeft: 16, marginRight: 16 }}
-          value={isValueInOptions ? '' : value}
+          value={isValueInOptions || !value ? '' : value}
           onChange={(event) => {
             const { value } = event.target;
             handleChangedValue(value);

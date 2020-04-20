@@ -1,3 +1,6 @@
+export { default as MissingMessageQuestion } from './questions/MissingMessageQuestion';
+export { default as InferredQuoteQuestion } from './questions/InferredQuoteQuestion';
+
 export { default as Welcome } from './Welcome';
 export { default as Demographic } from './Demographic';
 export { default as Feedback } from './Feedback';
@@ -6,7 +9,6 @@ export {
   FirstExplanation,
   SecondExplanation,
   ThirdExplanation,
-  FourthExplanation,
 } from './explanations';
 export {
   FirstQuestion,
