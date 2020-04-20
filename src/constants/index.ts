@@ -6,5 +6,5 @@ export const uris = {
 };
 
 export const colors = {
-  PRIMARY: '#01579B',
+  PRIMARY: '#2879d0',
 };
