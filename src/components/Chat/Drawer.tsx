@@ -3,6 +3,7 @@ import { Box, Text, Button } from 'grommet';
 import { Close } from 'grommet-icons';
 import Message from './Message';
 import { MessageContent } from './types';
+import { colors } from '../../constants';
 
 type Props = {
   messages?: MessageContent[];
@@ -34,13 +35,13 @@ const Drawer: React.FC<Props> = (props) => {
         <Button
           margin={{ right: 'small', top: '8px' }}
           as="a"
-          color="#01579B"
+          color={colors.PRIMARY}
           plain={true}
           onClick={() => {
             onDismiss?.();
           }}
         >
-          <Close size="18px" color="#01579B" />
+          <Close size="18px" color={colors.PRIMARY} />
         </Button>
 
         <Text

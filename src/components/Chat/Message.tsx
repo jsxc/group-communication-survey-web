@@ -3,6 +3,7 @@ import { Box, Text, Image, Button } from 'grommet';
 import SystemMessage from './SystemMessage';
 import InferenceQuote from './InferenceQuote';
 import { ChatMode, MessageContent, User } from './types';
+import { colors } from '../../constants';
 
 type Props = MessageContent & {
   mode?: ChatMode;
@@ -99,7 +100,7 @@ const Message: React.FC<Props> = (props) => {
             <Box margin={{ top: 'xsmall' }}>
               <Button
                 as="a"
-                color="#01579B"
+                color={colors.PRIMARY}
                 plain={true}
                 label={
                   <Text size="12px">{constructRepliesText(repliesCount)}</Text>
