@@ -14,6 +14,8 @@ const InferredQuoteQuestion: React.FC = () => {
   const { setData } = globalActions;
 
   const {
+    [KEYS.FEEDBACK_INFERRED_QUOTE_FINE]: fineChoice,
+    [KEYS.FEEDBACK_INFERRED_QUOTE_FINE2]: fine2Choice,
     [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: coherentChoice,
     [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: helpfulChoice,
     [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: integrationChoice,
@@ -28,9 +30,13 @@ const InferredQuoteQuestion: React.FC = () => {
 
   const options = ['0', '1', '2', '3', '4', '5'];
 
-  const isInvalidForm = [coherentChoice, helpfulChoice, integrationChoice].some(
-    isNull,
-  );
+  const isInvalidForm = [
+    fineChoice,
+    fine2Choice,
+    coherentChoice,
+    helpfulChoice,
+    integrationChoice,
+  ].some(isNull);
 
   return (
     <>
@@ -69,6 +75,39 @@ const InferredQuoteQuestion: React.FC = () => {
           This element should show you the context in which the message was
           sent.
         </Paragraph>
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(fineChoice)}>
+          If you read the chat in correct order you know that Doris is fine. Was
+          this obvious to you on the first chat (without any special elements)?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-1"
+          options={['Yes', 'No']}
+          value={fineChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.FEEDBACK_INFERRED_QUOTE_FINE)(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(fine2Choice)}>
+          Was it obvious to you with the inferred quotes that Doris is fine?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-1"
+          options={['Yes', 'No']}
+          value={fine2Choice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.FEEDBACK_INFERRED_QUOTE_FINE2)(value);
+          }}
+        />
       </Box>
 
       <Box margin="medium">

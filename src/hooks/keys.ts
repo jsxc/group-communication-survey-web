@@ -5,6 +5,10 @@ export const FEEDBACK_MISSING_MSG_HELPFUL =
 export const FEEDBACK_MISSING_MSG_INTEGRATION =
   'Do you think the missing message element should be integrated?';
 
+export const FEEDBACK_INFERRED_QUOTE_FINE =
+  'Did you notice that Doris is fine without inferred quotes?';
+export const FEEDBACK_INFERRED_QUOTE_FINE2 =
+  'Did you notice that Doris is fine with inferred quotes?';
 export const FEEDBACK_INFERRED_QUOTE_COHERENT =
   'How coherent is the inferred quote?';
 export const FEEDBACK_INFERRED_QUOTE_HELPFUL =
