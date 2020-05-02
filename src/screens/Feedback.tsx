@@ -132,8 +132,25 @@ const Feedback: React.FC = () => {
                 setState((state) => ({ ...state, isFetching: false }));
 
                 alert(
-                  'An error has occurred. Please inform the survey conductor.',
+                  'An error has occurred. Please send your data via mail. After clicking "ok" your mail app should popup.',
                 );
+
+                window.onbeforeunload = undefined;
+
+                let body =
+                  'Thank you again. I appreciate your commitment.\n\n' +
+                  JSON.stringify(data);
+
+                let a = document.createElement('a');
+                a.setAttribute(
+                  'href',
+                  `mailto:klaus.herberth@uni-konstanz.de?subject=${encodeURIComponent(
+                    'GCS data',
+                  )}&body=${encodeURIComponent(body)}`,
+                );
+                a.click();
+
+                console.log('data', data);
               }
             }}
           />
