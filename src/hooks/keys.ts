@@ -27,3 +27,8 @@ export const FEEDBACK_TAB_CONTEXT_TREE =
   'Is the context of a message clearer compared to the message tree?';
 export const FEEDBACK_TAB_COMPARISON =
   'Which presentation would you prefer for your favorite chat messenger?';
+
+export const GROUP_MSG_UNKNOWN_MEMBER =
+  'What are you doing if you do not know someone in a group?';
+export const GROUP_MSG_REQUIREMENT_CONFIDENTIAL =
+  'Are there special requirements for groups if confidential topics are discussed?';

@@ -2,8 +2,9 @@ import React from 'react';
 import { Box, Form, Button } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
-import { useGlobalState } from '../../hooks';
+import { useGlobalState, KEYS } from '../../hooks';
 import { isNull } from '../../utilities';
+import CheckBoxGroup from '../../components/CheckBoxGroup';
 
 const ThirdQuestion: React.FC = () => {
   const browserHistory = useHistory();
@@ -13,7 +14,7 @@ const ThirdQuestion: React.FC = () => {
   const { setData } = globalActions;
 
   const {
-    'What are you doing if you do not know someone in a group?': firstQuestionChoice,
+    [KEYS.GROUP_MSG_UNKNOWN_MEMBER]: groupMsgUnknownMemberAnswers,
     'Are you always knowing who will hear your message?': secondQuestionChoice,
     'Are you aware of that?': thirdQuestionChoice,
     'In which cases is it especially important for you who will hear your messages?': fourthQuestionChoice,
@@ -21,7 +22,7 @@ const ThirdQuestion: React.FC = () => {
     'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': sixthQuestionChoice,
     'Do you thing there are use cases in which plausible deniability of group membership is important?': seventhQuestionChoice,
     'Would it influence your behaviour if everything you say would be immediately published?': eighthQuestionChoice,
-    'Are there special requirements for groups if confidential topics are discussed?': ninthQuestionChoice,
+    [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: groupMsgRequirementConfidentialAnswers,
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -36,26 +37,25 @@ const ThirdQuestion: React.FC = () => {
 
   const isInvalidForm =
     [
-      firstQuestionChoice,
       secondQuestionChoice,
       fourthQuestionChoice,
       fifthQuestionChoice,
       sixthQuestionChoice,
       seventhQuestionChoice,
       eighthQuestionChoice,
-      ninthQuestionChoice,
     ].some(isNull) ||
+    groupMsgUnknownMemberAnswers.length === 0 ||
+    groupMsgRequirementConfidentialAnswers.length === 0 ||
     (areConditionalFieldsRequired && areConditionalFieldsEmpty);
 
   return (
     <Form>
       <Box margin="medium">
-        <Heading level="4" error={isNull(firstQuestionChoice)}>
+        <Heading level="4" error={groupMsgUnknownMemberAnswers.length === 0}>
           What are you doing if you do not know someone in a group?
         </Heading>
 
-        <RadioButtonGroup
-          name="question-1"
+        <CheckBoxGroup
           other={true}
           options={[
             'I ignore it',
@@ -66,19 +66,19 @@ const ThirdQuestion: React.FC = () => {
             'If I think the person does not belong to the group I ask him to leave',
             'If I think the person does not belong to the group I will leave the group',
           ]}
-          value={firstQuestionChoice}
-          onChange={(event) => {
-            const { value } = event.target;
-            setQuestionChoice(
-              'What are you doing if you do not know someone in a group?',
-            )(value);
+          answers={groupMsgUnknownMemberAnswers}
+          setAnswers={(answers) => {
+            setData((data) => ({
+              ...data,
+              [KEYS.GROUP_MSG_UNKNOWN_MEMBER]: answers,
+            }));
           }}
         />
       </Box>
 
       <Box margin="medium">
         <Heading level="4" error={isNull(secondQuestionChoice)}>
-          Are you always knowing who will hear your message?
+          Do you always know who will hear your message?
         </Heading>
 
         <RadioButtonGroup
@@ -209,13 +209,15 @@ const ThirdQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4" error={isNull(ninthQuestionChoice)}>
+        <Heading
+          level="4"
+          error={groupMsgRequirementConfidentialAnswers.length === 0}
+        >
           Are there special requirements for groups if confidential topics are
           discussed?
         </Heading>
 
-        <RadioButtonGroup
-          name="question-9"
+        <CheckBoxGroup
           other={true}
           options={[
             'No',
@@ -223,12 +225,12 @@ const ThirdQuestion: React.FC = () => {
             'There should be no stranger listening',
             "It's important that every member is trustworthy",
           ]}
-          value={ninthQuestionChoice}
-          onChange={(event) => {
-            const { value } = event.target;
-            setQuestionChoice(
-              'Are there special requirements for groups if confidential topics are discussed?',
-            )(value);
+          answers={groupMsgRequirementConfidentialAnswers}
+          setAnswers={(answers) => {
+            setData((data) => ({
+              ...data,
+              [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: answers,
+            }));
           }}
         />
       </Box>

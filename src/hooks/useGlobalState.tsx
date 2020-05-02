@@ -43,7 +43,7 @@ type Data = {
   'What is your most common reaction if a statement is unclear to you?': string;
   'What is your reaction if you were not able to understand something acousticly?': string;
   'Is there a difference in communication between business and leisure groups?': string;
-  'What are you doing if you do not know someone in a group?': string;
+  [KEYS.GROUP_MSG_UNKNOWN_MEMBER]: string[];
   'Are you always knowing who will hear your message?': string;
   'Are you aware of that?': string;
   'In which cases is it especially important for you who will hear your messages?': string;
@@ -51,7 +51,7 @@ type Data = {
   'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': string;
   'Do you thing there are use cases in which plausible deniability of group membership is important?': string;
   'Would it influence your behaviour if everything you say would be immediately published?': string;
-  'Are there special requirements for groups if confidential topics are discussed?': string;
+  [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: string[];
   'Which statements are true for the admission of a new member in a business group?': {
     'Everyone can join': boolean;
     "It's ok if someone knows the new member": boolean;
@@ -183,7 +183,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'What is your most common reaction if a statement is unclear to you?': null,
       'What is your reaction if you were not able to understand something acousticly?': null,
       'Is there a difference in communication between business and leisure groups?': null,
-      'What are you doing if you do not know someone in a group?': null,
+      [KEYS.GROUP_MSG_UNKNOWN_MEMBER]: [],
       'Are you always knowing who will hear your message?': null,
       'Are you aware of that?': null,
       'In which cases is it especially important for you who will hear your messages?': null,
@@ -191,7 +191,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
       'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
       'Would it influence your behaviour if everything you say would be immediately published?': null,
-      'Are there special requirements for groups if confidential topics are discussed?': null,
+      [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: [],
       'Which statements are true for the admission of a new member in a business group?': {
         'Everyone can join': false,
         "It's ok if someone knows the new member": false,
@@ -319,7 +319,7 @@ export const GlobalStateProvider: React.FC = (props) => {
     'What is your most common reaction if a statement is unclear to you?': null,
     'What is your reaction if you were not able to understand something acousticly?': null,
     'Is there a difference in communication between business and leisure groups?': null,
-    'What are you doing if you do not know someone in a group?': null,
+    [KEYS.GROUP_MSG_UNKNOWN_MEMBER]: [],
     'Are you always knowing who will hear your message?': null,
     'Are you aware of that?': null,
     'In which cases is it especially important for you who will hear your messages?': null,
@@ -327,7 +327,7 @@ export const GlobalStateProvider: React.FC = (props) => {
     'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
     'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
     'Would it influence your behaviour if everything you say would be immediately published?': null,
-    'Are there special requirements for groups if confidential topics are discussed?': null,
+    [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: [],
     'Which statements are true for the admission of a new member in a business group?': {
       'Everyone can join': false,
       "It's ok if someone knows the new member": false,
