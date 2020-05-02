@@ -67,7 +67,7 @@ const SeventhQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(secondQuestionChoice)}>
-          Do you thing everyone is reading all your messages in a group chat?
+          Do you think everyone is reading all your messages in a group chat?
         </Heading>
 
         <RadioButtonGroup
@@ -167,7 +167,7 @@ const SeventhQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(seventhQuestionChoice)}>
-          What is your most common reaction if a new member, which you don't
+          What is your most common reaction if a new member, whom you don't
           like, is added to a group?
         </Heading>
 
@@ -240,8 +240,7 @@ const SeventhQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(tenthQuestionChoice)}>
-          What are you doing if you don't want to participate in a digital
-          group?
+          What do you do if you don't want to participate in a digital group?
         </Heading>
 
         <RadioButtonGroup

@@ -57,7 +57,7 @@ const EighthQuestion: React.FC = () => {
       <Box margin="medium">
         <Heading level="4" error={Boolean(firstQuestionFieldError)}>
           Which visualization would you like to have integrated in your favorite
-          chat app?
+          chat app? For example a different message layout.
         </Heading>
 
         <TextArea

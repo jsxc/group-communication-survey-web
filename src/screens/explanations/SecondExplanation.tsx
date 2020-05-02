@@ -25,7 +25,7 @@ const SecondExplanation: React.FC = () => {
         </Paragraph>
 
         <Paragraph>
-          This survey is about the representation of the conversations; and more
+          This survey is about the representation of conversations; and more
           specifically, the context of messages. For example, an answer always
           relates to a specific question. But what happens when different
           members receive different questions in a group conversation? This

@@ -205,7 +205,7 @@ const SecondQuestion: React.FC = () => {
       <Box margin="medium">
         <Heading level="4" error={isNull(eighthQuestionChoice)}>
           What is your reaction if you were not able to understand something
-          acousticly?
+          acoustically?
         </Heading>
 
         <RadioButtonGroup
@@ -230,7 +230,8 @@ const SecondQuestion: React.FC = () => {
       <Box margin="medium">
         <Heading level="4" error={isNull(ninthQuestionChoice)}>
           Is there a difference in communication between business and leisure
-          groups?
+          groups? (If you think multiple answers are true, choose the one with
+          the biggest difference)
         </Heading>
 
         <RadioButtonGroup
@@ -240,8 +241,8 @@ const SecondQuestion: React.FC = () => {
             'Business groups have more often stricter rules',
             'In business meetings I am more reserved',
             'Business groups are given by some authority',
-            'Leisure groups are more causual',
-            'Communication in both groups is completly different',
+            'Leisure groups are more casual',
+            'Communication in both groups is completely different',
             'The basic concept of both is the same',
           ]}
           value={ninthQuestionChoice}
