@@ -8,6 +8,8 @@ import React, {
 import * as KEYS from './keys';
 
 type Data = {
+  [KEYS.STAT_START]: Date;
+  [KEYS.STAT_END]: Date;
   [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: string;
   [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: string;
   [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: string;
@@ -148,6 +150,8 @@ type Actions = {
 const GlobalStateContext = createContext<[State, Actions]>([
   {
     data: {
+      [KEYS.STAT_START]: null,
+      [KEYS.STAT_END]: null,
       [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: null,
       [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: null,
       [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: null,
@@ -284,6 +288,8 @@ export const GlobalStateProvider: React.FC = (props) => {
   const { children } = props;
 
   const [data, setData] = useState<Data>({
+    [KEYS.STAT_START]: null,
+    [KEYS.STAT_END]: null,
     [KEYS.FEEDBACK_MISSING_MSG_COHERENT]: null,
     [KEYS.FEEDBACK_MISSING_MSG_HELPFUL]: null,
     [KEYS.FEEDBACK_MISSING_MSG_INTEGRATION]: null,

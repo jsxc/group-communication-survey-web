@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Box, Form, TextArea, Button, TextInput } from 'grommet';
+import React, { useState, useEffect } from 'react';
+import { Box, Form, TextArea, Button, TextInput, Paragraph } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import Spinner from 'react-spinners/MoonLoader';
 import axios from 'axios';
 import { Heading, ErrorText } from '../components';
-import { useGlobalState } from '../hooks';
+import { useGlobalState, KEYS } from '../hooks';
 import { match } from '../utilities';
 import { uris, colors } from '../constants';
 
@@ -47,6 +47,15 @@ const Feedback: React.FC = () => {
     return null;
   };
 
+  useEffect(() => {
+    if (!data[KEYS.STAT_END]) {
+      setData((data) => ({
+        ...data,
+        [KEYS.STAT_END]: new Date(),
+      }));
+    }
+  });
+
   const opinionMissingFieldError = validateOpinionMissingField();
 
   const isInvalidForm = [opinionMissingFieldError].some(Boolean);
@@ -57,6 +66,10 @@ const Feedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4">What is your email address?</Heading>
+        <Paragraph>
+          We will send you only one message with the preliminary results and
+          information about a possible subsequent questionary.
+        </Paragraph>
 
         <TextInput
           name="question-1"
@@ -71,8 +84,7 @@ const Feedback: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={Boolean(opinionMissingFieldError)}>
-          Is there a feature or visualisation which you miss in your favorite
-          chat app?
+          Is there anything you want to say the author of this survey?
         </Heading>
 
         <TextArea

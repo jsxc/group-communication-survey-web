@@ -28,6 +28,9 @@ export const FEEDBACK_TAB_CONTEXT_TREE =
 export const FEEDBACK_TAB_COMPARISON =
   'Which presentation would you prefer for your favorite chat messenger?';
 
+export const STAT_START = 'stat_start';
+export const STAT_END = 'stat_end';
+
 export const GROUP_MSG_UNKNOWN_MEMBER =
   'What are you doing if you do not know someone in a group?';
 export const GROUP_MSG_REQUIREMENT_CONFIDENTIAL =

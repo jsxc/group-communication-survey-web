@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import React, { useEffect } from 'react';
+import { Box, Form, Button, Paragraph } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
-import { useGlobalState } from '../../hooks';
+import { useGlobalState, KEYS } from '../../hooks';
 import { isNull } from '../../utilities';
 
 const FirstQuestion: React.FC = () => {
@@ -36,6 +36,15 @@ const FirstQuestion: React.FC = () => {
     }));
   };
 
+  useEffect(() => {
+    if (!data[KEYS.STAT_START]) {
+      setData((data) => ({
+        ...data,
+        [KEYS.STAT_START]: new Date(),
+      }));
+    }
+  });
+
   const options = ['0', '1', '2', '3', '4', '5'];
 
   const isInvalidForm = [
@@ -61,6 +70,11 @@ const FirstQuestion: React.FC = () => {
         <Heading level="4">
           How far do you agree with the following statements?
         </Heading>
+        <Paragraph>
+          Remember: The following questions are related to{' '}
+          <strong>real world groups</strong>. This means physical meetings or
+          discussions in your every day life.
+        </Paragraph>
       </Box>
 
       <Box margin="medium">
@@ -132,7 +146,7 @@ const FirstQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(fourthQuestionChoice)}>
-          I always understand every statement acousticly and contentually.
+          I always understand every statement acoustically and contentual.
         </Heading>
 
         <RadioButtonGroup
