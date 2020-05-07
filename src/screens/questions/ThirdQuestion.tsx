@@ -58,9 +58,9 @@ const ThirdQuestion: React.FC = () => {
         <CheckBoxGroup
           other={true}
           options={[
-            'I ignore it',
-            "I ignore it, if it's a causual group",
-            'I ignore it, if I know the person belongs or should belong to a group',
+            'I ignore them',
+            "I ignore them, if it's a causual group",
+            'I ignore them, if I know the person belongs or should belong to a group',
             "It's ok, if someone in the group knows the person",
             'I ask the person to introduce himself',
             'If I think the person does not belong to the group I ask him to leave',
