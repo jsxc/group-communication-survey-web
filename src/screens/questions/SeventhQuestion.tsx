@@ -14,7 +14,7 @@ const SeventhQuestion: React.FC = () => {
 
   const {
     'Do you expect that everyone reads your message in a group chat?': firstQuestionChoice,
-    'Do you thing everyone is reading all your messages in a group chat?': secondQuestionChoice,
+    'Do you think everyone is reading all your messages in a group chat?': secondQuestionChoice,
     'Are you always reading all messages in a group chat?': thirdQuestionChoice,
     'Would you publish all your conversations in your favorite group chat app?': fourthQuestionChoice,
     'Would you publish a complete list of groups you are part of in your favorite group chat app?': fifthQuestionChoice,
@@ -77,7 +77,7 @@ const SeventhQuestion: React.FC = () => {
           onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
-              'Do you thing everyone is reading all your messages in a group chat?',
+              'Do you think everyone is reading all your messages in a group chat?',
             )(value);
           }}
         />

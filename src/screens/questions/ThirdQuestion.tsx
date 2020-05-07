@@ -20,7 +20,7 @@ const ThirdQuestion: React.FC = () => {
     'In which cases is it especially important for you who will hear your messages?': fourthQuestionChoice,
     'Would it be sometimes important for you that nobody in the group can prove that you said something?': fifthQuestionChoice,
     'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': sixthQuestionChoice,
-    'Do you thing there are use cases in which plausible deniability of group membership is important?': seventhQuestionChoice,
+    'Do you think there are use cases in which plausible deniability of group membership is important?': seventhQuestionChoice,
     'Would it influence your behaviour if everything you say would be immediately published?': eighthQuestionChoice,
     [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: groupMsgRequirementConfidentialAnswers,
   } = data;
@@ -172,7 +172,7 @@ const ThirdQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(seventhQuestionChoice)}>
-          Do you thing there are use cases in which plausible deniability of
+          Do you think there are use cases in which plausible deniability of
           group membership is important?
         </Heading>
 
@@ -183,7 +183,7 @@ const ThirdQuestion: React.FC = () => {
           onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
-              'Do you thing there are use cases in which plausible deniability of group membership is important?',
+              'Do you think there are use cases in which plausible deniability of group membership is important?',
             )(value);
           }}
         />

@@ -39,7 +39,7 @@ type Data = {
   'Are there cases where two or more people are talking at the same time?': string;
   'What is the result if two or more people are talking at the same time?': string;
   'What is the most common reaction if two or more people are talking at the same time?': string;
-  'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?': string;
+  'What do you think are the most frequent reasons of distraction even if you are interested at some discussion?': string;
   'What are you doing if you are announcing something important?': string;
   'Imagine you were distracted and you are now unable to follow the conversation. How do you react?': string;
   'What is your most common reaction if a statement is unclear to you?': string;
@@ -51,7 +51,7 @@ type Data = {
   'In which cases is it especially important for you who will hear your messages?': string;
   'Would it be sometimes important for you that nobody in the group can prove that you said something?': string;
   'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': string;
-  'Do you thing there are use cases in which plausible deniability of group membership is important?': string;
+  'Do you think there are use cases in which plausible deniability of group membership is important?': string;
   'Would it influence your behaviour if everything you say would be immediately published?': string;
   [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: string[];
   'Which statements are true for the admission of a new member in a business group?': {
@@ -99,7 +99,7 @@ type Data = {
   'How many members does the smallest group have?': number;
   'How many members does the largest group have?': number;
   'Do you expect that everyone reads your message in a group chat?': string;
-  'Do you thing everyone is reading all your messages in a group chat?': string;
+  'Do you think everyone is reading all your messages in a group chat?': string;
   'Are you always reading all messages in a group chat?': string;
   'Would you publish all your conversations in your favorite group chat app?': string;
   'Would you publish a complete list of groups you are part of in your favorite group chat app?': string;
@@ -181,7 +181,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Are there cases where two or more people are talking at the same time?': null,
       'What is the result if two or more people are talking at the same time?': null,
       'What is the most common reaction if two or more people are talking at the same time?': null,
-      'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?': null,
+      'What do you think are the most frequent reasons of distraction even if you are interested at some discussion?': null,
       'What are you doing if you are announcing something important?': null,
       'Imagine you were distracted and you are now unable to follow the conversation. How do you react?': null,
       'What is your most common reaction if a statement is unclear to you?': null,
@@ -193,7 +193,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'In which cases is it especially important for you who will hear your messages?': null,
       'Would it be sometimes important for you that nobody in the group can prove that you said something?': null,
       'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
-      'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
+      'Do you think there are use cases in which plausible deniability of group membership is important?': null,
       'Would it influence your behaviour if everything you say would be immediately published?': null,
       [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: [],
       'Which statements are true for the admission of a new member in a business group?': {
@@ -241,7 +241,7 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'How many members does the smallest group have?': null,
       'How many members does the largest group have?': null,
       'Do you expect that everyone reads your message in a group chat?': null,
-      'Do you thing everyone is reading all your messages in a group chat?': null,
+      'Do you think everyone is reading all your messages in a group chat?': null,
       'Are you always reading all messages in a group chat?': null,
       'Would you publish all your conversations in your favorite group chat app?': null,
       'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,
@@ -319,7 +319,7 @@ export const GlobalStateProvider: React.FC = (props) => {
     'Are there cases where two or more people are talking at the same time?': null,
     'What is the result if two or more people are talking at the same time?': null,
     'What is the most common reaction if two or more people are talking at the same time?': null,
-    'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?': null,
+    'What do you think are the most frequent reasons of distraction even if you are interested at some discussion?': null,
     'What are you doing if you are announcing something important?': null,
     'Imagine you were distracted and you are now unable to follow the conversation. How do you react?': null,
     'What is your most common reaction if a statement is unclear to you?': null,
@@ -331,7 +331,7 @@ export const GlobalStateProvider: React.FC = (props) => {
     'In which cases is it especially important for you who will hear your messages?': null,
     'Would it be sometimes important for you that nobody in the group can prove that you said something?': null,
     'Would it be sometimes important for you that nobody in the group can prove that you were part in a group?': null,
-    'Do you thing there are use cases in which plausible deniability of group membership is important?': null,
+    'Do you think there are use cases in which plausible deniability of group membership is important?': null,
     'Would it influence your behaviour if everything you say would be immediately published?': null,
     [KEYS.GROUP_MSG_REQUIREMENT_CONFIDENTIAL]: [],
     'Which statements are true for the admission of a new member in a business group?': {
@@ -379,7 +379,7 @@ export const GlobalStateProvider: React.FC = (props) => {
     'How many members does the smallest group have?': null,
     'How many members does the largest group have?': null,
     'Do you expect that everyone reads your message in a group chat?': null,
-    'Do you thing everyone is reading all your messages in a group chat?': null,
+    'Do you think everyone is reading all your messages in a group chat?': null,
     'Are you always reading all messages in a group chat?': null,
     'Would you publish all your conversations in your favorite group chat app?': null,
     'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,

@@ -16,7 +16,7 @@ const SecondQuestion: React.FC = () => {
     'Are there cases where two or more people are talking at the same time?': firstQuestionChoice,
     'What is the result if two or more people are talking at the same time?': secondQuestionChoice,
     'What is the most common reaction if two or more people are talking at the same time?': thirdQuestionChoice,
-    'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?': fourthQuestionChoice,
+    'What do you think are the most frequent reasons of distraction even if you are interested at some discussion?': fourthQuestionChoice,
     'What are you doing if you are announcing something important?': fifthQuestionChoice,
     'Imagine you were distracted and you are now unable to follow the conversation. How do you react?': sixthQuestionChoice,
     'What is your most common reaction if a statement is unclear to you?': seventhQuestionChoice,
@@ -109,7 +109,7 @@ const SecondQuestion: React.FC = () => {
 
       <Box margin="medium">
         <Heading level="4" error={isNull(fourthQuestionChoice)}>
-          What do you thing are the most frequent reasons of distraction even if
+          What do you think are the most frequent reasons of distraction even if
           you are interested at some discussion?
         </Heading>
 
@@ -126,7 +126,7 @@ const SecondQuestion: React.FC = () => {
           onChange={(event) => {
             const { value } = event.target;
             setQuestionChoice(
-              'What do you thing are the most frequent reasons of distraction even if you are interested at some discussion?',
+              'What do you think are the most frequent reasons of distraction even if you are interested at some discussion?',
             )(value);
           }}
         />
