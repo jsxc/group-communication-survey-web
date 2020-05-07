@@ -23,6 +23,7 @@ const SeventhQuestion: React.FC = () => {
     "What is your most common reaction if you are added to a group which you don't like to be part of?": eighthQuestionChoice,
     'How often does this happen?': ninthQuestionChoice,
     "What are you doing if you don't want to participate in a digital group?": tenthQuestionChoice,
+    'If I want to leave a group in my favorite chat app, I will always give a reason': fourteenthQuestionChoice,
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -263,6 +264,29 @@ const SeventhQuestion: React.FC = () => {
             const { value } = event.target;
             setQuestionChoice(
               "What are you doing if you don't want to participate in a digital group?",
+            )(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(fourteenthQuestionChoice)}>
+          How far do you agree: If I want to leave a group in my favorite chat
+          app, I will always give a reason.
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-14"
+          direction="row"
+          scale={true}
+          firstOptionLabel="Disagree"
+          lastOptionLabel="Agree"
+          options={['0', '1', '2', '3', '4', '5']}
+          value={fourteenthQuestionChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(
+              'If I want to leave a group in my favorite chat app, I will always give a reason',
             )(value);
           }}
         />

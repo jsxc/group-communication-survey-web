@@ -26,7 +26,6 @@ const FirstQuestion: React.FC = () => {
     'It is sometimes important that no member in a group can prove that someone said something': eleventhQuestionChoice,
     'Confidential private topics are only discussed in small groups': twelfthQuestionChoice,
     'I always leave a group with an announcement': thirteenthQuestionChoice,
-    'If I want to leave a group in my favorite chat app, I will always give a reason': fourteenthQuestionChoice,
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -61,7 +60,6 @@ const FirstQuestion: React.FC = () => {
     eleventhQuestionChoice,
     twelfthQuestionChoice,
     thirteenthQuestionChoice,
-    fourteenthQuestionChoice,
   ].some(isNull);
 
   return (
@@ -361,29 +359,6 @@ const FirstQuestion: React.FC = () => {
             setQuestionChoice('I always leave a group with an announcement')(
               value,
             );
-          }}
-        />
-      </Box>
-
-      <Box margin="medium">
-        <Heading level="4" error={isNull(fourteenthQuestionChoice)}>
-          If I want to leave a group in my favorite chat app, I will always give
-          a reason.
-        </Heading>
-
-        <RadioButtonGroup
-          name="question-14"
-          direction="row"
-          scale={true}
-          firstOptionLabel="Disagree"
-          lastOptionLabel="Agree"
-          options={options}
-          value={fourteenthQuestionChoice}
-          onChange={(event) => {
-            const { value } = event.target;
-            setQuestionChoice(
-              'If I want to leave a group in my favorite chat app, I will always give a reason',
-            )(value);
           }}
         />
       </Box>
