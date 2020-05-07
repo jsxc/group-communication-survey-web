@@ -204,6 +204,8 @@ const SixthQuestion: React.FC = () => {
         <FormField
           name="question-1"
           type="number"
+          min="0"
+          step="1"
           value={groupsCount || ''}
           onChange={(event) => {
             const { value } = event.target;
@@ -231,6 +233,8 @@ const SixthQuestion: React.FC = () => {
         <FormField
           name="question-2"
           type="number"
+          min="0"
+          step="1"
           value={regularlyUsedGroupsCount || ''}
           onChange={(event) => {
             const { value } = event.target;
@@ -258,6 +262,8 @@ const SixthQuestion: React.FC = () => {
         <FormField
           name="question-3"
           type="number"
+          min="0"
+          step="1"
           value={smallestGroupMembersCount || ''}
           onChange={(event) => {
             const { value } = event.target;
@@ -285,6 +291,8 @@ const SixthQuestion: React.FC = () => {
         <FormField
           name="question-4"
           type="number"
+          min="0"
+          step="1"
           value={largestGroupMembersCount || ''}
           onChange={(event) => {
             const { value } = event.target;
