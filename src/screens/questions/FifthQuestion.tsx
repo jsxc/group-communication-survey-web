@@ -39,7 +39,8 @@ const FifthQuestion: React.FC = () => {
     <Form>
       <Box margin="medium">
         <Heading level="4" error={Boolean(usesGroupChatClientFieldError)}>
-          Do you use programs that allow you to communicate with groups?
+          Do you use programs that allow you to communicate with groups via text
+          chat? For example WhatsApp, Telegram, or similar apps.
         </Heading>
 
         <RadioButtonGroup
