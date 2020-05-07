@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, Button, Image, Text } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -38,7 +38,28 @@ const ThirdChatFeedback: React.FC = () => {
 
   return (
     <Form>
-      <Heading level="3">Message tree</Heading>
+      <Box margin="medium">
+        <Heading level="3">Message tree</Heading>
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-tree.png')}
+          draggable={false}
+          alt="Chat tree screenshot"
+        />
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot of a message tree with one leaf.
+        </Text>
+      </Box>
 
       <Box margin="medium">
         <Heading level="4" error={isNull(firstQuestionChoice)}>
@@ -66,6 +87,27 @@ const ThirdChatFeedback: React.FC = () => {
         <Heading level="4" error={isNull(contextChoice)}>
           {KEYS.FEEDBACK_TREE_CONTEXT}
         </Heading>
+
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-2-ii.png')}
+          draggable={false}
+          alt="Chat screenshot 2"
+        />
+
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot inferred quote
+        </Text>
 
         <RadioButtonGroup
           name="question-2"

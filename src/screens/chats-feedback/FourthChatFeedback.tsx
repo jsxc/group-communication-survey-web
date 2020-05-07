@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, Button, Image, Text } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -40,7 +40,28 @@ const FourthChatFeedback: React.FC = () => {
 
   return (
     <Form>
-      <Heading level="3">Message tabs</Heading>
+      <Box margin="medium">
+        <Heading level="3">Message tabs</Heading>
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-tabs.png')}
+          draggable={false}
+          alt="Chat tree screenshot"
+        />
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot of a message tab.
+        </Text>
+      </Box>
 
       <Box margin="medium">
         <Heading level="4" error={isNull(firstQuestionChoice)}>
@@ -69,6 +90,27 @@ const FourthChatFeedback: React.FC = () => {
           {KEYS.FEEDBACK_TAB_CONTEXT_INFERRED}
         </Heading>
 
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-2-ii.png')}
+          draggable={false}
+          alt="Chat screenshot 2"
+        />
+
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot inferred quote
+        </Text>
+
         <RadioButtonGroup
           name="question-2"
           options={
@@ -90,6 +132,27 @@ const FourthChatFeedback: React.FC = () => {
         <Heading level="4" error={isNull(contextTreeChoice)}>
           {KEYS.FEEDBACK_TAB_CONTEXT_TREE}
         </Heading>
+
+        <Image
+          style={{
+            width: 400,
+            marginBottom: 8,
+            alignSelf: 'center',
+            border: '1px solid #ddd',
+          }}
+          src={require('../../assets/images/chat-tree.png')}
+          draggable={false}
+          alt="Chat screenshot 2"
+        />
+
+        <Text
+          margin={{ bottom: 'medium' }}
+          alignSelf="center"
+          size="small"
+          color="grey"
+        >
+          Screenshot message tree
+        </Text>
 
         <RadioButtonGroup
           name="question-2"
