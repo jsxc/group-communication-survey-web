@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Form, Button } from 'grommet';
+import { Box, Form, Button, Paragraph } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
 import { useGlobalState } from '../../hooks';
@@ -47,6 +47,13 @@ const SeventhQuestion: React.FC = () => {
 
   return (
     <Form>
+      <Box margin="medium">
+        <Paragraph>
+          Remember: The following questions are related to{' '}
+          <strong>digital groups</strong> also known as group chats.
+        </Paragraph>
+      </Box>
+
       <Box margin="medium">
         <Heading level="4" error={isNull(firstQuestionChoice)}>
           Do you expect that everyone reads your message in a group chat?
