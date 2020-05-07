@@ -18,6 +18,9 @@ type Data = {
   [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: string;
   [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: string;
   [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: string;
+  [KEYS.DIGITAL_JOIN_GOOD_FRIENDS]: string;
+  [KEYS.DIGITAL_JOIN_BUSINESS]: string;
+  [KEYS.DIGITAL_JOIN_CLUB]: string;
   'What is your email address?': string;
   'Specify your sex:': string;
   'How old are you?': number;
@@ -103,7 +106,6 @@ type Data = {
   'Are you always reading all messages in a group chat?': string;
   'Would you publish all your conversations in your favorite group chat app?': string;
   'Would you publish a complete list of groups you are part of in your favorite group chat app?': string;
-  'How do you react if a new member joins a group of good friends/business group/club group?': string;
   "What is your most common reaction if a new member, which you don't like, is added to a group?": string;
   "What is your most common reaction if you are added to a group which you don't like to be part of?": string;
   'How often does this happen?': string;
@@ -160,6 +162,9 @@ const GlobalStateContext = createContext<[State, Actions]>([
       [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: null,
       [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: null,
       [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: null,
+      [KEYS.DIGITAL_JOIN_GOOD_FRIENDS]: null,
+      [KEYS.DIGITAL_JOIN_BUSINESS]: null,
+      [KEYS.DIGITAL_JOIN_CLUB]: null,
       'What is your email address?': null,
       'Specify your sex:': null,
       'How old are you?': null,
@@ -245,7 +250,6 @@ const GlobalStateContext = createContext<[State, Actions]>([
       'Are you always reading all messages in a group chat?': null,
       'Would you publish all your conversations in your favorite group chat app?': null,
       'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,
-      'How do you react if a new member joins a group of good friends/business group/club group?': null,
       "What is your most common reaction if a new member, which you don't like, is added to a group?": null,
       "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
       'How often does this happen?': null,
@@ -298,6 +302,9 @@ export const GlobalStateProvider: React.FC = (props) => {
     [KEYS.FEEDBACK_INFERRED_QUOTE_COHERENT]: null,
     [KEYS.FEEDBACK_INFERRED_QUOTE_HELPFUL]: null,
     [KEYS.FEEDBACK_INFERRED_QUOTE_INTEGRATION]: null,
+    [KEYS.DIGITAL_JOIN_GOOD_FRIENDS]: null,
+    [KEYS.DIGITAL_JOIN_BUSINESS]: null,
+    [KEYS.DIGITAL_JOIN_CLUB]: null,
     'What is your email address?': null,
     'Specify your sex:': null,
     'How old are you?': null,
@@ -383,7 +390,6 @@ export const GlobalStateProvider: React.FC = (props) => {
     'Are you always reading all messages in a group chat?': null,
     'Would you publish all your conversations in your favorite group chat app?': null,
     'Would you publish a complete list of groups you are part of in your favorite group chat app?': null,
-    'How do you react if a new member joins a group of good friends/business group/club group?': null,
     "What is your most common reaction if a new member, which you don't like, is added to a group?": null,
     "What is your most common reaction if you are added to a group which you don't like to be part of?": null,
     'How often does this happen?': null,

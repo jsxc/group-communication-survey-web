@@ -35,3 +35,10 @@ export const GROUP_MSG_UNKNOWN_MEMBER =
   'What are you doing if you do not know someone in a group?';
 export const GROUP_MSG_REQUIREMENT_CONFIDENTIAL =
   'Are there special requirements for groups if confidential topics are discussed?';
+
+export const DIGITAL_JOIN_GOOD_FRIENDS =
+  'How do you react if a new member joins a group of good friends?';
+export const DIGITAL_JOIN_BUSINESS =
+  'How do you react if a new member joins a business group?';
+export const DIGITAL_JOIN_CLUB =
+  'How do you react if a new member joins a club group or similar?';

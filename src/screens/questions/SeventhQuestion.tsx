@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Form, Button, Paragraph } from 'grommet';
 import { useHistory } from 'react-router-dom';
 import { Heading, RadioButtonGroup } from '../../components';
-import { useGlobalState } from '../../hooks';
+import { useGlobalState, KEYS } from '../../hooks';
 import { isNull } from '../../utilities';
 
 const SeventhQuestion: React.FC = () => {
@@ -18,12 +18,14 @@ const SeventhQuestion: React.FC = () => {
     'Are you always reading all messages in a group chat?': thirdQuestionChoice,
     'Would you publish all your conversations in your favorite group chat app?': fourthQuestionChoice,
     'Would you publish a complete list of groups you are part of in your favorite group chat app?': fifthQuestionChoice,
-    'How do you react if a new member joins a group of good friends/business group/club group?': sixthQuestionChoice,
     "What is your most common reaction if a new member, which you don't like, is added to a group?": seventhQuestionChoice,
     "What is your most common reaction if you are added to a group which you don't like to be part of?": eighthQuestionChoice,
     'How often does this happen?': ninthQuestionChoice,
     "What are you doing if you don't want to participate in a digital group?": tenthQuestionChoice,
     'If I want to leave a group in my favorite chat app, I will always give a reason': fourteenthQuestionChoice,
+    [KEYS.DIGITAL_JOIN_GOOD_FRIENDS]: joinFriendsQuestionChoice,
+    [KEYS.DIGITAL_JOIN_BUSINESS]: joinBusinessQuestionChoice,
+    [KEYS.DIGITAL_JOIN_CLUB]: joinClubQuestionChoice,
   } = data;
 
   const setQuestionChoice = (question: string) => (choice: string) => {
@@ -39,11 +41,13 @@ const SeventhQuestion: React.FC = () => {
     thirdQuestionChoice,
     fourthQuestionChoice,
     fifthQuestionChoice,
-    sixthQuestionChoice,
     seventhQuestionChoice,
     eighthQuestionChoice,
     ninthQuestionChoice,
     tenthQuestionChoice,
+    joinFriendsQuestionChoice,
+    joinBusinessQuestionChoice,
+    joinClubQuestionChoice,
   ].some(isNull);
 
   return (
@@ -148,9 +152,8 @@ const SeventhQuestion: React.FC = () => {
       </Box>
 
       <Box margin="medium">
-        <Heading level="4" error={isNull(sixthQuestionChoice)}>
-          How do you react if a new member joins a group of good
-          friends/business group/club group?
+        <Heading level="4" error={isNull(joinFriendsQuestionChoice)}>
+          How do you react if a new member joins a group of good friends?
         </Heading>
 
         <RadioButtonGroup
@@ -163,12 +166,56 @@ const SeventhQuestion: React.FC = () => {
             'I ask the new member why he joined',
             'I leave the group',
           ]}
-          value={sixthQuestionChoice}
+          value={joinFriendsQuestionChoice}
           onChange={(event) => {
             const { value } = event.target;
-            setQuestionChoice(
-              'How do you react if a new member joins a group of good friends/business group/club group?',
-            )(value);
+            setQuestionChoice(KEYS.DIGITAL_JOIN_GOOD_FRIENDS)(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(joinBusinessQuestionChoice)}>
+          How do you react if a new member joins a business group?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-6"
+          other={true}
+          options={[
+            'I aknowledge it',
+            'I ask the new group why the new member joined',
+            'I ask the previous members why the new member joined',
+            'I ask the new member why he joined',
+            'I leave the group',
+          ]}
+          value={joinBusinessQuestionChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.DIGITAL_JOIN_BUSINESS)(value);
+          }}
+        />
+      </Box>
+
+      <Box margin="medium">
+        <Heading level="4" error={isNull(joinClubQuestionChoice)}>
+          How do you react if a new member joins a club group or similar?
+        </Heading>
+
+        <RadioButtonGroup
+          name="question-6"
+          other={true}
+          options={[
+            'I aknowledge it',
+            'I ask the new group why the new member joined',
+            'I ask the previous members why the new member joined',
+            'I ask the new member why he joined',
+            'I leave the group',
+          ]}
+          value={joinClubQuestionChoice}
+          onChange={(event) => {
+            const { value } = event.target;
+            setQuestionChoice(KEYS.DIGITAL_JOIN_CLUB)(value);
           }}
         />
       </Box>
