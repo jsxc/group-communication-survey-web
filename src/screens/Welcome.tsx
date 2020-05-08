@@ -36,7 +36,8 @@ const Welcome: React.FC = () => {
           Thank you for agreeing to participate in this study. The first part of
           the study consist of general questions about group communication and
           your behavior with different group aspects. Afterwards, you will be
-          shown different group chat visualization alongside some questions.
+          shown different group chat visualization alongside some questions. The
+          estimated duration of this study is 35 minutes.
         </Paragraph>
 
         <Paragraph>Thank you very much for your participation.</Paragraph>
